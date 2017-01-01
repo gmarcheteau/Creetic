@@ -1,0 +1,17 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Artomatic 2000</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>More pages:&emsp;
+    <a href="/getbs">Get BS</a>&emsp;
+    <a href="/getbs_en">Get BS in English</a>&emsp;
+    <a href="/getbs_img">Get Image Comment</a></div>
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>
