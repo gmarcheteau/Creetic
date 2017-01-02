@@ -11,7 +11,11 @@ def commentOnImage(*url):
     #optional URL parameter arrives as a tuple?
     url = url[0]
     image_resized = processimage.url_to_image(url)
-    clt = clustercolors.fitColorClustering(image_resized)
+    clt = clustercolors.fitColorClustering(
+      image_resized,
+      min_clusters=2,
+      max_clusters=6
+      )
     maincolors = clustercolors.getColorsFromClusters(clt)
     #clustercolors.showColorClusters(image_resized,maincolors)
     #save the color boxes as a colorboxes.png

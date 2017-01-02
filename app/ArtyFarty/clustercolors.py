@@ -8,20 +8,18 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples, silhouette_score
  
 ##FLATTEN AND CLUSTER USING K-MEANS##
-def fitColorClustering(image_resized):
+def fitColorClustering(image_resized,min_clusters,max_clusters):
   
   # Reshape the image to be a list of pixels
   width, height = image_resized.size
   image_array = np.array(list(image_resized.getdata()))
-  
+
   ##Evaluate clustering with Silhouette coefficient, and select best (from 2 to 10 clusters)
   bestSilhouette = -1
   bestClusters = 0;
-  MAX_CLUSTERS = 5 #max number of different "colors" to identify
-  numclusters = range(2, MAX_CLUSTERS+1)
   silscores = []
   
-  for clusters in range(2, MAX_CLUSTERS+1):
+  for clusters in range(min_clusters, max_clusters+1):
       # Cluster colours
       clt = KMeans(n_clusters = clusters)
       clt.fit(image_array)
@@ -39,7 +37,10 @@ def fitColorClustering(image_resized):
       if silhouette > bestSilhouette:
           bestSilhouette = silhouette;
           bestClusters = clusters;
-          
+      
+      #override number of clusters
+      #bestClusters = MAX_CLUSTERS
+      
   print "Optimized clustering:"
   print bestClusters,"clusters"
   print "Silhouette score:",bestSilhouette
@@ -49,6 +50,7 @@ def fitColorClustering(image_resized):
   clt.fit(image_array)
   
   return clt
+
 
 ##SORT CLUSTERS BY SIZE##
 # By Adrian Rosebrock
