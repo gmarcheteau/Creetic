@@ -2,7 +2,7 @@
 {% block content %}
     <h1>ArtoMatic 2000+</h1>
     <div><p>{{ imagecomment }}</b></p></div>
-    <div><img src= {{ imageurl }} alt="target pic"</div>
+    <div><img src= {{ imageurl }} alt="target pic" width="400"</div>
     <div><p><a href= {{ imageurl }} >Source image</a></p></div>
     {% if colorboxes != None %}
     <img src="data:image/png;base64,{{ colorboxes }}" width="200" border=0" style="border-color: black;background: transparent">
