@@ -1,17 +1,22 @@
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
     <title>Artomatic 2000</title>
     {% endif %}
+    <link rel=stylesheet type=text/css href="/static/css/style.css">
   </head>
   <body>
-    <div>More pages:&emsp;
-    <a href="/getbs">Get BS</a>&emsp;
-    <a href="/getbs_en">Get BS in English</a>&emsp;
-    <a href="/getbs_img">Get Image Comment</a></div>
-    <hr>
+    <ul>
+      <li><a href="/getbs">Get BS</a></li>
+      <li><a href="/getbs_en">Get BS in English</a></li>
+      <li><a href="/getbs_img">Get Image BS</a></li>
+    </ul>
     {% block content %}{% endblock %}
   </body>
 </html>

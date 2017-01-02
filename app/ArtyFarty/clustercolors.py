@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import colornames
+import base64
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples, silhouette_score
  
@@ -106,7 +107,7 @@ def showColorClusters(image_resized,maincolors):
   plt.show()
 
 #maincolors is the output from the clustering, in a list
-def saveColorBox(maincolors):
+def drawColorBoxes(maincolors):
   from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
   from matplotlib.figure import Figure
   import StringIO
@@ -119,9 +120,13 @@ def saveColorBox(maincolors):
   plt.axis('off')
   
   fig = plt.gcf()
-  print "Now saving color boxes as png file"
-  fig.savefig('./app/static/images/colorboxes.png', dpi=30)
+  canvas=FigureCanvas(fig)
+  png_output = StringIO.StringIO()
+  canvas.print_png(png_output)
+  colorboxes = base64.b64encode(png_output.getvalue())
+  return colorboxes
   
+  #fig.savefig('./app/static/images/colorboxes.png', dpi=30)
   #canvas=FigureCanvas(fig)
   #png_output = StringIO.StringIO()
   #canvas.print_png(png_output)

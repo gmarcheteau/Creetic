@@ -4,7 +4,9 @@
     <div><p>{{ imagecomment }}</b></p></div>
     <div><img src= {{ imageurl }} alt="target pic"</div>
     <div><p><a href= {{ imageurl }} >Source image</a></p></div>
-    <div><img src= {{colorboxesurl}} alt="Color analysis"</div>
+    {% if colorboxes != None %}
+    <img src="data:image/png;base64,{{ colorboxes }}" width="200" border=0" style="border-color: black;background: transparent">
+    {% endif %}
     <hr>
     <p><i>Ask for a comment on a specific image using the imageurl parameter, adding ?imageurl=[your image url] to this page\'s url, e.g. try <a href="?imageurl=http://4.bp.blogspot.com/-se2NiVM6Ifw/VZPOXwYD3VI/AAAAAAAAIDo/_dDgrAfvanU/s1600/Rothko.jpg">this image</a> or <a href="?imageurl=https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRzYpcdAshr9xLfSwONO4Oku7bXXQ0RJ1LnZAtqAieDyNmqqpRbvA">this one</a></i></p>
 {% endblock %}
