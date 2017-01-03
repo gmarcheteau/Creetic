@@ -21,6 +21,10 @@ def getBS():
   comment = bs.generatePhrase()
   return render_template("getbs.html",comment=comment)
 
+@app.route('/news', methods=['GET'])
+def goNews():
+  return render_template("news.html")
+
 @app.route('/')
 @app.route('/getbs_en', methods=['GET'])
 def getBS_en():
