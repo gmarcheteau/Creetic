@@ -6,3 +6,4 @@ requests==2.12.4
 Pillow==3.4.2
 scikit-learn[alldeps]
 WTForms==2.1
+Flask-WTF==0.6
