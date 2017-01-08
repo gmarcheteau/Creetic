@@ -6,3 +6,4 @@ requests==2.12.4
 Pillow==3.4.2
 scikit-learn[alldeps]
 Flask-WTF==0.8
+WTForms==2.1
