@@ -23,12 +23,27 @@
     
     </script>
     <ul class="menu">
-      <li class="menu"><a href="/getbs">Get BS in French</a></li>
-      <li class="menu"><a href="/getbs_en">Get BS in English</a></li>
-      <li class="menu"><a href="/getbs_img">Get Image BS</a></li>
-      <li class="menu"><a href="/getbs_img_multi">Get Image BS - Multi</a></li>
-      <li class="menu"><a href="/getbs_img_url">Get Image BS - URL</a></li>
-      <li class="menu" style="float:right"><a href="/news">State of the News</a></li>
+      <div class="dropdown">
+        <button class="dropbtn">Get Plain BS</button>
+        <div class="dropdown-content">
+          <a href="/getbs">French</a>
+          <a href="/getbs_en">English</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Get Image BS</button>
+        <div class="dropdown-content">
+          <a href="/getbs_img">Regular</a>
+          <a href="/getbs_img_multi">MultiCluster</a>
+          <a href="/getbs_img_url">Enter URL</a>
+        </div>
+      </div>
+      <div class="dropdown" style="float:right">
+        <button class="dropbtn">State of the News</button>
+        <div class="dropdown-content">
+        <a href="/news">Coming soon...</a>
+        </div>
+      </div>
     </ul>
     
     {% block content %}{% endblock %}

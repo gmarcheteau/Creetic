@@ -168,4 +168,4 @@ def getURL():
 
         print "input URL: %s" %form.url.data
         return redirect(url_for('getBS_img',imageurl = form.url.data))
-    return render_template('login.html', form=form)
+    return render_template('enterurl.html', form=form)
