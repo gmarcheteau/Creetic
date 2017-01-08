@@ -18,6 +18,7 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
   bestSilhouette = -1
   bestClusters = 0;
   silscores = []
+  response = {}
   
   for clusters in range(min_clusters, max_clusters+1):
       # Cluster colours
@@ -48,8 +49,9 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
   # Cluster colours with optimized parameters
   clt = KMeans(n_clusters = bestClusters)
   clt.fit(image_array)
-  
-  return clt
+  response["clt"] = clt
+  response["silhouette"] = bestSilhouette
+  return response
 
 
 ##SORT CLUSTERS BY SIZE##
