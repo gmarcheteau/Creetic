@@ -34,7 +34,7 @@ nouns = np.array([
         'the materiality of the texture',
         'the joyful succession of dashes',
         'this constant hesitation between shadow and light',
-        'the frustrating inertia with with shapes come alive',
+        'the frustrating inertia with which shapes come alive',
         'the insolent (though necessary) blur',
         'the patent scorn for light hue',
         
