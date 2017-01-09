@@ -50,6 +50,13 @@ nouns = np.array([
         # 'la corrélation quasi insolente entre les nuances de tons et l\'angulosité appuyée des segments'
     ])
 
+colorlocutions = np.array([
+  'and the use of colors such as ',
+  'through a signigicant use of ',
+  'made obvious by touches of ',
+  'which derives from the predominance of '
+])
+
 verbes = np.array([
   'contradicts',
   'is in contradiction with',
@@ -115,6 +122,8 @@ def generatePhrase(*maincolors):
       abis = "Touches of %s come as a clever surpise." % maincolors[1][1]
       a = ' '.join((a,abis))
       a += ' '
+      #bypass
+      a = ''
   
   rand1 = random.randint(0,len(locutions)-1)
   rand2 = random.randint(0,len(nouns)-1)
@@ -125,11 +134,17 @@ def generatePhrase(*maincolors):
   while(rand4==rand2):
       rand4 = random.randint(0,len(nouns)-1)
   rand5 = random.randint(0,len(finish_locutions)-1)
-
+  randColorLocution = random.randint(0,len(colorlocutions)-1)
+  randColorNumber = random.randint(0,number_colors-1)
+  
   b = ''.join([
           locutions[rand1],
           space,
           nouns[rand2],
+          space,
+          colorlocutions[randColorLocution],
+          #use main color or random (randColorNumber)?
+          maincolors[0][1],
           space,
           verbes[rand3],
           space,
