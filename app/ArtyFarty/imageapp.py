@@ -67,7 +67,7 @@ def commentOnImage(url=defaultURL):
   
     return response
 
-def commentOnImageFullMode(url=defaultURL,number_iter=1):
+def commentOnImageFullMode(url=defaultURL,number_iter=1,SHOW_SIMPLER_IMAGES=False):
   maincolors =[]
   silhouettescores = []
   simplerimages = []
@@ -117,12 +117,13 @@ def commentOnImageFullMode(url=defaultURL,number_iter=1):
         silhouettescores[i] = ("{0:.2f}".format(float(silhouettescores[i])))
       
       #add simpler image for this iteration
-      simplerimages.append(drawing.drawSimplerImage(
-        simpler_image_array = simpler_image_array,
-        #simpler_image_array = image_array,
-        width = width,
-        height = height
-        ))
+      if(SHOW_SIMPLER_IMAGES):
+        simplerimages.append(drawing.drawSimplerImage(
+           simpler_image_array = simpler_image_array,
+           #simpler_image_array = image_array,
+           width = width,
+           height = height
+           ))
     
     #comment on one of the versions (random)
     rand = random.randint(0,len(maincolors)-1)

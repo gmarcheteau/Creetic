@@ -23,8 +23,10 @@
     </table>
     <p></p>
     <img src="data:image/png;base64,{{ colorboxes[loop.index0] }}" width="200" border="0" style="border-color: black;background: transparent">
+    {% if SHOW_SIMPLER_IMAGES %}
     <p>Drawing with only cluster colors:</p>
     <img src="data:image/png;base64,{{ simplerimages[loop.index0] }}" width="200" border="0" style="border-color: black;background: transparent">
+    {% endif %}
     {% endfor %}
     <p></p>
     <hr>

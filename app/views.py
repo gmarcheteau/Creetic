@@ -86,9 +86,12 @@ def getBS_img_multi():
   #number of clustering versions to show
   number_iter = request.args.get('iter', default=5, type=int)
   
+  #SHOW_SIMPLER_IMAGES config from url
+  SHOW_SIMPLER_IMAGES = request.args.get('show_simpler_images', default=False, type=bool)
+  
   #get data from image comment (comment, colors, drawn colors)
   #imageresponse = imageapp.commentOnImage(imageurl)
-  imageresponse = imageapp.commentOnImageFullMode(imageurl,number_iter)
+  imageresponse = imageapp.commentOnImageFullMode(imageurl,number_iter,SHOW_SIMPLER_IMAGES)
   imagecomment = imageresponse["comment"]
   maincolorstringslist = imageresponse["maincolorstringslist"]
   silhouettescores = imageresponse["silhouettescores"]
@@ -113,6 +116,7 @@ def getBS_img_multi():
                 silhouettescores = silhouettescores,
                 colorboxes = colorboxes,
                 simplerimages = simplerimages,
+                SHOW_SIMPLER_IMAGES = SHOW_SIMPLER_IMAGES,
                 form = form)
 
 @app.route('/getbs_img_url', methods=["GET", "POST"])
