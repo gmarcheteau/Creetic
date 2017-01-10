@@ -88,6 +88,7 @@ def getBS_img_multi():
   
   #SHOW_SIMPLER_IMAGES config from url
   SHOW_SIMPLER_IMAGES = request.args.get('show_simpler_images', default=False, type=bool)
+  print "SHOW_SIMPLER_IMAGES --", str(SHOW_SIMPLER_IMAGES)
   
   #get data from image comment (comment, colors, drawn colors)
   #imageresponse = imageapp.commentOnImage(imageurl)
