@@ -1,3 +1,9 @@
+#ignore extension-less files
+*
+!/**/
+!*.*
+!**/Procfile
+
 # pyc extensions
 **/*.pyc
 
