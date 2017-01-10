@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>ArtoMatic 2000+</h1>
-    <div><p>{{ imagecomment }}</b></p></div>
-    <div><img src= {{ imageurl }} alt="target pic" width="400"</div>
-    <div><p><a href= {{ imageurl }} >Source image</a></p></div>
+    <div><img id="artimg" class="center" src= {{ imageurl }} alt="target pic" width="400"></div>
+    <div id="comment"><p>{{ imagecomment }}</p></div>
+    <hr>
     <table style = "border: 0px solid black;width:300px;">
       <tr>
-        <th>Color</th>
-        <th>Weight</th>
+        <th align="left">Color</th>
+        <th align="left">Weight</th>
       </tr>
       {% for color in maincolorstrings %}
       <tr>
@@ -25,9 +25,10 @@
     {% endif %}
     <p>An easier way to draw the same thing would have been:</p>
     {% if simplerimage != None %}
-    <img src="data:image/png;base64,{{ simplerimage }}" width="200" border="0" style="border-color: black;background: transparent">
+    <img id="artimg" src="data:image/png;base64,{{ simplerimage }}" width="300" border="0" style="border-color: black;background: transparent">
     {% endif %}
     <hr>
+    <div><p><a href= {{ imageurl }} >Source image</a></p></div>
     <p><i>Ask for a comment on a specific image by entering a URL.</i></p>
     <form action="" method="post">
       {{ form.url.label }}: {{ form.url(placeholder='URL of your image') }}

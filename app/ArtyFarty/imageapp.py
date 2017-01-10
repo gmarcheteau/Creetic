@@ -2,6 +2,7 @@ import clustercolors
 import colornames
 import processimage
 import drawing
+import numpy as np
 import bsgenerator as bs
 import bsgenerator_en as bs_en
 import random
