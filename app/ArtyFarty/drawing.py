@@ -46,4 +46,5 @@ def drawSimplerImage(simpler_image_array,width,height):
   png_output = StringIO.StringIO()
   img.save(png_output, format="PNG")
   simpler_image = base64.b64encode(png_output.getvalue())
+  png_output.close()
   return simpler_image
