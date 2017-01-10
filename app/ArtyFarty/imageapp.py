@@ -70,13 +70,17 @@ def commentOnImage(url=defaultURL):
 def commentOnImageFullMode(url=defaultURL,number_iter=1):
   maincolors =[]
   silhouettescores = []
+  simplerimages = []
+  
   if not url:
     return "Hmm, I need an image to comment on, sorry."
   else:
     #optional URL parameter arrives as a tuple?
     url = url
     image_resized = processimage.url_to_image(url)
+    width, height = image_resized.size
     
+    #build the datasets for each cluster iteration
     for i in range(0,number_iter):
       clust = clustercolors.fitColorClustering(
       image_resized,
@@ -85,18 +89,52 @@ def commentOnImageFullMode(url=defaultURL,number_iter=1):
       )
       clt = clust["clt"]
       silhouette = clust["silhouette"]
+      simpler_image_array = clust["simpler_image_array"]
+      
       #add maincolors from this iteration to list
       maincolors.append(clustercolors.getColorsFromClusters(clt))
       #add silhouette score for this iteration to list
       silhouettescores.append(silhouette)
       
+      #define strings and colorboxes as lists to allow showing several version
+      colorboxes = []
+      maincolorstringslist = []
+      
+      for i,colorset in enumerate(maincolors):
+        #transform to strings for easier use in html template
+        tmpcolorlist = []
+        for color in colorset:
+          tmpcolorlist.append(
+            (
+            str(color[0]),
+            str(color[1]),
+            "{0:.0f}%".format(color[2] * 100)
+            )
+          )
+        maincolorstringslist.append(tmpcolorlist)
+        #draw all versions of color boxes
+        colorboxes.append(drawing.drawColorBoxes(colorset))
+        silhouettescores[i] = ("{0:.2f}".format(float(silhouettescores[i])))
+      
+      #add simpler image for this iteration
+      simplerimages.append(drawing.drawSimplerImage(
+        simpler_image_array = simpler_image_array,
+        #simpler_image_array = image_array,
+        width = width,
+        height = height
+        ))
+    
     #comment on one of the versions (random)
     rand = random.randint(0,len(maincolors)-1)
     comment = bs_en.generatePhrase(maincolors[rand])
+    
+    #build response
     response = {}
     response["comment"] = comment
-    response["maincolors"] = maincolors
+    response["maincolorstringslist"] = maincolorstringslist
+    response["colorboxes"] = colorboxes
     response["silhouettescores"] = silhouettescores
+    response["simplerimages"] = simplerimages
     return response
 
 def getURLfromUser():

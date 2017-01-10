@@ -90,27 +90,12 @@ def getBS_img_multi():
   #imageresponse = imageapp.commentOnImage(imageurl)
   imageresponse = imageapp.commentOnImageFullMode(imageurl,number_iter)
   imagecomment = imageresponse["comment"]
-  maincolors = imageresponse["maincolors"]
+  maincolorstringslist = imageresponse["maincolorstringslist"]
   silhouettescores = imageresponse["silhouettescores"]
+  colorboxes = imageresponse["colorboxes"]
+  simplerimages = imageresponse["simplerimages"]
   
-  #define strings and colorboxes as lists to allow showing several version
-  colorboxes = []
-  maincolorstringslist = []
-  for i,colorset in enumerate(maincolors):
-    #transform to strings for easier use in html template
-    tmpcolorlist = []
-    for color in colorset:
-      tmpcolorlist.append(
-        (
-        str(color[0]),
-        str(color[1]),
-        "{0:.0f}%".format(color[2] * 100)
-        )
-      )
-    maincolorstringslist.append(tmpcolorlist)
-    #draw all versions of color boxes
-    colorboxes.append(drawing.drawColorBoxes(colorset))
-    silhouettescores[i] = ("{0:.2f}".format(silhouettescores[i]))
+  print "len(simplerimages):", len(simplerimages)
   
   print silhouettescores
   print len(silhouettescores)
@@ -127,6 +112,7 @@ def getBS_img_multi():
                 maincolorstringslist = maincolorstringslist,
                 silhouettescores = silhouettescores,
                 colorboxes = colorboxes,
+                simplerimages = simplerimages,
                 form = form)
 
 @app.route('/getbs_img_url', methods=["GET", "POST"])
