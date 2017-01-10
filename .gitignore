@@ -1,0 +1,5 @@
+# pyc extensions
+*.pyc
+
+# virtualenv
+env/
