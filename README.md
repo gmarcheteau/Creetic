@@ -1,5 +1,0 @@
-# Greg ReadMe
-
-blablabalbalbalabla
-
-
