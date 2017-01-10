@@ -8,6 +8,7 @@
 
 #Icon files from Google Drive
 **/Icon
+!**/*.ico
 
 # ignored folders
 env/*
