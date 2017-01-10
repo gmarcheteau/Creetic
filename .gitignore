@@ -1,6 +1,14 @@
+#ignore extension-less files
+*
+!/**/
+!*.*
+
 # pyc extensions
 *.pyc
 
+#Icon files from Google Drive
+Icon
+
 # ignored folders
-env/
-tmp/
+env/*
+tmp/*
