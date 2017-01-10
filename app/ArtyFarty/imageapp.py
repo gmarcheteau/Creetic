@@ -1,6 +1,7 @@
 import clustercolors
 import colornames
 import processimage
+import drawing
 import bsgenerator as bs
 import bsgenerator_en as bs_en
 import random
@@ -23,18 +24,47 @@ def commentOnImage(url=defaultURL):
       min_clusters=MIN_CLUSTERS,
       max_clusters=MAX_CLUSTERS
       )
+    
+    #get values from clustering
     clt = clust["clt"]
     silhouettescore = clust["silhouette"]
+    simpler_image_array = clust["simpler_image_array"]
+    width, height = image_resized.size
+    
     maincolors = clustercolors.getColorsFromClusters(clt)
-    #clustercolors.showColorClusters(image_resized,maincolors)
-    #save the color boxes as a colorboxes.png
-    #colorboxes = clustercolors.drawColorBoxes(maincolors)
     comment = bs_en.generatePhrase(maincolors)
+    
+    #colorBoxes
+    colorboxes = drawing.drawColorBoxes(maincolors)
+    
+    #simplerImage
+    simplerimage = drawing.drawSimplerImage(
+      simpler_image_array = simpler_image_array,
+      #simpler_image_array = image_array,
+      width = width,
+      height = height
+      )
+    
+    #transform to strings for easier use in html template
+    silhouettescore = ("{0:.2f}".format(silhouettescore))
+    maincolorstrings = []
+    for color in maincolors:
+      maincolorstrings.append(
+        (
+        str(color[0]),
+        str(color[1]),
+        "{0:.0f}%".format(color[2] * 100)
+        )
+      )
+    
+    #build response
     response = {}
     response["comment"] = comment
-    response["maincolors"] = maincolors
+    response["maincolorstrings"] = maincolorstrings
     response["silhouettescore"] = silhouettescore
-    #response["colorboxes"] = colorboxes
+    response["colorboxes"] = colorboxes
+    response["simplerimage"] = simplerimage
+  
     return response
 
 def commentOnImageFullMode(url=defaultURL,number_iter=1):

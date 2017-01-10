@@ -21,7 +21,11 @@
       </tr>
     </table>
     {% if colorboxes != None %}
-    <img src="data:image/png;base64,{{ colorboxes }}" width="200" border=0" style="border-color: black;background: transparent">
+    <img src="data:image/png;base64,{{ colorboxes }}" width="200" border="0" style="border-color: black;background: transparent">
+    {% endif %}
+    <p>An easier way to draw the same thing would have been:</p>
+    {% if simplerimage != None %}
+    <img src="data:image/png;base64,{{ simplerimage }}" width="200" border="0" style="border-color: black;background: transparent">
     {% endif %}
     <hr>
     <p><i>Ask for a comment on a specific image by entering a URL.</i></p>

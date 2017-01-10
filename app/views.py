@@ -6,6 +6,7 @@ import os
 import matplotlib.pyplot as plt
 import ArtyFarty.bsgenerator as bs
 import ArtyFarty.bsgenerator_en as bs_en
+import ArtyFarty.drawing as drawing
 import ArtyFarty.imageapp as imageapp
 import StringIO
 
@@ -50,22 +51,11 @@ def getBS_img():
   #get data from image comment (comment, colors, drawn colors)
   imageresponse = imageapp.commentOnImage(imageurl)
   imagecomment = imageresponse["comment"]
-  maincolors = imageresponse["maincolors"]
+  maincolorstrings = imageresponse["maincolorstrings"]
   silhouettescore = imageresponse["silhouettescore"]
-  colorboxes = drawColorBoxes(maincolors)
+  colorboxes = imageresponse["colorboxes"]
+  simplerimage = imageresponse["simplerimage"]
   
-  #transform to strings for easier use in html template
-  silhouettescore = ("{0:.2f}".format(silhouettescore))
-  maincolorstrings = []
-  for color in maincolors:
-    maincolorstrings.append(
-      (
-      str(color[0]),
-      str(color[1]),
-      "{0:.0f}%".format(color[2] * 100)
-      )
-    )
-    
   form = URLForm()
   if form.validate_on_submit():
     # [...]
@@ -78,29 +68,8 @@ def getBS_img():
                 maincolorstrings = maincolorstrings,
                 silhouettescore = silhouettescore,
                 colorboxes = colorboxes,
+                simplerimage = simplerimage,
                 form = form)
-
-def drawColorBoxes(maincolors):
-  import base64
-  from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-  from matplotlib.figure import Figure
-  #plot color graph
-  lastX=0
-  for i in maincolors:
-    plt.axvspan(lastX, lastX+i[2], edgecolor='none', facecolor=i[1], alpha=1)
-    lastX+=i[2]
-  plt.xlim(0, 1)
-  plt.axis('off')
-  
-  fig = plt.gcf()
-  fig.set_facecolor('none')
-  fig.savefig('./app/static/images/colorboxes.png', dpi=30, transparent=True)
-  
-  canvas=FigureCanvas(fig)
-  png_output = StringIO.StringIO()
-  canvas.print_png(png_output)
-  colorboxes = base64.b64encode(png_output.getvalue())
-  return colorboxes
 
 @app.route('/getbs_img_multi', methods=['GET','POST'])
 def getBS_img_multi():
@@ -140,7 +109,7 @@ def getBS_img_multi():
       )
     maincolorstringslist.append(tmpcolorlist)
     #draw all versions of color boxes
-    colorboxes.append(drawColorBoxes(colorset))
+    colorboxes.append(drawing.drawColorBoxes(colorset))
     silhouettescores[i] = ("{0:.2f}".format(silhouettescores[i]))
   
   print silhouettescores

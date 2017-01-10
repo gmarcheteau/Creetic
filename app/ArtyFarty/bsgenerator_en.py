@@ -114,16 +114,15 @@ space = ' '
 def generatePhrase(*maincolors):
   a = ''
   if maincolors:
-    #optional URL parameter arrives as a tuple?
-    maincolors = maincolors[0]
     number_colors = len(maincolors)
-    a =  "One can identify %d dominant colours. The use of %s is particularly striking." % (number_colors, maincolors[0][1])
-    if number_colors>1:
-      abis = "Touches of %s come as a clever surpise." % maincolors[1][1]
-      a = ' '.join((a,abis))
-      a += ' '
-      #bypass
-      a = ''
+    randColorNumber = random.randint(0,number_colors-1)
+    randColorLocution = random.randint(0,len(colorlocutions)-1)
+    a = ''.join([
+        colorlocutions[randColorLocution],
+        #use main color or random (randColorNumber)?
+        maincolors[0][0][1],
+        space
+      ])
   
   rand1 = random.randint(0,len(locutions)-1)
   rand2 = random.randint(0,len(nouns)-1)
@@ -134,26 +133,19 @@ def generatePhrase(*maincolors):
   while(rand4==rand2):
       rand4 = random.randint(0,len(nouns)-1)
   rand5 = random.randint(0,len(finish_locutions)-1)
-  randColorLocution = random.randint(0,len(colorlocutions)-1)
-  randColorNumber = random.randint(0,number_colors-1)
   
-  b = ''.join([
+  phrase = ''.join([
           locutions[rand1],
           space,
           nouns[rand2],
           space,
-          colorlocutions[randColorLocution],
-          #use main color or random (randColorNumber)?
-          maincolors[0][1],
-          space,
+          a,
           verbes[rand3],
           space,
           nouns[rand4],
           #no space before finish_locution
           finish_locutions[rand5]
       ])
-  
-  phrase = ''.join((a,' ',b))
   
   phrase = unicode(phrase, 'utf-8')
   return phrase

@@ -16,12 +16,17 @@ def url_to_image(url):
   #plt.show()
   
   # Resize image
-  h, w = imagefromurl.size
+  w, h = imagefromurl.size
   w_new = int(100 * w / max(w, h) )
   h_new = int(100 * h / max(w, h) )
   
+  print "Original size: %s x %s" %(w,h)
+  print "New size: %s x %s" %(w_new, h_new)
+  
   maxsize = (w_new, h_new)
+
   imagefromurl.thumbnail(maxsize, Image.ANTIALIAS)
+  print "Thumbnail size: %s" %str(imagefromurl.size)
   #plt.imshow(image_resized)
   #plt.show()
   

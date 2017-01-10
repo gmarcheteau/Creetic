@@ -12,7 +12,8 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
   
   # Reshape the image to be a list of pixels
   width, height = image_resized.size
-  image_array = np.array(list(image_resized.getdata()))
+  #image_array = np.array(list(image_resized.getdata()))
+  image_array = np.reshape(image_resized,(width*height,3),order='F')
 
   ##Evaluate clustering with Silhouette coefficient, and select best (from 2 to 10 clusters)
   bestSilhouette = -1
@@ -32,7 +33,6 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
       #Print intermediate evals
       print "With",clusters,"clusters:"
       print "Silhouette score:",silhouette
-      print "\n"
   
       # Find the best one
       if silhouette > bestSilhouette:
@@ -51,6 +51,8 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
   clt.fit(image_array)
   response["clt"] = clt
   response["silhouette"] = bestSilhouette
+  response["simpler_image_array"] = getClusterForEachPixel(image_array,clt)
+  
   return response
 
 
@@ -91,7 +93,6 @@ def getColorsFromClusters(clt):
       #build list with main colors, names and weights
       rgbcolortuple=(rgbcolor[0],rgbcolor[1],rgbcolor[2])
       maincolors.append((rgbcolortuple,str(colorname),i[0]))
-      print "\n"
   
   return maincolors
 
@@ -134,3 +135,17 @@ def drawColorBoxes(maincolors):
   #canvas=FigureCanvas(fig)
   #png_output = StringIO.StringIO()
   #canvas.print_png(png_output)
+
+#list of all pixels with corresponding cluster
+def getClusterForEachPixel(image_array,clt):
+  simpler_image_array = []
+  clusterized_array = clt.predict(image_array)
+  
+  for cluster_number in clusterized_array:
+    cluster_rgb = clt.cluster_centers_[cluster_number]
+    #build tuple
+    cluster_rgb=np.uint8(cluster_rgb)
+    cluster_rgb_tuple=(cluster_rgb[0],cluster_rgb[1],cluster_rgb[2])
+    simpler_image_array.append(cluster_rgb_tuple)
+  return simpler_image_array
+    
