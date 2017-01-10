@@ -4,10 +4,10 @@
 !*.*
 
 # pyc extensions
-*.pyc
+**/*.pyc
 
 #Icon files from Google Drive
-Icon
+**/Icon
 
 # ignored folders
 env/*
