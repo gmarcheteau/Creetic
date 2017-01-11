@@ -1,0 +1,9 @@
+Flask==0.10.1
+numpy==1.11.2
+webcolors==1.7
+matplotlib==1.4.3
+requests==2.12.4
+Pillow==3.4.2
+scikit-learn[alldeps]
+Flask-WTF==0.8
+WTForms==2.1
