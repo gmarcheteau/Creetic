@@ -29,6 +29,8 @@ nouns = np.array([
         'the plasticity of the strokes',
         'the softness of the angles',
         'this warm light',
+        'the main serial structures',
+        'the multiplicity of exogeneous constraints',
         'the cynism with which the shadows are neglected',
         'the tendency to bend straight lines',
         'the materiality of the texture',
