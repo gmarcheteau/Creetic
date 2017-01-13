@@ -52,9 +52,9 @@ def getBS_img():
   number_iter = request.args.get('iter', default=1)
   
   #get data from image comment (comment, colors, drawn colors)
-  #enqueue blocking function
-  #imageresponse = imageapp.commentOnImage(imageurl)
-  imageresponse = q.enqueue(imageapp.commentOnImage(imageurl), 'http://heroku.com')
+  #NEED TO enqueue blocking function
+  imageresponse = imageapp.commentOnImage(imageurl)
+  #imageresponse = q.enqueue(imageapp.commentOnImage(imageurl), 'http://heroku.com')
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
