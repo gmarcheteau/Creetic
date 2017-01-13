@@ -33,6 +33,9 @@ def getBS_en():
   #comment = bs_en.generatePhrase()
   q = Queue(connection=conn)
   job = q.enqueue(bs_en.generatePhrase)
+  # Now, wait a while, until the worker is finished
+  # TODO: how long to wait?
+  time.sleep(2)
   comment = job.result
   print "job: %s" %str(job)
   print "job.result: %s" %str(job.result)
@@ -58,7 +61,10 @@ def getBS_img():
   #NEED TO enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
   q = Queue(connection=conn)
-  imageresponse = q.enqueue(imageapp.commentOnImage,imageurl).result
+  job = q.enqueue(imageapp.commentOnImage,imageurl)
+  # TODO: how long to wait?
+  time.sleep(10)
+  imageresponse = job.result
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
