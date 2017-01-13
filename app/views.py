@@ -32,7 +32,8 @@ def goNews():
 @app.route('/')
 @app.route('/getbs_en', methods=['GET'])
 def getBS_en():
-  comment = bs_en.generatePhrase()
+  #comment = bs_en.generatePhrase()
+  comment = imageresponse = q.enqueue(bs_en.generatePhrase(), 'http://heroku.com')
   return render_template("getbs.html",comment=comment)
 
 
