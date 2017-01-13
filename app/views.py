@@ -36,11 +36,10 @@ def getBS_en():
   job = q.enqueue(bs_en.generatePhrase)
   # Now, wait a while, until the worker is finished
   # TODO: how long to wait?
-  time.sleep(1)
-  if job.result:
-    comment = job.result
-  else:
+  while not job.result:
     comment = "no job result"
+  
+  comment = job.result
   print "job: %s" %str(job)
   print "job.result: %s" %str(job.result)
   return render_template("getbs.html",comment=comment)
@@ -67,7 +66,8 @@ def getBS_img():
   q = Queue(connection=conn)
   job = q.enqueue(imageapp.commentOnImage,imageurl)
   # TODO: how long to wait?
-  #time.sleep(10)
+  while not job.result:
+    imageresponse = ''
   imageresponse = job.result
   
   imagecomment = imageresponse["comment"]
