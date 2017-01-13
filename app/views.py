@@ -33,7 +33,7 @@ def goNews():
 @app.route('/getbs_en', methods=['GET'])
 def getBS_en():
   #comment = bs_en.generatePhrase()
-  comment = imageresponse = q.enqueue(bs_en.generatePhrase)
+  comment = imageresponse = q.enqueue(bs_en.generatePhrase).result
   return render_template("getbs.html",comment=comment)
 
 
@@ -55,7 +55,7 @@ def getBS_img():
   #get data from image comment (comment, colors, drawn colors)
   #NEED TO enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
-  imageresponse = q.enqueue(imageapp.commentOnImage(imageurl), 'http://heroku.com')
+  imageresponse = q.enqueue(imageapp.commentOnImage,imageurl).result
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
