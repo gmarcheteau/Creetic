@@ -36,7 +36,10 @@ def getBS_en():
   # Now, wait a while, until the worker is finished
   # TODO: how long to wait?
   #time.sleep(2)
-  comment = job.result
+  if job.result:
+    comment = job.result
+  else:
+    comment = "no job result"
   print "job: %s" %str(job)
   print "job.result: %s" %str(job.result)
   return render_template("getbs.html",comment=comment)
