@@ -33,7 +33,7 @@ def goNews():
 @app.route('/getbs_en', methods=['GET'])
 def getBS_en():
   #comment = bs_en.generatePhrase()
-  comment = imageresponse = q.enqueue(bs_en.generatePhrase(), 'http://heroku.com')
+  comment = imageresponse = q.enqueue(bs_en.generatePhrase)
   return render_template("getbs.html",comment=comment)
 
 
@@ -49,8 +49,8 @@ def getBS_img():
   if not imageurl.startswith("http"):
     imageurl = defaultURL
   
-  #number of clustering versions to show
-  number_iter = request.args.get('iter', default=1)
+  #number of clusters to use --TODO: do something with it
+  number_clusters = request.args.get('clusters', default=5)
   
   #get data from image comment (comment, colors, drawn colors)
   #NEED TO enqueue blocking function
