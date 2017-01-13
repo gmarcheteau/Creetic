@@ -32,10 +32,10 @@ def goNews():
 def getBS_en():
   #comment = bs_en.generatePhrase()
   q = Queue(connection=conn)
-  job = q.enqueue(func=bs_en.generatePhrase)
+  job = q.enqueue(bs_en.generatePhrase)
   comment = job.result
-  print "job: %s" %job
-  print "job.result: %s" %job.result
+  print "job: %s" %str(job)
+  print "job.result: %s" %str(job.result)
   return render_template("getbs.html",comment=comment)
 
 
@@ -58,7 +58,7 @@ def getBS_img():
   #NEED TO enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
   q = Queue(connection=conn)
-  imageresponse = q.enqueue(func=imageapp.commentOnImage,args=(imageurl)).result
+  imageresponse = q.enqueue(imageapp.commentOnImage,imageurl).result
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
