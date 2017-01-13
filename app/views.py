@@ -31,17 +31,7 @@ def goNews():
 @app.route('/')
 @app.route('/getbs_en', methods=['GET'])
 def getBS_en():
-  #comment = bs_en.generatePhrase()
-  q = Queue(connection=conn)
-  job = q.enqueue(bs_en.generatePhrase)
-  # Now, wait a while, until the worker is finished
-  # TODO: how long to wait?
-  while not job.result:
-    comment = "no job result"
-  
-  comment = job.result
-  print "job: %s" %str(job)
-  print "job.result: %s" %str(job.result)
+  comment = bs_en.generatePhrase()
   return render_template("getbs.html",comment=comment)
 
 
