@@ -9,8 +9,8 @@ import ArtyFarty.bsgenerator_en as bs_en
 import ArtyFarty.drawing as drawing
 import ArtyFarty.imageapp as imageapp
 import StringIO
-#from rq import Queue
-#from worker import conn
+from rq import Queue
+from worker import conn
 
 from flask import Flask
 from flask import request,make_response,render_template,redirect,url_for
@@ -18,7 +18,7 @@ from flask import request,make_response,render_template,redirect,url_for
 from app import app
 from forms import URLForm
 
-#q = Queue(connection=conn)
+q = Queue(connection=conn)
 
 @app.route('/getbs', methods=['GET'])
 def getBS():
@@ -53,8 +53,8 @@ def getBS_img():
   
   #get data from image comment (comment, colors, drawn colors)
   #NEED TO enqueue blocking function
-  imageresponse = imageapp.commentOnImage(imageurl)
-  #imageresponse = q.enqueue(imageapp.commentOnImage(imageurl), 'http://heroku.com')
+  #imageresponse = imageapp.commentOnImage(imageurl)
+  imageresponse = q.enqueue(imageapp.commentOnImage(imageurl), 'http://heroku.com')
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
