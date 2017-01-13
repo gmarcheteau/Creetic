@@ -3,6 +3,7 @@
 import urllib
 import json
 import os
+import time
 import matplotlib.pyplot as plt
 import ArtyFarty.bsgenerator as bs
 import ArtyFarty.bsgenerator_en as bs_en
@@ -32,7 +33,7 @@ def goNews():
 def getBS_en():
   #comment = bs_en.generatePhrase()
   q = Queue(connection=conn)
-  job = q.enqueue("bs_en.generatePhrase")
+  job = q.enqueue(bs_en.generatePhrase)
   # Now, wait a while, until the worker is finished
   # TODO: how long to wait?
   time.sleep(1)
