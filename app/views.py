@@ -51,7 +51,7 @@ def getBS_img():
   number_clusters = request.args.get('clusters', default=5)
   
   #get data from image comment (comment, colors, drawn colors)
-  #NEED TO enqueue blocking function
+  #REDIS enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
   q = Queue(connection=conn)
   job = q.enqueue(imageapp.commentOnImage,imageurl)
@@ -101,8 +101,19 @@ def getBS_img_multi():
   print "SHOW_SIMPLER_IMAGES --", str(SHOW_SIMPLER_IMAGES)
   
   #get data from image comment (comment, colors, drawn colors)
+  #imageresponse = imageapp.commentOnImageFullMode(imageurl,number_iter,SHOW_SIMPLER_IMAGES)
+  #REDIS enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
-  imageresponse = imageapp.commentOnImageFullMode(imageurl,number_iter,SHOW_SIMPLER_IMAGES)
+  q = Queue(connection=conn)
+  job = q.enqueue(
+    imageapp.commentOnImageFullMode,
+    imageurl,number_iter,SHOW_SIMPLER_IMAGES
+    )
+  # TODO: how long to wait?
+  while not job.result:
+    imageresponse = ''
+  imageresponse = job.result
+  
   imagecomment = imageresponse["comment"]
   maincolorstringslist = imageresponse["maincolorstringslist"]
   silhouettescores = imageresponse["silhouettescores"]
