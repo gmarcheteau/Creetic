@@ -39,25 +39,33 @@ nouns = np.array([
         'the frustrating inertia with which shapes come alive',
         'the insolent (though necessary) blur',
         'the patent scorn for light hue',
-        
-        # 'l\'ordonnancement matriciel des points de fuite',
-        # 'le recours au figuralisme',
-        # 'le rapport à la matière',
-        # 'la prégnance des couleurs primaires',
-        # 'le chromatisme auquel le peintre a recours',
-        # 'l\'opacité des polygones',
-        # 'l\'oscillation obstinée des perspectives',
-        # 'l\'anamorphose intrinsèque de la rhétorique utilisée',
-        # 'la structure même de la toile',
-        # 'la corrélation quasi insolente entre les nuances de tons et l\'angulosité appuyée des segments'
+        'the saturation of tones',
+        'the opacity of polygons',
+        'the stubborn wavering of perspectives',
+        'the swirling symmetry',
+        'the vibrant boredom that emerges from this piece',
+        'the antagonism of most elements of the structural system',
     ])
 
 colorlocutions = np.array([
-  'and the use of colors such as ',
-  'through a signigicant use of ',
-  'made obvious by touches of ',
-  'which derives from the predominance of '
-])
+  'combined with the use of colors such as',
+  'through a signigicant use of',
+  'made obvious by touches of',
+  'which derives from the predominance of',
+  'even with the use of colors such as',
+  'considering the resort to tones like',
+  'notwithstanding the use of',
+  ])
+
+secondcolorlocutions = np.array([
+  '. The touch of',
+  '. In addition to this, the choice of',
+  '. Furthermore, a minor tone such as',
+  '. Far from opposing this, the use of',
+  '. On the opposite end of the spectrum, the touch of',
+  '. An even further examination reveals that the use of',
+  '. What is more, the artist\'s preference for'
+  ])
 
 verbes = np.array([
   'contradicts',
@@ -66,6 +74,7 @@ verbes = np.array([
   'highlights',
   'establishes a sharp contrast with',
   'does nothing but accentuate',
+  'is reinforced by',
   'reinforces',
   'should not lead one to disregard',
   'should not obliterate',
@@ -86,7 +95,11 @@ verbes = np.array([
   'shatters',
   'reduces',
   'deconstructs',
-  'pales before'
+  'pales before',
+  'makes up for the shortcomings of',
+  'trumps',
+  'is incompatible with',
+  'departs from',
 ])
 
 finish_locutions = np.array([
@@ -102,8 +115,8 @@ finish_locutions = np.array([
   ' - artistic flair at its best.',
   ', while still subscribing to an artistic continuity, which will surely be appreciated by the connoisseurs.',
   ' - which, all things considered, is quite shocking for anyone having aware of the artist\'s political views...',
-  ' - altough this interpretation is quite controversial many years later.',
-  'benevolent ecumenism or shameless proselytism?',
+  ' - altough this interpretation is still quite controversial many years later.',
+  ' - benevolent ecumenism or shameless proselytism?',
   '. Back to basics, in a way.',
   '. This is a phenomenon which never ceased to pervade the artist\'s stylistic production',
   '. This is all obviously very autobiographic.',
@@ -114,39 +127,68 @@ finish_locutions = np.array([
 space = ' '
 
 def generatePhrase(*maincolors):
-  a = ''
+  #define randoms
+  randLocution = random.randint(0,len(locutions)-1)
+  randNoun1 = random.randint(0,len(nouns)-1)
+  randVerb = random.randint(0,len(verbes)-1)
+  #cannot use the same random int multiple times for nouns
+  #initialize as same, then while loop
+  randNoun2 = randNoun1
+  while(randNoun2==randNoun1):
+      randNoun2 = random.randint(0,len(nouns)-1)
+  randFinish = random.randint(0,len(finish_locutions)-1)
+
+  colorcomment = ''
+  colorcomment2 = ''
   if maincolors:
     number_colors = len(maincolors)
     randColorNumber = random.randint(0,number_colors-1)
     randColorLocution = random.randint(0,len(colorlocutions)-1)
-    a = ''.join([
+    colorcomment = ''.join([
+        ',',
+        space,
         colorlocutions[randColorLocution],
+        space,
         #use main color or random (randColorNumber)?
         maincolors[0][0][1],
-        space
+        ',',
       ])
+      
+    #if more than 1 color, write b comment too
+    if(len(maincolors[0])>1):
+      randSecondColorLocution = random.randint(0,len(secondcolorlocutions)-1)
+      randVerb2 = randVerb
+      while(randVerb2 == randVerb):
+        randVerb2 = random.randint(0,len(verbes)-1)
+      randNoun3 = randNoun1
+      while(randNoun3 in [randNoun1,randNoun2]):
+        randNoun3 = random.randint(0,len(nouns)-1)
+      
+      colorcomment2 = ''.join([
+        secondcolorlocutions[randSecondColorLocution],
+        space,
+        maincolors[0][1][1],
+        space,
+        verbes[randVerb2],
+        space,
+        nouns[randNoun3]
+      ])
+      
   
-  rand1 = random.randint(0,len(locutions)-1)
-  rand2 = random.randint(0,len(nouns)-1)
-  rand3 = random.randint(0,len(verbes)-1)
-  #cannot use the same random int multiple times for nouns
-  #initialize as same, then while loop
-  rand4 = rand2
-  while(rand4==rand2):
-      rand4 = random.randint(0,len(nouns)-1)
-  rand5 = random.randint(0,len(finish_locutions)-1)
   
   phrase = ''.join([
-          locutions[rand1],
+          locutions[randLocution],
           space,
-          nouns[rand2],
+          nouns[randNoun1],
+          colorcomment,
           space,
-          a,
-          verbes[rand3],
+          verbes[randVerb],
           space,
-          nouns[rand4],
+          nouns[randNoun2],
+          #add comment about second color
+          colorcomment2,
           #no space before finish_locution
-          finish_locutions[rand5]
+          finish_locutions[randFinish]
       ])
   
   phrase = unicode(phrase, 'utf-8')
@@ -162,24 +204,3 @@ def index():
     """
     #response.flash = T("ArtyFarty")
     return dict(message=T(generatePhrase()))
-
-
-def user():
-    """
-    exposes:
-    http://..../[app]/default/user/login
-    http://..../[app]/default/user/logout
-    http://..../[app]/default/user/register
-    http://..../[app]/default/user/profile
-    http://..../[app]/default/user/retrieve_password
-    http://..../[app]/default/user/change_password
-    http://..../[app]/default/user/bulk_register
-    use @auth.requires_login()
-        @auth.requires_membership('group name')
-        @auth.requires_permission('read','table name',record_id)
-    to decorate functions that need access control
-    also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
-    """
-    return dict(form=auth())
-
-
