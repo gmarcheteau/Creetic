@@ -19,6 +19,8 @@ from flask import request,make_response,render_template,redirect,url_for
 from app import app
 from forms import URLForm
 
+q = Queue(connection=conn)
+
 @app.route('/getbs', methods=['GET'])
 def getBS():
   comment = bs.generatePhrase()
@@ -53,7 +55,7 @@ def getBS_img():
   #get data from image comment (comment, colors, drawn colors)
   #REDIS enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
-  q = Queue(connection=conn)
+  
   job = q.enqueue(imageapp.commentOnImage,imageurl)
   # TODO: how long to wait?
   while not job.result:
@@ -104,7 +106,7 @@ def getBS_img_multi():
   #imageresponse = imageapp.commentOnImageFullMode(imageurl,number_iter,SHOW_SIMPLER_IMAGES)
   #REDIS enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
-  q = Queue(connection=conn)
+
   job = q.enqueue(
     imageapp.commentOnImageFullMode,
     imageurl,number_iter,SHOW_SIMPLER_IMAGES
