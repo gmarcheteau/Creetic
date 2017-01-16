@@ -27,7 +27,9 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
       clt.fit(image_array)
   
       # Validate clustering result
-      silhouette = silhouette_score(image_array, clt.labels_, metric='euclidean')
+      ##DEBUGGING: removing calculation of silhouette score, replacing by dummy###
+      #silhouette = silhouette_score(image_array, clt.labels_, metric='euclidean')
+      silhouette = 1
       silscores.append(silhouette)
       
       #Print intermediate evals
