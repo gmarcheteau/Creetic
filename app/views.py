@@ -20,11 +20,6 @@ from flask import request,make_response,render_template,redirect,url_for
 from app import app
 from forms import URLForm
 
-from pympler.tracker import SummaryTracker
-
-#create memory usage tracker for Pympler
-tracker = SummaryTracker()
-
 q = Queue(connection=conn)
 
 @app.route('/getbs', methods=['GET'])
@@ -68,9 +63,6 @@ def getBS_img():
     imageresponse = ''
   imageresponse = job.result
   
-  #track memory usage with Pympler
-  #print "-----Pympler Memory usage (from views.py)-----"
-  #tracker.print_diff()
   print '(from views.py) Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
   imagecomment = imageresponse["comment"]
