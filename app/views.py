@@ -71,7 +71,7 @@ def getBS_img():
   #track memory usage with Pympler
   #print "-----Pympler Memory usage (from views.py)-----"
   #tracker.print_diff()
-  print 'Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+  print '(from views.py) Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
