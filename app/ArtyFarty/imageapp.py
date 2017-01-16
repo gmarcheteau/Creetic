@@ -13,17 +13,12 @@ MIN_CLUSTERS=3
 MAX_CLUSTERS=5
 
 
-def commentOnImage(url=defaultURL,*number_clusters):
+def commentOnImage(url=defaultURL):
   
   if not url:
     return "Hmm, I need an image to comment on, sorry."
   else:
     image_resized = processimage.url_to_image(url)
-    
-    #if number_clusters specified, use only that
-    if number_clusters:
-      MIN_CLUSTERS = number_clusters[0]
-      MAX_CLUSTERS = MIN_CLUSTERS
     
     clust = clustercolors.fitColorClustering(
       image_resized,
