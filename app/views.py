@@ -75,7 +75,7 @@ def getBS_img():
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
-  silhouettescore = imageresponse["silhouettescore"]
+  score = imageresponse["score"]
   colorboxes = imageresponse["colorboxes"]
   simplerimage = imageresponse["simplerimage"]
   
@@ -89,7 +89,7 @@ def getBS_img():
                 imagecomment = imagecomment,
                 imageurl = imageurl,
                 maincolorstrings = maincolorstrings,
-                silhouettescore = silhouettescore,
+                score = escore,
                 colorboxes = colorboxes,
                 simplerimage = simplerimage,
                 form = form)
