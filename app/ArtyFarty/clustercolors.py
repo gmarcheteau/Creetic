@@ -52,6 +52,7 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
   clt = KMeans(n_clusters = bestClusters)
   clt.fit(image_array)
   response["clt"] = clt
+  response["score"] = bestScore
   response["simpler_image_array"] = getClusterForEachPixel(image_array,clt)
   
   return response
