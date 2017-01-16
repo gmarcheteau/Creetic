@@ -5,7 +5,7 @@ import matplotlib.patches as patches
 import colornames
 import base64
 from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_samples, silhouette_score, pairwise_distances
+from sklearn.metrics import silhouette_samples, silhouette_score, pairwise_distances, calinski_harabaz_score
  
 ##FLATTEN AND CLUSTER USING K-MEANS##
 def fitColorClustering(image_resized,min_clusters,max_clusters):
