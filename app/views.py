@@ -89,7 +89,7 @@ def getBS_img():
                 imagecomment = imagecomment,
                 imageurl = imageurl,
                 maincolorstrings = maincolorstrings,
-                score = escore,
+                score = score,
                 colorboxes = colorboxes,
                 simplerimage = simplerimage,
                 form = form)
