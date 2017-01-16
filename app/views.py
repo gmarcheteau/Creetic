@@ -10,6 +10,7 @@ import ArtyFarty.bsgenerator_en as bs_en
 import ArtyFarty.drawing as drawing
 import ArtyFarty.imageapp as imageapp
 import StringIO
+import resource
 from rq import Queue
 from worker import conn
 
@@ -70,6 +71,7 @@ def getBS_img():
   #track memory usage with Pympler
   print "-----Pympler Memory usage (from views.py)-----"
   tracker.print_diff()
+  print 'Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
