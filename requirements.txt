@@ -10,4 +10,3 @@ Pillow==3.4.2
 scikit-learn[alldeps]
 Flask-WTF==0.8
 WTForms==2.1
-pympler==0.2.1
