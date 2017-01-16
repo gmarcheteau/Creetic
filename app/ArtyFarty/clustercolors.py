@@ -5,7 +5,7 @@ import matplotlib.patches as patches
 import colornames
 import base64
 from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_samples, silhouette_score
+from sklearn.metrics import silhouette_samples, silhouette_score, pairwise_distances
  
 ##FLATTEN AND CLUSTER USING K-MEANS##
 def fitColorClustering(image_resized,min_clusters,max_clusters):
@@ -16,9 +16,9 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
   image_array = np.reshape(image_resized,(width*height,3),order='F')
 
   ##Evaluate clustering with Silhouette coefficient, and select best (from 2 to 10 clusters)
-  bestSilhouette = -1
+  bestScore = -1
   bestClusters = 0;
-  silscores = []
+  scores = []
   response = {}
   
   for clusters in range(min_clusters, max_clusters+1):
@@ -29,16 +29,16 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
       # Validate clustering result
       ##DEBUGGING: removing calculation of silhouette score, replacing by dummy###
       #silhouette = silhouette_score(image_array, clt.labels_, metric='euclidean')
-      silhouette = 1
-      silscores.append(silhouette)
+      score = metrics.calinski_harabaz_score(image_array, clt.labels_) 
+      scores.append(score)
       
       #Print intermediate evals
       print "With",clusters,"clusters:"
-      print "Silhouette score:",silhouette
+      print "Score:",score
   
       # Find the best one
-      if silhouette > bestSilhouette:
-          bestSilhouette = silhouette;
+      if score > bestScore:
+          bestScore = score;
           bestClusters = clusters;
       
       #override number of clusters
@@ -46,13 +46,12 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
       
   print "Optimized clustering:"
   print bestClusters,"clusters"
-  print "Silhouette score:",bestSilhouette
+  print "Score:",bestScore
   
   # Cluster colours with optimized parameters
   clt = KMeans(n_clusters = bestClusters)
   clt.fit(image_array)
   response["clt"] = clt
-  response["silhouette"] = bestSilhouette
   response["simpler_image_array"] = getClusterForEachPixel(image_array,clt)
   
   return response
