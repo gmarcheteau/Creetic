@@ -3,6 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import numpy as np
 import urllib
+import resource
 import time as t
 from PIL import Image
 import requests
@@ -37,7 +38,8 @@ def url_to_image(url):
   #plt.show()
   
   #track memory usage with Pympler
-  print "-----Pympler Memory usage (from processimage.py)-----"
-  tracker.print_diff()
+  #print "-----Pympler Memory usage (from processimage.py)-----"
+  #tracker.print_diff()
+  print '(from processimage.py) Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
   return imagefromurl
