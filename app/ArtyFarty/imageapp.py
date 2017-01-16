@@ -19,7 +19,8 @@ def commentOnImage(url=defaultURL):
     return "Hmm, I need an image to comment on, sorry."
   else:
     image_resized = processimage.url_to_image(url)
-    
+    print "MIN_CLUSTERS: %s" %str(MIN_CLUSTERS)
+    print "MAX_CLUSTERS: %s" %str(MAX_CLUSTERS)
     clust = clustercolors.fitColorClustering(
       image_resized,
       min_clusters=MIN_CLUSTERS,
