@@ -8,9 +8,6 @@ import time as t
 from PIL import Image
 import requests
 from StringIO import StringIO
-from pympler.tracker import SummaryTracker
-tracker = SummaryTracker()
-
 
 def url_to_image(url):
   
@@ -37,9 +34,6 @@ def url_to_image(url):
   #plt.imshow(image_resized)
   #plt.show()
   
-  #track memory usage with Pympler
-  #print "-----Pympler Memory usage (from processimage.py)-----"
-  #tracker.print_diff()
   print '(from processimage.py) Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
   return imagefromurl
