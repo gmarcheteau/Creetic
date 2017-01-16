@@ -29,7 +29,7 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
       # Validate clustering result
       ##DEBUGGING: removing calculation of silhouette score, replacing by dummy###
       #silhouette = silhouette_score(image_array, clt.labels_, metric='euclidean')
-      score = metrics.calinski_harabaz_score(image_array, clt.labels_) 
+      score = calinski_harabaz_score(image_array, clt.labels_) 
       scores.append(score)
       
       #Print intermediate evals
