@@ -62,7 +62,7 @@ def getBS_img():
   #REDIS enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
   
-  job = q.enqueue(imageapp.commentOnImage,imageurl)
+  job = q.enqueue(imageapp.commentOnImage,imageurl,number_clusters)
   # TODO: how long to wait?
   while not job.result:
     imageresponse = ''
