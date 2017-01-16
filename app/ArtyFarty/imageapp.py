@@ -48,7 +48,7 @@ def commentOnImage(url=defaultURL):
       )
     
     #transform to strings for easier use in html template
-    score = ("{0:.2f}".format(score))
+    score = ("{0:.0f}".format(score))
     maincolorstrings = []
     for color in maincolors:
       maincolorstrings.append(
