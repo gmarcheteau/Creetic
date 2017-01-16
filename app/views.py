@@ -22,6 +22,9 @@ from forms import URLForm
 
 from pympler.tracker import SummaryTracker
 
+#create memory usage tracker for Pympler
+tracker = SummaryTracker()
+
 q = Queue(connection=conn)
 
 @app.route('/getbs', methods=['GET'])
@@ -59,9 +62,6 @@ def getBS_img():
   #REDIS enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
   
-  #create memory usage tracker for Pympler
-  tracker = SummaryTracker()
-  
   job = q.enqueue(imageapp.commentOnImage,imageurl)
   # TODO: how long to wait?
   while not job.result:
@@ -69,8 +69,8 @@ def getBS_img():
   imageresponse = job.result
   
   #track memory usage with Pympler
-  print "-----Pympler Memory usage (from views.py)-----"
-  tracker.print_diff()
+  #print "-----Pympler Memory usage (from views.py)-----"
+  #tracker.print_diff()
   print 'Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
   imagecomment = imageresponse["comment"]
