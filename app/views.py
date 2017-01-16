@@ -68,6 +68,7 @@ def getBS_img():
   imageresponse = job.result
   
   #track memory usage with Pympler
+  print "-----Pympler Memory usage (from views.py)-----"
   tracker.print_diff()
   
   imagecomment = imageresponse["comment"]
