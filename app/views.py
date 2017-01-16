@@ -19,6 +19,8 @@ from flask import request,make_response,render_template,redirect,url_for
 from app import app
 from forms import URLForm
 
+from pympler.tracker import SummaryTracker
+
 q = Queue(connection=conn)
 
 @app.route('/getbs', methods=['GET'])
@@ -56,11 +58,17 @@ def getBS_img():
   #REDIS enqueue blocking function
   #imageresponse = imageapp.commentOnImage(imageurl)
   
+  #create memory usage tracker for Pympler
+  tracker = SummaryTracker()
+  
   job = q.enqueue(imageapp.commentOnImage,imageurl)
   # TODO: how long to wait?
   while not job.result:
     imageresponse = ''
   imageresponse = job.result
+  
+  #track memory usage with Pympler
+  tracker.print_diff()
   
   imagecomment = imageresponse["comment"]
   maincolorstrings = imageresponse["maincolorstrings"]
