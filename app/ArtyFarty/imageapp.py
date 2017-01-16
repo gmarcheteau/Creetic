@@ -29,7 +29,7 @@ def commentOnImage(url=defaultURL):
     
     #get values from clustering
     clt = clust["clt"]
-    silhouettescore = clust["silhouette"]
+    score = clust["score"]
     simpler_image_array = clust["simpler_image_array"]
     width, height = image_resized.size
     
@@ -48,7 +48,7 @@ def commentOnImage(url=defaultURL):
       )
     
     #transform to strings for easier use in html template
-    silhouettescore = ("{0:.2f}".format(silhouettescore))
+    score = ("{0:.2f}".format(score))
     maincolorstrings = []
     for color in maincolors:
       maincolorstrings.append(
@@ -63,7 +63,7 @@ def commentOnImage(url=defaultURL):
     response = {}
     response["comment"] = comment
     response["maincolorstrings"] = maincolorstrings
-    response["silhouettescore"] = silhouettescore
+    response["score"] = score
     response["colorboxes"] = colorboxes
     response["simplerimage"] = simplerimage
   
