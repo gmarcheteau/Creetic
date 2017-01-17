@@ -1,6 +1,7 @@
 click==6.7
 Flask==0.10.1
 numpy==1.11.2
+email==4.0.2
 webcolors==1.7
 matplotlib==1.4.3
 redis==2.10.5
