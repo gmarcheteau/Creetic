@@ -95,7 +95,10 @@ def produceImageBS(imageurl):
   if form.validate_on_submit():
     # [...]
     print "input URL: %s" %form.url.data
-    return redirect(url_for('getBS_img',imageurl = form.url.data))
+    try:
+      return redirect(url_for('getBS_img',imageurl = form.url.data))
+    except Exception as err:
+      print "error in form bit -- %s" %str(err)
   
   #return dict with all values to generate HTML response
   #provides ability to choose template independently
