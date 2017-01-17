@@ -17,4 +17,3 @@ tmp/*
 
 #config file
 .env
-config.py
