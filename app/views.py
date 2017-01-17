@@ -53,6 +53,15 @@ def getBS_img():
   #number of clusters to use --TODO: do something with it
   number_clusters = request.args.get('clusters', default=5)
   
+  form = URLForm()
+  if form.validate_on_submit():
+    # [...]
+    print "input URL: %s" %form.url.data
+    try:
+      return redirect(url_for('getBS_img',imageurl = form.url.data))
+    except Exception as err:
+      print "error in form bit -- %s" %str(err)
+  
   #imageBS is a dict with all you need to create the HTML resp
   imageBS = produceImageBS(imageurl)
   
@@ -63,7 +72,7 @@ def getBS_img():
                 score = imageBS["score"],
                 colorboxes = imageBS["colorboxes"],
                 simplerimage = imageBS["simplerimage"],
-                form = imageBS["form"])
+                form = form)
   
 def produceImageBS(imageurl):
   import base64
@@ -91,15 +100,6 @@ def produceImageBS(imageurl):
   colorboxes = imageresponse["colorboxes"]
   simplerimage = imageresponse["simplerimage"]
   
-  form = URLForm()
-  if form.validate_on_submit():
-    # [...]
-    print "input URL: %s" %form.url.data
-    try:
-      return redirect(url_for('getBS_img',imageurl = form.url.data))
-    except Exception as err:
-      print "error in form bit -- %s" %str(err)
-  
   #return dict with all values to generate HTML response
   #provides ability to choose template independently
   return {
@@ -108,8 +108,7 @@ def produceImageBS(imageurl):
     "maincolorstrings" : maincolorstrings,
     "score" : score,
     "colorboxes" : colorboxes,
-    "simplerimage" : simplerimage,
-    "form" : form
+    "simplerimage" : simplerimage
     }
 
 @app.route('/getbs_img_multi', methods=['GET','POST'])
