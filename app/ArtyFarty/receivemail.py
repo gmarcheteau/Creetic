@@ -2,20 +2,7 @@ import imaplib
 import email
 import os
 import random
-
-IS_HEROKU = os.environ.get('IS_HEROKU', None)
-
-#if running on Heroku
-if IS_HEROKU:
-  username = os.environ.get('IMAP_LOGIN', None)
-  password = os.environ.get('IMAP_PASSWORD', None)
-
-else:
-  print "local env -- importing config.py"
-  from config import ENVIRONMENT,IMAP_LOGIN,IMAP_PASSWORD
-  username = IMAP_LOGIN
-  password = IMAP_PASSWORD
-
+from config import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY
 
 file_extensions = ('.jpg','.JPG','.png','.PNG','.jpeg','.JPEG','.gif','.GIF')
 

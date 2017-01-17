@@ -4,20 +4,9 @@
 # This works in 2.7 and my brain gets it.
 
 ######### Setup your stuff here #######################################
+from config import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY
+
 attachments = []
-
-import os
-IS_HEROKU = os.environ.get('IS_HEROKU', None)
-
-#if running on Heroku
-if IS_HEROKU:
-  username = os.environ.get('IMAP_LOGIN', None)
-  password = os.environ.get('IMAP_PASSWORD', None)
-
-else:
-  from config import ENVIRONMENT,IMAP_LOGIN,IMAP_PASSWORD
-  username = IMAP_LOGIN
-  password = IMAP_PASSWORD
 
 host = 'smtp.gmail.com:587' # specify port, if required, using this notations
 
