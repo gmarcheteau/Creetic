@@ -12,9 +12,9 @@ if IS_HEROKU:
 
 else:
   print "local env -- importing config.py"
-  from config import ENVIRONMENT,IMAP_LOGIN,IMAP_PASSWORD
-  username = IMAP_LOGIN
-  password = IMAP_PASSWORD
+  #from config import ENVIRONMENT,IMAP_LOGIN,IMAP_PASSWORD
+  username = "IMAP_LOGIN"
+  password = "IMAP_PASSWORD"
 
 
 file_extensions = ('.jpg','.JPG','.png','.PNG','.jpeg','.JPEG','.gif','.GIF')

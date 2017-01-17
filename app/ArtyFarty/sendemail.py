@@ -15,9 +15,9 @@ if IS_HEROKU:
   password = os.environ.get('IMAP_PASSWORD', None)
 
 else:
-  from config import ENVIRONMENT,IMAP_LOGIN,IMAP_PASSWORD
-  username = IMAP_LOGIN
-  password = IMAP_PASSWORD
+  #from config import ENVIRONMENT,IMAP_LOGIN,IMAP_PASSWORD
+  username = "IMAP_LOGIN"
+  password = "IMAP_PASSWORD"
 
 host = 'smtp.gmail.com:587' # specify port, if required, using this notations
 
