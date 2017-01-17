@@ -9,6 +9,8 @@ import ArtyFarty.bsgenerator as bs
 import ArtyFarty.bsgenerator_en as bs_en
 import ArtyFarty.drawing as drawing
 import ArtyFarty.imageapp as imageapp
+import ArtyFarty.sendemail as sendemail
+import ArtyFarty.receivemail as receivemail
 import StringIO
 import resource
 from rq import Queue
@@ -40,8 +42,6 @@ def getBS_en():
 
 @app.route('/getbs_img', methods=['GET','POST'])
 def getBS_img():
-  import base64
-  
   defaultURL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
   
   imageurl = request.args.get('imageurl', default=defaultURL)
@@ -52,6 +52,26 @@ def getBS_img():
   
   #number of clusters to use --TODO: do something with it
   number_clusters = request.args.get('clusters', default=5)
+  
+  #imageBS is a dict with all you need to create the HTML resp
+  imageBS = produceImageBS(imageurl)
+  
+  return render_template("getbs_img.html",
+                imagecomment = imageBS["imagecomment"],
+                imageurl = imageBS["imageurl"],
+                maincolorstrings = imageBS["maincolorstrings"],
+                score = imageBS["score"],
+                colorboxes = imageBS["colorboxes"],
+                simplerimage = imageBS["simplerimage"],
+                form = imageBS["form"])
+  
+def produceImageBS(imageurl):
+  import base64
+  
+  #if receiving a local image, add full path
+  if not imageurl.startswith("http"):
+    print "appending full path to url"
+    imageurl = os.path.abspath(imageurl)
   
   #get data from image comment (comment, colors, drawn colors)
   #REDIS enqueue blocking function
@@ -77,14 +97,17 @@ def getBS_img():
     print "input URL: %s" %form.url.data
     return redirect(url_for('getBS_img',imageurl = form.url.data))
   
-  return render_template("getbs_img.html",
-                imagecomment = imagecomment,
-                imageurl = imageurl,
-                maincolorstrings = maincolorstrings,
-                score = score,
-                colorboxes = colorboxes,
-                simplerimage = simplerimage,
-                form = form)
+  #return dict with all values to generate HTML response
+  #provides ability to choose template independently
+  return {
+    "imagecomment" : imagecomment,
+    "imageurl" : imageurl,
+    "maincolorstrings" : maincolorstrings,
+    "score" : score,
+    "colorboxes" : colorboxes,
+    "simplerimage" : simplerimage,
+    "form" : form
+    }
 
 @app.route('/getbs_img_multi', methods=['GET','POST'])
 def getBS_img_multi():
@@ -155,3 +178,33 @@ def getURL():
         print "input URL: %s" %form.url.data
         return redirect(url_for('getBS_img',imageurl = form.url.data))
     return render_template('enterurl.html', form=form)
+
+@app.route('/checkmail', methods=['GET'])
+def checkmail():
+  newMessages = receivemail.checkNewMailWithImages()
+  for message in newMessages:
+    imageurl = os.path.abspath(message["imageurl"])
+    print "imageurl sent to generator: %s" %imageurl
+    sendMailAboutImage(
+      imageurl=imageurl,
+      toaddr=message["fromaddr"])
+  return "<h2>Found and analysed %d image(s)</h2>" %len(newMessages)
+
+defaulttoaddr = "gregoire.marcheteau@gmail.com"
+def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
+  #toaddr = request.args.get('email', default=defaulttoaddr)
+  
+  #imageBS is a dict with all you need to create the HTML resp
+  imageBS = produceImageBS(imageurl)
+  
+  htmlmessage = render_template("getbs_img_mail.html",
+                imagecomment = imageBS["imagecomment"],
+                imageurl = "http://localhostimage"+imageBS["imageurl"],
+                maincolorstrings = imageBS["maincolorstrings"],
+                score = imageBS["score"],
+                colorboxes = imageBS["colorboxes"],
+                simplerimage = imageBS["simplerimage"],
+                form = imageBS["form"])
+  print "http://localhostimage"+imageBS["imageurl"]
+  sendemail.sendEmail(htmlmessage,toaddr)
+  

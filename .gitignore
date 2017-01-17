@@ -14,3 +14,7 @@
 # ignored folders
 env/*
 tmp/*
+
+#config file
+.env
+config.py
