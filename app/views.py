@@ -192,7 +192,7 @@ def checkmail():
     return "<h2>Found and analysed %d image(s)</h2>" %len(newMessages)
   
   except Exception as err:
-    print "Error in checkmail() -- %s" %err.strerror
+    print "Error in checkmail() -- %s" %err.args[1]
 
 defaulttoaddr = "gregoire.marcheteau@gmail.com"
 def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
