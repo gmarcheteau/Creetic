@@ -31,6 +31,10 @@ def getAttachment(msg,check):
 def checkNewMailWithImages():
   newMessages = []
   try:
+    print "IMAP settings"
+    print usernm
+    print passwd
+    
     for msg in getMsgs():
       fromaddr = email.utils.parseaddr(msg['From'])[1]
       print "Message from: %s" %fromaddr
