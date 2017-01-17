@@ -9,7 +9,7 @@ file_extensions = ('.jpg','.JPG','.png','.PNG','.jpeg','.JPEG','.gif','.GIF')
 def getMsgs():
   servername="imap.gmail.com"
   usernm = IMAP_LOGIN
-  passwd =
+  passwd = IMAP_PASSWORD
   #subject = 'Test'
   conn = imaplib.IMAP4_SSL(servername)
   conn.login(usernm,passwd)
