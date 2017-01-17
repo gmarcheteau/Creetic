@@ -193,6 +193,7 @@ def checkmail():
   
   except Exception as err:
     print "Error in checkmail() -- %s" %str(err)
+    return str(err)
 
 defaulttoaddr = "gregoire.marcheteau@gmail.com"
 def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
