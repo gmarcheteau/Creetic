@@ -11,13 +11,8 @@ def getMsgs():
   usernm = IMAP_LOGIN
   passwd = IMAP_PASSWORD
   #subject = 'Test'
-  try:
-    conn = imaplib.IMAP4_SSL(servername)
-    conn.login(usernm,passwd)
-  except imaplib.IMAP4.error as err:
-    err = ", ".join(a.decode("utf8") for a in err.args)
-    print "Error in getMsgs() -- %s" %err
-  
+  conn = imaplib.IMAP4_SSL(servername)
+  conn.login(usernm,passwd)
   conn.select('Inbox')
   typ, data = conn.search(None,'(UNSEEN)')
   #typ, data = conn.search(None,'(UNSEEN SUBJECT "%s")' % subject)
@@ -45,12 +40,12 @@ def checkNewMailWithImages():
     try:
       rand = random.randint(0,999999)
       filename = "image%d.jpg" %rand
-      filepath = os.path.abspath("app/static/images/%s" %filename)
+      filepath = os.path.abspath("static/images/%s" %filename)
       while os.path.exists(filepath):
         rand += 1
         print "%s already existed, trying the next number" % filepath
         filename = "image%d.jpg" %rand
-        filepath = os.path.abspath("app/static/images/%s" %filename)
+        filepath = os.path.abspath("static/images/%s" %filename)
       
       open(filepath,'w').write(payload)
       print "Writing to %s" % filepath
