@@ -23,7 +23,7 @@ def getMsgs():
       #typ, data = conn.store(num,'-FLAGS','\\Seen')
       yield msg
 
-  catch Exception as err:
+  except Exception as err:
     print "Error in getMsgs() -- %s" %str(err)
 
 def getAttachment(msg,check):
