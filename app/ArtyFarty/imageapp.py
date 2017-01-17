@@ -9,9 +9,6 @@ import random
 
 defaultURL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
 
-MIN_CLUSTERS=3
-MAX_CLUSTERS=5
-
 
 def commentOnImage(url=defaultURL):
   
