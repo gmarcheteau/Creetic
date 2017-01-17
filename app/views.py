@@ -181,14 +181,18 @@ def getURL():
 
 @app.route('/checkmail', methods=['GET'])
 def checkmail():
-  newMessages = receivemail.checkNewMailWithImages()
-  for message in newMessages:
-    imageurl = os.path.abspath(message["imageurl"])
-    print "imageurl sent to generator: %s" %imageurl
-    sendMailAboutImage(
-      imageurl=imageurl,
-      toaddr=message["fromaddr"])
-  return "<h2>Found and analysed %d image(s)</h2>" %len(newMessages)
+  try:
+    newMessages = receivemail.checkNewMailWithImages()
+    for message in newMessages:
+      imageurl = os.path.abspath(message["imageurl"])
+      print "imageurl sent to generator: %s" %imageurl
+      sendMailAboutImage(
+        imageurl=imageurl,
+        toaddr=message["fromaddr"])
+    return "<h2>Found and analysed %d image(s)</h2>" %len(newMessages)
+  
+  except Exception as err:
+    print "Error in checkmail() -- %s" %err.strerror
 
 defaulttoaddr = "gregoire.marcheteau@gmail.com"
 def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
