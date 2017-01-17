@@ -5,13 +5,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
+from matplotlib.colors import Normalize
 from PIL import Image
 
 def drawColorBoxes(maincolors):
   #plot color graph
   lastX=0
   for i in maincolors:
-    plt.axvspan(lastX, lastX+i[2], edgecolor='none', facecolor=i[1], alpha=1)
+    #normalize rgb color to 0-1 range
+    print "facecolor: %s" %str(i[0])
+    norm = Normalize(vmin=0.,vmax=250.)
+    facecolor=(norm(i[0][0]),norm(i[0][1]),norm(i[0][2]))
+    print "normalized facecolor: %s" %str(facecolor)
+    plt.axvspan(lastX, lastX+i[2], edgecolor='none', facecolor=facecolor, alpha=1)
     lastX+=i[2]
   plt.xlim(0, 1)
   plt.axis('off')

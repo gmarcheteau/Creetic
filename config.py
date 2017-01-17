@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+  #!/usr/bin/env python
 # settings.py
 import os
 
@@ -19,4 +19,4 @@ if IS_HEROKU:
 
 else:
   print "local env -- importing localconfig.py"
-  from localconfig import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY,MIN_CLUSTERS,MAX_CLUSTERS
+  from localconfig import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY

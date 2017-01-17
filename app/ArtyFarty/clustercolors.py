@@ -2,7 +2,7 @@ import matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-import colornames
+import colormapping
 import base64
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples, silhouette_score, pairwise_distances, calinski_harabaz_score
@@ -29,7 +29,7 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
       # Validate clustering result
       ##DEBUGGING: removing calculation of silhouette score, replacing by dummy###
       #silhouette = silhouette_score(image_array, clt.labels_, metric='euclidean')
-      score = calinski_harabaz_score(image_array, clt.labels_) 
+      score = calinski_harabaz_score(image_array, clt.labels_)
       scores.append(score)
       
       #Print intermediate evals
@@ -88,7 +88,9 @@ def getColorsFromClusters(clt):
   for i in zipped:
       print "Weight:","{0:.0f}%".format(i[0] * 100)
       rgbcolor=np.uint8(i[1])
-      colorname=colornames.get_colour_name(rgbcolor)[1]
+      #colorname=colornames.get_colour_name(rgbcolor)[1]
+      colorname=colormapping.ColorNames.cleanName(
+        colormapping.ColorNames.findNearestWebColorName(rgbcolor))
       print "RGB color:",rgbcolor
       print "Color name:",colorname
       
