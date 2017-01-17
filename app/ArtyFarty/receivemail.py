@@ -2,7 +2,7 @@ import imaplib
 import email
 import os
 import random
-from config import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY
+from config import IMAP_LOGIN,IMAP_PASSWORD
 
 file_extensions = ('.jpg','.JPG','.png','.PNG','.jpeg','.JPEG','.gif','.GIF')
 

@@ -7,6 +7,8 @@ import bsgenerator as bs
 import bsgenerator_en as bs_en
 import random
 
+from config import MIN_CLUSTERS,MAX_CLUSTERS
+
 defaultURL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
 
 

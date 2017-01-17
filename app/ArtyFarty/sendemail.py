@@ -4,7 +4,9 @@
 # This works in 2.7 and my brain gets it.
 
 ######### Setup your stuff here #######################################
-from config import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY
+#from config import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY
+
+from config import IMAP_LOGIN,IMAP_PASSWORD
 
 attachments = []
 

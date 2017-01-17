@@ -2,6 +2,11 @@
 # settings.py
 import os
 
+#non-sensitive stuff
+MIN_CLUSTERS = 3
+MAX_CLUSTERS = 5
+  
+#check if running on Heroku
 IS_HEROKU = os.environ.get('IS_HEROKU', None)
 
 #if running on Heroku
@@ -11,8 +16,6 @@ if IS_HEROKU:
   IMAP_PASSWORD = os.environ.get('IMAP_PASSWORD', None)
   WTF_CSRF_ENABLED = os.environ.get('WTF_CSRF_ENABLED', True)
   SECRET_KEY = os.environ.get('SECRET_KEY', True)
-  MIN_CLUSTERS = os.environ.get('MIN_CLUSTERS', 3)
-  MAX_CLUSTERS = os.environ.get('MAX_CLUSTERS', 5)
 
 else:
   print "local env -- importing localconfig.py"
