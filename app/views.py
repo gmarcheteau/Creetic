@@ -22,6 +22,8 @@ from flask import request,make_response,render_template,redirect,url_for
 from app import app
 from forms import URLForm
 
+from config import DEFAULT_URL
+
 q = Queue(connection=conn)
 
 @app.route('/getbs', methods=['GET'])
@@ -42,13 +44,13 @@ def getBS_en():
 
 @app.route('/getbs_img', methods=['GET','POST'])
 def getBS_img():
-  defaultURL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
+  #DEFAULT_URL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
   
-  imageurl = request.args.get('imageurl', default=defaultURL)
+  imageurl = request.args.get('imageurl', default=DEFAULT_URL)
   #remove quotes in url if any
   imageurl = imageurl.strip('"').strip('\'')
   if not imageurl.startswith("http"):
-    imageurl = defaultURL
+    imageurl = DEFAULT_URL
   
   #number of clusters to use --TODO: do something with it
   number_clusters = request.args.get('clusters', default=5)
@@ -115,13 +117,13 @@ def produceImageBS(imageurl):
 def getBS_img_multi():
   import base64
   
-  defaultURL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
+  DEFAULT_URL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
   
-  imageurl = request.args.get('imageurl', default=defaultURL)
+  imageurl = request.args.get('imageurl', default=DEFAULT_URL)
   #remove quotes in url if any
   imageurl = imageurl.strip('"').strip('\'')
   if not imageurl.startswith("http"):
-    imageurl = defaultURL
+    imageurl = DEFAULT_URL
   
   #number of clustering versions to show
   number_iter = request.args.get('iter', default=5, type=int)

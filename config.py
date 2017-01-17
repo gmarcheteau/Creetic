@@ -5,7 +5,9 @@ import os
 #non-sensitive stuff
 MIN_CLUSTERS = 3
 MAX_CLUSTERS = 5
-  
+DEFAULT_URL = "https://upload.wikimedia.org/wikipedia/commons/6/69/VanGogh-starry_night_edit.jpg"
+#DEFAULT_URL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
+
 #check if running on Heroku
 IS_HEROKU = os.environ.get('IS_HEROKU', None)
 

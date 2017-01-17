@@ -6,12 +6,9 @@ import bsgenerator as bs
 import bsgenerator_en as bs_en
 import random
 
-from config import MIN_CLUSTERS,MAX_CLUSTERS
+from config import MIN_CLUSTERS,MAX_CLUSTERS, DEFAULT_URL
 
-defaultURL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
-
-
-def commentOnImage(url=defaultURL):
+def commentOnImage(url=DEFAULT_URL):
   
   if not url:
     return "Hmm, I need an image to comment on, sorry."
@@ -67,7 +64,7 @@ def commentOnImage(url=defaultURL):
   
     return response
 
-def commentOnImageFullMode(url=defaultURL,number_iter=1,SHOW_SIMPLER_IMAGES=False):
+def commentOnImageFullMode(url=DEFAULT_URL,number_iter=1,SHOW_SIMPLER_IMAGES=False):
   maincolors =[]
   silhouettescores = []
   simplerimages = []
@@ -141,8 +138,7 @@ def commentOnImageFullMode(url=defaultURL,number_iter=1,SHOW_SIMPLER_IMAGES=Fals
 def getURLfromUser():
   #get from user
   url = raw_input("Image URL: ")
-  #"http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
-  
+ 
   #default url is invalid or no input
   if (len(url)<2):
     url="http://www.fondationlouisvuitton.fr/content/flvinternet/fr/expositions/exposition-les-clefs-d-une-passion/la-danse-d-henri-matisse/_jcr_content/content/columncontrol_8b3e/leftG6/image_2398.flvcrop.980.5000.jpeg"
