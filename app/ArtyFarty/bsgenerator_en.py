@@ -50,7 +50,7 @@ nouns = np.array([
 colorlocutions = np.array([
   'combined with the use of colors such as',
   'through a signigicant use of',
-  'made obvious by touches of',
+  'evidenced by touches of',
   'which derives from the predominance of',
   'even with the use of colors such as',
   'considering the resort to tones like',
