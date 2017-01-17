@@ -23,7 +23,7 @@ def getMsgs():
       #typ, data = conn.store(num,'-FLAGS','\\Seen')
       yield msg
 
-  except Exception as err:
+  except imaplib.IMAP4.error as err:
     print "Error in getMsgs() -- %s" %str(err)
 
 def getAttachment(msg,check):

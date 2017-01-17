@@ -6,6 +6,7 @@ IS_HEROKU = os.environ.get('IS_HEROKU', None)
 
 #if running on Heroku
 if IS_HEROKU:
+  print "Heorku env -- importing variables"
   IMAP_LOGIN = os.environ.get('IMAP_LOGIN', None)
   IMAP_PASSWORD = os.environ.get('IMAP_PASSWORD', None)
   WTF_CSRF_ENABLED = os.environ.get('WTF_CSRF_ENABLED', True)
