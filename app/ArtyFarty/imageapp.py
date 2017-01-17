@@ -1,5 +1,4 @@
 import clustercolors
-import colornames
 import processimage
 import drawing
 import numpy as np
