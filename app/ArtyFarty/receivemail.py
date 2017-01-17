@@ -9,7 +9,7 @@ file_extensions = ('.jpg','.JPG','.png','.PNG','.jpeg','.JPEG','.gif','.GIF')
 def getMsgs():
   servername="imap.gmail.com"
   usernm = IMAP_LOGIN
-  passwd = IMAP_PASSWORD
+  passwd =
   #subject = 'Test'
   conn = imaplib.IMAP4_SSL(servername)
   conn.login(usernm,passwd)
@@ -32,8 +32,8 @@ def checkNewMailWithImages():
   newMessages = []
   try:
     print "IMAP settings"
-    print usernm
-    print passwd
+    print IMAP_LOGIN
+    print IMAP_PASSWORD
     
     for msg in getMsgs():
       fromaddr = email.utils.parseaddr(msg['From'])[1]
