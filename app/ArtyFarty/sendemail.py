@@ -7,16 +7,15 @@
 attachments = []
 
 import os
-ENVIRONMENT = os.environ.get('ENVIRONMENT', None)
+IS_HEROKU = os.environ.get('IS_HEROKU', None)
 
-if ENVIRONMENT == "PROD":
-  print "Env: %s" %ENVIRONMENT
+#if running on Heroku
+if IS_HEROKU:
   username = os.environ.get('IMAP_LOGIN', None)
   password = os.environ.get('IMAP_PASSWORD', None)
 
 else:
   from config import ENVIRONMENT,IMAP_LOGIN,IMAP_PASSWORD
-  print "Env: %s" %ENVIRONMENT
   username = IMAP_LOGIN
   password = IMAP_PASSWORD
 
