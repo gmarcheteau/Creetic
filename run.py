@@ -2,6 +2,12 @@
 from app import app
 import argparse
 import os
+import sys
+import logging
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
+
 port = int(os.getenv('PORT', 5000))
 print "Starting app on port %d" % port
 

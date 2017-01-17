@@ -179,7 +179,7 @@ def getURL():
         return redirect(url_for('getBS_img',imageurl = form.url.data))
     return render_template('enterurl.html', form=form)
 
-@app.route('/checkmail', methods=['GET'])
+@app.route('/checkmail', methods=['GET','POST'])
 def checkmail():
   try:
     newMessages = receivemail.checkNewMailWithImages()
