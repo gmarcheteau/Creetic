@@ -30,28 +30,33 @@ def getAttachment(msg,check):
 
 def checkNewMailWithImages():
   newMessages = []
-  for msg in getMsgs():
-    fromaddr = email.utils.parseaddr(msg['From'])[1]
-    print "Message from: %s" %fromaddr
-    payload = getAttachment(msg,lambda x: x.endswith(file_extensions))
-    if not payload:
-      print "No image attachment."
-      continue
-    try:
-      rand = random.randint(0,999999)
-      filename = "image%d.jpg" %rand
-      filepath = os.path.abspath("app/static/images/%s" %filename)
-      while os.path.exists(filepath):
-        rand += 1
-        print "%s already existed, trying the next number" % filepath
+  try:
+    for msg in getMsgs():
+      fromaddr = email.utils.parseaddr(msg['From'])[1]
+      print "Message from: %s" %fromaddr
+      payload = getAttachment(msg,lambda x: x.endswith(file_extensions))
+      if not payload:
+        print "No image attachment."
+        continue
+      try:
+        rand = random.randint(0,999999)
         filename = "image%d.jpg" %rand
         filepath = os.path.abspath("app/static/images/%s" %filename)
-      
-      open(filepath,'w').write(payload)
-      print "Writing to %s" % filepath
-      newMessages.append(
-        {"fromaddr":fromaddr,"imageurl":filepath})
-    except Exception as err:
-      print str(err)
-  print newMessages
-  return newMessages
+        while os.path.exists(filepath):
+          rand += 1
+          print "%s already existed, trying the next number" % filepath
+          filename = "image%d.jpg" %rand
+          filepath = os.path.abspath("app/static/images/%s" %filename)
+        
+        open(filepath,'w').write(payload)
+        print "Writing to %s" % filepath
+        newMessages.append(
+          {"fromaddr":fromaddr,"imageurl":filepath})
+      except Exception as err:
+        print str(err)
+    print newMessages
+    return newMessages
+    
+  except Exception as err:
+    print "Error in checkNewMailWithImages() -- %s" %str(err)
+    return []
