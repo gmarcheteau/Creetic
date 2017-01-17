@@ -24,7 +24,8 @@ def getMsgs():
       yield msg
 
   except imaplib.IMAP4.error as err:
-    print "Error in getMsgs() -- %s" %str(err)
+    err = ", ".join(a.decode("utf8") for a in err.args)
+    print "Error in getMsgs() -- %s" %err
 
 def getAttachment(msg,check):
   for part in msg.walk():
