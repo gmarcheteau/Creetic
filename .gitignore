@@ -17,4 +17,4 @@ tmp/*
 
 #config file
 .env
-.localconfig
+localconfig.py
