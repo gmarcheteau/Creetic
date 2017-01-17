@@ -7,25 +7,25 @@ from config import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY
 file_extensions = ('.jpg','.JPG','.png','.PNG','.jpeg','.JPEG','.gif','.GIF')
 
 def getMsgs():
+  servername="imap.gmail.com"
+  usernm = IMAP_LOGIN
+  passwd = IMAP_PASSWORD
+  #subject = 'Test'
   try:
-    servername="imap.gmail.com"
-    usernm = IMAP_LOGIN
-    passwd = IMAP_PASSWORD
-    #subject = 'Test'
     conn = imaplib.IMAP4_SSL(servername)
     conn.login(usernm,passwd)
-    conn.select('Inbox')
-    typ, data = conn.search(None,'(UNSEEN)')
-    #typ, data = conn.search(None,'(UNSEEN SUBJECT "%s")' % subject)
-    for num in data[0].split():
-      typ, data = conn.fetch(num,'(RFC822)')
-      msg = email.message_from_string(data[0][1])
-      #typ, data = conn.store(num,'-FLAGS','\\Seen')
-      yield msg
-
   except imaplib.IMAP4.error as err:
     err = ", ".join(a.decode("utf8") for a in err.args)
     print "Error in getMsgs() -- %s" %err
+  
+  conn.select('Inbox')
+  typ, data = conn.search(None,'(UNSEEN)')
+  #typ, data = conn.search(None,'(UNSEEN SUBJECT "%s")' % subject)
+  for num in data[0].split():
+    typ, data = conn.fetch(num,'(RFC822)')
+    msg = email.message_from_string(data[0][1])
+    #typ, data = conn.store(num,'-FLAGS','\\Seen')
+    yield msg
 
 def getAttachment(msg,check):
   for part in msg.walk():
