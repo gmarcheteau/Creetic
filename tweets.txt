@@ -1,137 +1,1405 @@
 
 
+date: 2017-01-20 13:44:50
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 11:55:37
+tweet id: 822412263193714689
+user: ArtyFarty7
+tweet: @ArtyFarty7 Some will claim that the softness of the angles does nothing but accentuate the structure of this work. This i... #ArtyFarty
+
+date: 2017-01-20 11:54:00
+tweet id: 822411854953771009
+user: ArtyFarty7
+tweet: @ArtyFarty7 Let's face it: the cynism with which the shadows are neglected is in contradiction with the swirling symmetry ... #ArtyFarty
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 11:55:37
+tweet id: 822412263193714689
+user: ArtyFarty7
+tweet: @ArtyFarty7 Some will claim that the softness of the angles does nothing but accentuate the structure of this work. This i... #ArtyFarty
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 11:55:37
+tweet id: 822412263193714689
+user: ArtyFarty7
+tweet: @ArtyFarty7 Some will claim that the softness of the angles does nothing but accentuate the structure of this work. This i... #ArtyFarty
+
+date: 2017-01-20 11:54:00
+tweet id: 822411854953771009
+user: ArtyFarty7
+tweet: @ArtyFarty7 Let's face it: the cynism with which the shadows are neglected is in contradiction with the swirling symmetry ... #ArtyFarty
+
+date: 2017-01-18 17:09:39
+tweet id: 821766514575556609
+user: ArtyFarty7
+tweet: Boogiedown autotweet! @ArtyFarty7
+
+date: 2017-01-18 16:41:12
+tweet id: 821759355821428736
+user: ArtyFarty7
+tweet: This is a mention to @ArtyFarty7
+
+date: 2017-01-18 16:34:49
+tweet id: 821757746844463105
+user: ArtyFarty7
+tweet: @ArtyFarty7 autoautomention
+
+date: 2017-01-18 16:29:54
+tweet id: 821756513425489924
+user: ArtyFarty7
+tweet: @ArtyFarty7 automention
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 11:55:37
+tweet id: 822412263193714689
+user: ArtyFarty7
+tweet: @ArtyFarty7 Some will claim that the softness of the angles does nothing but accentuate the structure of this work. This i... #ArtyFarty
+
+date: 2017-01-20 11:54:00
+tweet id: 822411854953771009
+user: ArtyFarty7
+tweet: @ArtyFarty7 Let's face it: the cynism with which the shadows are neglected is in contradiction with the swirling symmetry ... #ArtyFarty
+
+date: 2017-01-18 17:09:39
+tweet id: 821766514575556609
+user: ArtyFarty7
+tweet: Boogiedown autotweet! @ArtyFarty7
+
+date: 2017-01-18 16:41:12
+tweet id: 821759355821428736
+user: ArtyFarty7
+tweet: This is a mention to @ArtyFarty7
+
+date: 2017-01-18 16:34:49
+tweet id: 821757746844463105
+user: ArtyFarty7
+tweet: @ArtyFarty7 autoautomention
+
+date: 2017-01-18 16:29:54
+tweet id: 821756513425489924
+user: ArtyFarty7
+tweet: @ArtyFarty7 automention
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:32:14
+tweet id: 822421475844116480
+user: ArtyFarty7
+tweet: @ArtyFarty7 As usual, the multiplicity of exogeneous constraints is incompatible with this warm light - which, a...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-20 12:30:15
+tweet id: 822420975534927872
+user: ArtyFarty7
+tweet: @ArtyFarty7 No doubt that the swirling symmetry hides the antagonism of most elements of the structural system. ...goo.gl/AegUWZ  #ArtyFarty
+
+date: 2017-01-24 19:03:15
+tweet id: 823969430807855104
+user: GildeaGallery
+tweet: Live at Gildea Gallery in #KeyWest with John Martini #Art #ArtGallery #ModernArt #ContemporaryArt https://t.co/uu2FfOmQPk
+
+date: 2017-01-24 19:01:57
+tweet id: 823969102486269952
+user: lukehaigh7
+tweet: https://t.co/s4phXvvkk9 
+#modernart #yorkshire #web #modern #abstractart #art #artist #gallery #abstractartist… https://t.co/BsAnN1IhCH
+
+date: 2017-01-24 19:01:39
+tweet id: 823969029882662912
+user: AmosMostert
+tweet: #Smithsonian_American_Art_Museum Names #Stephanie_Stebich… https://t.co/lkuWV3Qa4q #Art #contemporaryart #abstractart #modernart #visualart
+
+date: 2017-01-24 19:00:16
+tweet id: 823968680157605888
+user: DividualNotes
+tweet: #modernart Frits van den Berghe 'The accident' 50 x 66,5 cm, Oil on paper on panel, 1928 https://t.co/TO8RJcUDdb
+
+date: 2017-01-24 18:58:11
+tweet id: 823968154820804608
+user: terry_perrin3
+tweet: RT @ArtbyPerrin: #sphere of #light #lightart #artist #modernart #metalic #print https://t.co/gh220pdLAK
+
+date: 2017-01-24 18:57:39
+tweet id: 823968021295337473
+user: mkolean3
+tweet: RT @85714286e: https://t.co/ANBInh0LMZ    #artwork #art #oilpainting #sculpture #penink #fineart #orangecountryartist #modernart #drawing #…
+
+date: 2017-01-24 18:57:08
+tweet id: 823967889162178560
+user: RutheBartlett
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:56:40
+tweet id: 823967772627636224
+user: RutheBartlett
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:53:00
+tweet id: 823966849675055104
+user: ArtbyPerrin
+tweet: #sphere of #light #lightart #artist #modernart #metalic #print https://t.co/gh220pdLAK
+
+date: 2017-01-24 18:49:18
+tweet id: 823965919743459328
+user: billyanania
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:48:12
+tweet id: 823965643812655104
+user: AdamAmosArtist
+tweet: #FILM: A Dangerous Method: Tony Pipolo on Asghar Farhadi’s… https://t.co/4bEaGHMuaQ #Art #contemporaryart… https://t.co/ZuPF8xxifs
+
+date: 2017-01-24 18:48:10
+tweet id: 823965633763102722
+user: AdamAmosArtist
+tweet: #NEWS: Moshe Gershuni (1936–2017): Haaretz https://t.co/BnvqljBfTK #Art #contemporaryart #abstractart #visualart… https://t.co/JEfqKbb87N
+
+date: 2017-01-24 18:45:11
+tweet id: 823964882089504768
+user: fultonsfineart
+tweet: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio… https://t.co/cSYhktFbhc
+
+date: 2017-01-24 18:44:43
+tweet id: 823964766519627776
+user: fultonsfineart
+tweet: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio… https://t.co/UmWsOzfdzr
+
+date: 2017-01-24 18:42:05
+tweet id: 823964105740615685
+user: bodo_craftart
+tweet: RT @Afriqworldart: Femme Africaine - Unkown, Congo - https://t.co/qpaF4tFSwe #africanart #painting #beauty #artforsale #modernart #contempo…
+
+date: 2017-01-24 19:03:15
+tweet id: 823969430807855104
+user: GildeaGallery
+tweet: Live at Gildea Gallery in #KeyWest with John Martini #Art #ArtGallery #ModernArt #ContemporaryArt https://t.co/uu2FfOmQPk
+
+date: 2017-01-24 19:01:57
+tweet id: 823969102486269952
+user: lukehaigh7
+tweet: https://t.co/s4phXvvkk9 
+#modernart #yorkshire #web #modern #abstractart #art #artist #gallery #abstractartist… https://t.co/BsAnN1IhCH
+
+date: 2017-01-24 19:01:39
+tweet id: 823969029882662912
+user: AmosMostert
+tweet: #Smithsonian_American_Art_Museum Names #Stephanie_Stebich… https://t.co/lkuWV3Qa4q #Art #contemporaryart #abstractart #modernart #visualart
+
+date: 2017-01-24 19:00:16
+tweet id: 823968680157605888
+user: DividualNotes
+tweet: #modernart Frits van den Berghe 'The accident' 50 x 66,5 cm, Oil on paper on panel, 1928 https://t.co/TO8RJcUDdb
+
+date: 2017-01-24 18:58:11
+tweet id: 823968154820804608
+user: terry_perrin3
+tweet: RT @ArtbyPerrin: #sphere of #light #lightart #artist #modernart #metalic #print https://t.co/gh220pdLAK
+
+date: 2017-01-24 18:57:39
+tweet id: 823968021295337473
+user: mkolean3
+tweet: RT @85714286e: https://t.co/ANBInh0LMZ    #artwork #art #oilpainting #sculpture #penink #fineart #orangecountryartist #modernart #drawing #…
+
+date: 2017-01-24 18:57:08
+tweet id: 823967889162178560
+user: RutheBartlett
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:56:40
+tweet id: 823967772627636224
+user: RutheBartlett
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:53:00
+tweet id: 823966849675055104
+user: ArtbyPerrin
+tweet: #sphere of #light #lightart #artist #modernart #metalic #print https://t.co/gh220pdLAK
+
+date: 2017-01-24 18:49:18
+tweet id: 823965919743459328
+user: billyanania
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:48:12
+tweet id: 823965643812655104
+user: AdamAmosArtist
+tweet: #FILM: A Dangerous Method: Tony Pipolo on Asghar Farhadi’s… https://t.co/4bEaGHMuaQ #Art #contemporaryart… https://t.co/ZuPF8xxifs
+
+date: 2017-01-24 18:48:10
+tweet id: 823965633763102722
+user: AdamAmosArtist
+tweet: #NEWS: Moshe Gershuni (1936–2017): Haaretz https://t.co/BnvqljBfTK #Art #contemporaryart #abstractart #visualart… https://t.co/JEfqKbb87N
+
+date: 2017-01-24 18:45:11
+tweet id: 823964882089504768
+user: fultonsfineart
+tweet: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio… https://t.co/cSYhktFbhc
+
+date: 2017-01-24 18:44:43
+tweet id: 823964766519627776
+user: fultonsfineart
+tweet: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio… https://t.co/UmWsOzfdzr
+
+date: 2017-01-24 18:42:05
+tweet id: 823964105740615685
+user: bodo_craftart
+tweet: RT @Afriqworldart: Femme Africaine - Unkown, Congo - https://t.co/qpaF4tFSwe #africanart #painting #beauty #artforsale #modernart #contempo…
+
+date: 2017-01-24 19:03:15
+tweet id: 823969430807855104
+user: GildeaGallery
+tweet: Live at Gildea Gallery in #KeyWest with John Martini #Art #ArtGallery #ModernArt #ContemporaryArt https://t.co/uu2FfOmQPk
+
+date: 2017-01-24 19:01:57
+tweet id: 823969102486269952
+user: lukehaigh7
+tweet: https://t.co/s4phXvvkk9 
+#modernart #yorkshire #web #modern #abstractart #art #artist #gallery #abstractartist… https://t.co/BsAnN1IhCH
+
+date: 2017-01-24 19:01:39
+tweet id: 823969029882662912
+user: AmosMostert
+tweet: #Smithsonian_American_Art_Museum Names #Stephanie_Stebich… https://t.co/lkuWV3Qa4q #Art #contemporaryart #abstractart #modernart #visualart
+
+date: 2017-01-24 19:00:16
+tweet id: 823968680157605888
+user: DividualNotes
+tweet: #modernart Frits van den Berghe 'The accident' 50 x 66,5 cm, Oil on paper on panel, 1928 https://t.co/TO8RJcUDdb
+
+date: 2017-01-24 18:58:11
+tweet id: 823968154820804608
+user: terry_perrin3
+tweet: RT @ArtbyPerrin: #sphere of #light #lightart #artist #modernart #metalic #print https://t.co/gh220pdLAK
+
+date: 2017-01-24 18:57:39
+tweet id: 823968021295337473
+user: mkolean3
+tweet: RT @85714286e: https://t.co/ANBInh0LMZ    #artwork #art #oilpainting #sculpture #penink #fineart #orangecountryartist #modernart #drawing #…
+
+date: 2017-01-24 18:57:08
+tweet id: 823967889162178560
+user: RutheBartlett
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:56:40
+tweet id: 823967772627636224
+user: RutheBartlett
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:53:00
+tweet id: 823966849675055104
+user: ArtbyPerrin
+tweet: #sphere of #light #lightart #artist #modernart #metalic #print https://t.co/gh220pdLAK
+
+date: 2017-01-24 18:49:18
+tweet id: 823965919743459328
+user: billyanania
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 18:48:12
+tweet id: 823965643812655104
+user: AdamAmosArtist
+tweet: #FILM: A Dangerous Method: Tony Pipolo on Asghar Farhadi’s… https://t.co/4bEaGHMuaQ #Art #contemporaryart… https://t.co/ZuPF8xxifs
+
+date: 2017-01-24 18:48:10
+tweet id: 823965633763102722
+user: AdamAmosArtist
+tweet: #NEWS: Moshe Gershuni (1936–2017): Haaretz https://t.co/BnvqljBfTK #Art #contemporaryart #abstractart #visualart… https://t.co/JEfqKbb87N
+
+date: 2017-01-24 18:45:11
+tweet id: 823964882089504768
+user: fultonsfineart
+tweet: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio… https://t.co/cSYhktFbhc
+
+date: 2017-01-24 18:44:43
+tweet id: 823964766519627776
+user: fultonsfineart
+tweet: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio… https://t.co/UmWsOzfdzr
+
+date: 2017-01-24 18:42:05
+tweet id: 823964105740615685
+user: bodo_craftart
+tweet: RT @Afriqworldart: Femme Africaine - Unkown, Congo - https://t.co/qpaF4tFSwe #africanart #painting #beauty #artforsale #modernart #contempo…
+
+date: 2017-01-24 19:07:45
+tweet id: 823970561869103105
+user: evrythingknown
+tweet: RT @GildeaGallery: Live at Gildea Gallery in #KeyWest with John Martini #Art #ArtGallery #ModernArt #ContemporaryArt https://t.co/uu2FfOmQPk
+
+date: 2017-01-24 19:07:45
+tweet id: 823970561869103105
+user: evrythingknown
+tweet: RT @GildeaGallery: Live at Gildea Gallery in #KeyWest with John Martini #Art #ArtGallery #ModernArt #ContemporaryArt https://t.co/uu2FfOmQPk
+
+date: 2017-01-24 19:07:45
+tweet id: 823970561869103105
+user: evrythingknown
+tweet: RT @GildeaGallery: Live at Gildea Gallery in #KeyWest with John Martini #Art #ArtGallery #ModernArt #ContemporaryArt https://t.co/uu2FfOmQPk
+
+date: 2017-01-24 19:12:29
+tweet id: 823971754133622789
+user: AldanaRamone
+tweet: RT @RClaremont: “moran parade” A sunny #painting to brighten your #afternoons.
+#oilpaintings #oilpainter #modernart https://t.co/atTEkhi05h
+
+date: 2017-01-24 19:07:45
+tweet id: 823970561869103105
+user: evrythingknown
+tweet: RT @GildeaGallery: Live at Gildea Gallery in #KeyWest with John Martini #Art #ArtGallery #ModernArt #ContemporaryArt https://t.co/uu2FfOmQPk
+
+date: 2017-01-24 19:13:38
+tweet id: 823972045075738624
+user: _malumarco
+tweet: RT @DavidMankinArt: A recent work on paper using acrylic, pastel and graphite #abstractart #artist #modernart #abstractexpressionism #conte…
+
+date: 2017-01-24 19:14:14
+tweet id: 823972192803123200
+user: AmosMostert
+tweet: Dozens Of London Live #Music Venues Have Closed In The… https://t.co/20TU9YNC3D #Art #contemporaryart #abstractart… https://t.co/oPm7u4s2Hu
+
+date: 2017-01-24 19:15:10
+tweet id: 823972428485365761
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @SWTSTF1222 Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:15:07
+tweet id: 823972415432695808
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @murkyart Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:15:03
+tweet id: 823972400970743808
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @Youcangougeaway Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpression…
+
+date: 2017-01-24 19:15:00
+tweet id: 823972387154784256
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @segniesogniarte Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpression…
+
+date: 2017-01-24 19:14:31
+tweet id: 823972267507990529
+user: poncemarta6
+tweet: RT @fultonsfineart: Alchemy of the soul #fultonsfineart #painting #fluidpainting #fluidart #abstractart #abstract #modernart #studio #walla…
+
+date: 2017-01-24 19:14:14
+tweet id: 823972192803123200
+user: AmosMostert
+tweet: Dozens Of London Live #Music Venues Have Closed In The… https://t.co/20TU9YNC3D #Art #contemporaryart #abstractart… https://t.co/oPm7u4s2Hu
+
+date: 2017-01-24 19:14:10
+tweet id: 823972177871454208
+user: AdamAmosArtist
+tweet: Dozens Of London Live #Music Venues Have Closed In The… https://t.co/ab9tXHI4Bb  #Art #contemporaryart #abstractart… https://t.co/5Mjcboz7iS
+
+date: 2017-01-24 19:13:38
+tweet id: 823972045075738624
+user: _malumarco
+tweet: RT @DavidMankinArt: A recent work on paper using acrylic, pastel and graphite #abstractart #artist #modernart #abstractexpressionism #conte…
+
+date: 2017-01-24 19:12:29
+tweet id: 823971754133622789
+user: AldanaRamone
+tweet: RT @RClaremont: “moran parade” A sunny #painting to brighten your #afternoons.
+#oilpaintings #oilpainter #modernart https://t.co/atTEkhi05h
+
+date: 2017-01-24 19:07:45
+tweet id: 823970561869103105
+user: evrythingknown
+tweet: RT @GildeaGallery: Live at Gildea Gallery in #KeyWest with John Martini #Art #ArtGallery #ModernArt #ContemporaryArt https://t.co/uu2FfOmQPk
+
+date: 2017-01-24 19:18:54
+tweet id: 823973368382816256
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @AkshaySymonds Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:23:05
+tweet id: 823974420427337728
+user: AlvarezA9
+tweet: RT @Afriqworldart: Femme Africaine - Unkown, Congo - https://t.co/qpaF4tFSwe #africanart #painting #beauty #artforsale #modernart #contempo…
+
+date: 2017-01-24 19:23:07
+tweet id: 823974430548328448
+user: hana_shohei
+tweet: #drawing #art #contemporaryart #modernart #bw #bnw #monochrome #ドローイング　#モノクローム　#モノクロ　#現代アー… https://t.co/HTFfuJ9vEA https://t.co/ZP6xW2BUvU
+
+date: 2017-01-24 19:23:07
+tweet id: 823974430548328448
+user: hana_shohei
+tweet: #drawing #art #contemporaryart #modernart #bw #bnw #monochrome #ドローイング　#モノクローム　#モノクロ　#現代アー… https://t.co/HTFfuJ9vEA https://t.co/ZP6xW2BUvU
+
+date: 2017-01-24 19:23:05
+tweet id: 823974420427337728
+user: AlvarezA9
+tweet: RT @Afriqworldart: Femme Africaine - Unkown, Congo - https://t.co/qpaF4tFSwe #africanart #painting #beauty #artforsale #modernart #contempo…
+
+date: 2017-01-24 19:21:39
+tweet id: 823974062540066825
+user: ebmoura5
+tweet: RT @XW_digitalart: #xworking
+#Artist #Community ✦ #Art #Magazine
+JOIN NOW ► https://t.co/SrWdj9ZLog
+
+#artists
+#traditional
+#modernart
+#digi…
+
+date: 2017-01-24 19:18:54
+tweet id: 823973368382816256
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @AkshaySymonds Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:18:50
+tweet id: 823973353514008576
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @MaryJane_Bilder Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpression…
+
+date: 2017-01-24 19:18:46
+tweet id: 823973335008768002
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @jpd911c Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:18:43
+tweet id: 823973320852983808
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @roningio Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:18:39
+tweet id: 823973305522720768
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @dilek_art_world Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpression…
+
+date: 2017-01-24 19:18:33
+tweet id: 823973278922473473
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @BasilGentleman Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressioni…
+
+date: 2017-01-24 19:18:29
+tweet id: 823973262816374784
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @KOMImages Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:18:25
+tweet id: 823973246664118272
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @orit_martin Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:18:21
+tweet id: 823973228913762309
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @tayhil63 Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:18:14
+tweet id: 823973201101340673
+user: maurogab1
+tweet: RT @SantanielloArt: Hungry &amp; fool: #Elvis @SaatchiArt https://t.co/DDjJK3fKJj #damienhirst #popart #artlovers #painting #modernart #contemp…
+
+date: 2017-01-24 19:18:14
+tweet id: 823973199419469825
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @aestho Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:18:10
+tweet id: 823973183053328384
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @Art_Integral Opening the gate https://t.co/MRS8FezuYd  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 18:58:17
+tweet id: 823968178648809474
+user: poncemarta6
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 15:40:20
+tweet id: 823918365551063042
+user: felicitykeefe
+tweet: RT @DividualNotes: #installation #art Cornelia Parker
+Cold Dark Matter: An Exploded View 1991
+© Cornelia Parker https://t.co/njNjT3kbkx
+
+date: 2017-01-24 13:55:07
+tweet id: 823891887555809281
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @DividualNotes Opening the gate https://t.co/SqCgyRBQo8  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-23 21:43:31
+tweet id: 823647375709175808
+user: pengingasasurau
+tweet: RT @DividualNotes: "Hidden' BERLINDE DE BRUYCKERE: one of her impressive #sculptures, presenting the human body in its raw beauty and vulne…
+
+date: 2017-01-23 13:19:06
+tweet id: 823520436059336705
+user: rpwilli23
+tweet: RT @itsnotunusual2: @RekaJellema @idunart @DividualNotes @GeertHermsen @eleanoradairart @catartgirl @BeaLast Love those cobra artists! http…
+
+date: 2017-01-23 09:50:10
+tweet id: 823467853575815168
+user: Art0fMary
+tweet: RT @DividualNotes: #shortstory The Park - Dividual Notes https://t.co/09fkyPLtF9 https://t.co/wKIeEJISpS
+
+date: 2017-01-23 09:49:29
+tweet id: 823467681474973696
+user: Art0fMary
+tweet: RT @DividualNotes: #modernart Philip Guston The Studio 1969 oil on canvas 48 in. x 42 in. https://t.co/zmoagIxSJj
+
+date: 2017-01-23 09:49:19
+tweet id: 823467641897676800
+user: Art0fMary
+tweet: RT @DividualNotes: #contemporaryart Pinturas de Carlos Alonso | Pintura y Artistas https://t.co/ZzNSwepkUP https://t.co/a83LIBYJn9
+
+date: 2017-01-23 09:34:41
+tweet id: 823463958027915264
+user: mimuluxArt
+tweet: RT @DividualNotes: #outsiderart Gustavo Ortiz - Forgotten People | Patternbank https://t.co/kS8f9jSWUi https://t.co/Nnd9Zijgq4
+
+date: 2017-01-23 04:47:55
+tweet id: 823391789893713922
+user: STUDIODOON
+tweet: @DividualNotes @gayle_dallas "murderous" to borrow @GalaxyKate 's expression ...
+
+date: 2017-01-23 03:42:28
+tweet id: 823375318832410624
+user: JayJaymarvin
+tweet: RT @DividualNotes: #modernart Philip Guston The Studio 1969 oil on canvas 48 in. x 42 in. https://t.co/zmoagIxSJj
+
+date: 2017-01-23 02:53:23
+tweet id: 823362966758326274
+user: gayle_dallas
+tweet: RT @DividualNotes: #art William Kentridge, Project Drawing: Man in Sandals, 1998. Watercolour, pastel, ink and charcoal on paper, 234.9 x 1…
+
+date: 2017-01-22 23:19:03
+tweet id: 823309030319718400
+user: okayamapc
+tweet: RT @DividualNotes: #installation #art Cornelia Parker
+Cold Dark Matter: An Exploded View 1991
+© Cornelia Parker https://t.co/njNjT3kbkx
+
+date: 2017-01-22 22:21:10
+tweet id: 823294463904714752
+user: kontaminiert
+tweet: RT @DividualNotes: #art Jan Fabre, The Man Writing on Water https://t.co/1HaBFAu9y4
+
+date: 2017-01-24 19:19:28
+tweet id: 823973512175960064
+user: AlvarezA9
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 18:58:17
+tweet id: 823968178648809474
+user: poncemarta6
+tweet: RT @FreeLitOrg: Thanks for RT @evertvankuijk @MargoWa21483274 @DividualNotes
+@anareypaz @pancraziovaleri @poncemarta6 @hmcmicha @GDANIELDS…
+
+date: 2017-01-24 15:40:20
+tweet id: 823918365551063042
+user: felicitykeefe
+tweet: RT @DividualNotes: #installation #art Cornelia Parker
+Cold Dark Matter: An Exploded View 1991
+© Cornelia Parker https://t.co/njNjT3kbkx
+
+date: 2017-01-24 13:55:07
+tweet id: 823891887555809281
+user: paul_pulszartti
+tweet: RT @paul_pulszartti: @DividualNotes Opening the gate https://t.co/SqCgyRBQo8  #abstractart #paulpulszartti #modernart #abstractexpressionism
+
+date: 2017-01-23 21:43:31
+tweet id: 823647375709175808
+user: pengingasasurau
+tweet: RT @DividualNotes: "Hidden' BERLINDE DE BRUYCKERE: one of her impressive #sculptures, presenting the human body in its raw beauty and vulne…
+
+date: 2017-01-23 13:19:06
+tweet id: 823520436059336705
+user: rpwilli23
+tweet: RT @itsnotunusual2: @RekaJellema @idunart @DividualNotes @GeertHermsen @eleanoradairart @catartgirl @BeaLast Love those cobra artists! http…
+
+date: 2017-01-23 09:50:10
+tweet id: 823467853575815168
+user: Art0fMary
+tweet: RT @DividualNotes: #shortstory The Park - Dividual Notes https://t.co/09fkyPLtF9 https://t.co/wKIeEJISpS
+
+date: 2017-01-23 09:49:29
+tweet id: 823467681474973696
+user: Art0fMary
+tweet: RT @DividualNotes: #modernart Philip Guston The Studio 1969 oil on canvas 48 in. x 42 in. https://t.co/zmoagIxSJj
+
+date: 2017-01-23 09:49:19
+tweet id: 823467641897676800
+user: Art0fMary
+tweet: RT @DividualNotes: #contemporaryart Pinturas de Carlos Alonso | Pintura y Artistas https://t.co/ZzNSwepkUP https://t.co/a83LIBYJn9
+
+date: 2017-01-23 09:34:41
+tweet id: 823463958027915264
+user: mimuluxArt
+tweet: RT @DividualNotes: #outsiderart Gustavo Ortiz - Forgotten People | Patternbank https://t.co/kS8f9jSWUi https://t.co/Nnd9Zijgq4
+
+date: 2017-01-23 04:47:55
+tweet id: 823391789893713922
+user: STUDIODOON
+tweet: @DividualNotes @gayle_dallas "murderous" to borrow @GalaxyKate 's expression ...
+
+date: 2017-01-23 03:42:28
+tweet id: 823375318832410624
+user: JayJaymarvin
+tweet: RT @DividualNotes: #modernart Philip Guston The Studio 1969 oil on canvas 48 in. x 42 in. https://t.co/zmoagIxSJj
+
+date: 2017-01-23 02:53:23
+tweet id: 823362966758326274
+user: gayle_dallas
+tweet: RT @DividualNotes: #art William Kentridge, Project Drawing: Man in Sandals, 1998. Watercolour, pastel, ink and charcoal on paper, 234.9 x 1…
+
+date: 2017-01-22 23:19:03
+tweet id: 823309030319718400
+user: okayamapc
+tweet: RT @DividualNotes: #installation #art Cornelia Parker
+Cold Dark Matter: An Exploded View 1991
+© Cornelia Parker https://t.co/njNjT3kbkx
+
+date: 2017-01-22 22:21:10
+tweet id: 823294463904714752
+user: kontaminiert
+tweet: RT @DividualNotes: #art Jan Fabre, The Man Writing on Water https://t.co/1HaBFAu9y4
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
 date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
 user: ArtyFarty7
 tweet: hit me #ArtyFartyPlease
 
 date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
 user: ArtyFarty7
 tweet: Can I have another comment #ArtyFartyPlease?
 
-date: 2017-01-20 13:16:05
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
 user: ArtyFarty7
-tweet: hit me #ArtyFartyPlease
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
 
 date: 2017-01-20 13:16:05
-user: ArtyFarty7
-tweet: hit me #ArtyFartyPlease
-
-date: 2017-01-20 13:16:05
-user: ArtyFarty7
-tweet: hit me #ArtyFartyPlease
-
-date: 2017-01-20 13:16:05
-user: ArtyFarty7
-tweet: hit me #ArtyFartyPlease
-
-date: 2017-01-20 13:16:05
-user: ArtyFarty7
-tweet: hit me #ArtyFartyPlease
-
-date: 2017-01-20 13:16:05
-user: ArtyFarty7
-tweet: hit me #ArtyFartyPlease
-
-date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
 user: ArtyFarty7
 tweet: hit me #ArtyFartyPlease
 
 date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
 user: ArtyFarty7
 tweet: Can I have another comment #ArtyFartyPlease?
 
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
 date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
 user: ArtyFarty7
 tweet: hit me #ArtyFartyPlease
 
 date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
 user: ArtyFarty7
 tweet: Can I have another comment #ArtyFartyPlease?
 
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
 date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
 user: ArtyFarty7
 tweet: hit me #ArtyFartyPlease
 
 date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
 user: ArtyFarty7
 tweet: Can I have another comment #ArtyFartyPlease?
 
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
 date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
 user: ArtyFarty7
 tweet: hit me #ArtyFartyPlease
 
 date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
 user: ArtyFarty7
 tweet: Can I have another comment #ArtyFartyPlease?
 
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
 date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
 user: ArtyFarty7
 tweet: hit me #ArtyFartyPlease
 
 date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
 user: ArtyFarty7
 tweet: Can I have another comment #ArtyFartyPlease?
 
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
 date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
 user: ArtyFarty7
 tweet: hit me #ArtyFartyPlease
 
 date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
 user: ArtyFarty7
 tweet: Can I have another comment #ArtyFartyPlease?
 
-date: 2017-01-20 13:44:50
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
 user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
 
 date: 2017-01-20 13:44:50
-user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
-
-date: 2017-01-20 13:44:50
-user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
-
-date: 2017-01-20 13:44:50
-user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
-
-date: 2017-01-20 13:44:50
-user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
-
-date: 2017-01-20 13:44:50
-user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
-
-date: 2017-01-20 13:44:50
-user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
-
-date: 2017-01-20 13:44:50
-user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
-
-date: 2017-01-20 13:16:05
-user: ArtyFarty7
-tweet: hit me #ArtyFartyPlease
-
-date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
 user: ArtyFarty7
 tweet: One more #ArtyFartyPlease
 
 date: 2017-01-20 13:16:05
-user: ArtyFarty7
-tweet: hit me #ArtyFartyPlease
-
-date: 2017-01-20 13:44:50
-user: ArtyFarty7
-tweet: One more #ArtyFartyPlease
-
-date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
 user: ArtyFarty7
 tweet: hit me #ArtyFartyPlease
 
 date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
 user: ArtyFarty7
 tweet: Can I have another comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
+date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
+user: ArtyFarty7
+tweet: hit me #ArtyFartyPlease
+
+date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
+user: ArtyFarty7
+tweet: Can I have another comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
+date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
+user: ArtyFarty7
+tweet: hit me #ArtyFartyPlease
+
+date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
+user: ArtyFarty7
+tweet: Can I have another comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:31:37
+tweet id: 823991669183967232
+user: ArtyFarty7
+tweet: I'd love a comment on this #ArtyFartyPlease https://t.co/RpojzEuYWw
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
+date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
+user: ArtyFarty7
+tweet: hit me #ArtyFartyPlease
+
+date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
+user: ArtyFarty7
+tweet: Can I have another comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:31:37
+tweet id: 823991669183967232
+user: ArtyFarty7
+tweet: I'd love a comment on this #ArtyFartyPlease https://t.co/RpojzEuYWw
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
+date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
+user: ArtyFarty7
+tweet: hit me #ArtyFartyPlease
+
+date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
+user: ArtyFarty7
+tweet: Can I have another comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease
+
+date: 2017-01-24 20:31:37
+tweet id: 823991669183967232
+user: ArtyFarty7
+tweet: I'd love a comment on this #ArtyFartyPlease https://t.co/RpojzEuYWw
+
+date: 2017-01-24 20:02:49
+tweet id: 823984422915608576
+user: ArtyFarty7
+tweet: What do you think about this #ArtyFartyPlease? https://t.co/qj5mZh65Dx
+
+date: 2017-01-20 13:44:50
+tweet id: 822439747104677888
+user: ArtyFarty7
+tweet: One more #ArtyFartyPlease
+
+date: 2017-01-20 13:16:05
+tweet id: 822432509887647745
+user: ArtyFarty7
+tweet: hit me #ArtyFartyPlease
+
+date: 2017-01-20 12:28:01
+tweet id: 822420414408302592
+user: ArtyFarty7
+tweet: Can I have another comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:45:18
+tweet id: 822409666370170880
+user: ArtyFarty7
+tweet: But really, can I have a comment #ArtyFartyPlease?
+
+date: 2017-01-20 11:26:03
+tweet id: 822404819675742209
+user: benoitallibe
+tweet: nouveau concept marchetesque en cours de préparation... #ArtyFartyPlease
+
+date: 2017-01-20 11:19:36
+tweet id: 822403198476394496
+user: ArtyFarty7
+tweet: Can I have a comment, #ArtyFartyPlease?
+
+date: 2017-01-20 10:15:27
+tweet id: 822387055162335234
+user: ArtyFarty7
+tweet: I need a comment #ArtyFartyPlease

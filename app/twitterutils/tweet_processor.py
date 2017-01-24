@@ -17,7 +17,7 @@ from ArtyFarty import bsgenerator_en as bs_en
 ###
 
 class TwitterStreamListener(tweepy.StreamListener):
-    """ A listener handles tweets are the received from the stream.
+    """ A listener handles tweets are t received from the stream.
     """
 
     def on_status(self, status):
@@ -53,6 +53,33 @@ def get_user_mentions(tweet):
     for user_mention in tweet.entities["user_mentions"]:
       print '@%s' %user_mention["screen_name"]
 
+
+def sendCommentLink(api, picurl, to_user,status_id):
+  commenturl = buildCommentURL(picurl)
+  to_user = '@'+to_user
+  
+  text = to_user
+  text += " "
+  text += "Here's what @ArtyFarty7 thinks about your pic:"
+  text += " "
+  text += commenturl
+  
+  print "----sending tweet----"
+  print text
+  print to_user
+  print status_id
+  print "in reply to tweet %d" %status_id
+  
+  try:
+    #LIKE THE TWEET
+    api.create_favorite(status_id)
+    #SEND A REPLY
+    api.update_status(status=text,in_reply_to_status_id=status_id)
+    #api.update_status(status="tweet in response to %d" %status_id)
+    return "ok"
+  except Exception as err:
+    print "Error calling api -- %s" %str(err)
+    return "Error calling api -- %s" %str(err)
 
 def sendBSTweet(api,to_user,status_id):
   to_user = '@'+to_user
@@ -119,7 +146,8 @@ def checkTweetsAndReply(latest_tweet_processed):
     
     tweets = api.search(
       q = "#ArtyFartyPlease",
-      since_id=latest_tweet_processed)
+      since_id=latest_tweet_processed,
+      include_entities=True)
     
     ##save all to file tweets.txt
     text_file = open("tweets.txt", "a")
@@ -133,6 +161,8 @@ def checkTweetsAndReply(latest_tweet_processed):
       text_file.write('\n')
       text_file.write("date: %s" %str(tweet.created_at))
       text_file.write('\n')
+      text_file.write("tweet id: %s" %str(tweet.id))
+      text_file.write('\n')
       text_file.write("user: %s" %str(tweet.user.screen_name))
       text_file.write('\n')
       text_file.write("tweet: %s" %tweet.text.encode("utf-8"))
@@ -140,25 +170,53 @@ def checkTweetsAndReply(latest_tweet_processed):
       #update latest tweet id
       if tweet.id>latest_tweet_processed:
         latest_tweet_processed = tweet.id
-      #in_reply_to_status_id = tweet.id_str??
-      process_response = sendBSTweet(api,tweet.user.screen_name,tweet.id)
-      process_responses.append((
-        tweet.id,
-        str(tweet.created_at),
-        tweet.user.screen_name,
-        process_response
-        ))
-      
-    text_file.close()
+        
+      #CHECK IF TWEET HAS MEDIA URL
+      if "media" in tweet.entities and tweet.entities['media'][0]['media_url']:
+        for media in tweet.entities['media']:
+          #CHECK IF MEDIA IS PHOTO
+          if media["type"]=="photo":
+            print str(media)
+            #got media_url - means add it to the output
+            picurl = media['media_url']
+            commenturl = buildCommentURL(picurl)
+            print "picture in tweet: %s" %picurl
+            print "comment available on: %s" %commenturl
+            
+            #REPLY AND ADD STATUS TO PARAMETERS
+            process_response = []
+            process_response += sendCommentLink(
+              api=api,
+              picurl=picurl,
+              to_user=tweet.user.screen_name,
+              status_id=tweet.id)
+            
+            process_responses.append((
+              str(tweet.created_at),
+              tweet.user.screen_name,
+              process_response
+              ))
+          else:
+            print "media is not a photo"
+      else:
+        print "no media url found"
+        pass
     
+    text_file.close()
+  
     #save latest tweet_id to file latest_tweet_id.txt
     text_file2 = open("latest_tweet_id.txt", "w")
     text_file2.write('%d' %latest_tweet_processed)
     text_file2.close()
-    
+  
     print "latest tweet id: %d" %latest_tweet_processed
     
     return {
-      "number_tweets":len(tweets),
+      #only count tweets with images
+      "number_tweets":len(process_responses),
       "process_responses":process_responses
       }
+
+def buildCommentURL(picurl):
+  baseurl = "http://artyfarty.herokuapp.com/getbs_img?imageurl="
+  return baseurl+picurl+':medium'

@@ -234,5 +234,5 @@ def tweetCheck():
   #app.config.update(
   #  LATEST_TWEET_PROCESSED=twitter_response["latest_tweet_id"])
   
-  return "<h2>Found %d tweet(s)</h2><hr><p>Results: %s" %(twitter_response["number_tweets"],twitter_response["process_responses"])
+  return "<h2>Found %d new tweet(s) with images</h2><hr><p>Results: %s" %(twitter_response["number_tweets"],twitter_response["process_responses"])
   
