@@ -11,6 +11,7 @@ import ArtyFarty.drawing as drawing
 import ArtyFarty.imageapp as imageapp
 import ArtyFarty.sendemail as sendemail
 import ArtyFarty.receivemail as receivemail
+import twitterutils.tweet_processor as tweet_processor
 import StringIO
 import resource
 from rq import Queue
@@ -213,4 +214,25 @@ def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
                 form = imageBS["form"])
   print "http://localhostimage"+imageBS["imageurl"]
   sendemail.sendEmail(htmlmessage,toaddr)
+  
+@app.route('/tweet', methods=['GET','POST'])
+def tweetCheck():
+  #try and find latest tweet processed
+  try:
+    filename = "latest_tweet_id.txt"
+    file = open(filename, "r")
+    LATEST_TWEET_PROCESSED = int(file.read())
+    file.close()
+    
+  except Exception as err:
+    LATEST_TWEET_PROCESSED = 822387055162335234
+    print "Error opening %s -- %s" %(filename,str(err))
+  
+  #check for new tweets and process them (e.g. save and reply)
+  twitter_response = tweet_processor.checkTweetsAndReply(LATEST_TWEET_PROCESSED)
+  
+  #app.config.update(
+  #  LATEST_TWEET_PROCESSED=twitter_response["latest_tweet_id"])
+  
+  return "<h2>Found %d tweet(s)</h2><hr><p>Results: %s" %(twitter_response["number_tweets"],twitter_response["process_responses"])
   

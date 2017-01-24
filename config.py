@@ -11,6 +11,10 @@ DEFAULT_URL = "https://upload.wikimedia.org/wikipedia/commons/6/69/VanGogh-starr
 #check if running on Heroku
 IS_HEROKU = os.environ.get('IS_HEROKU', None)
 
+#TWITTER -- LATEST TWEET PROCESSED
+###NEEDS TO BE UPDATED###
+LATEST_TWEET_PROCESSED = 822387055162335231
+
 #if running on Heroku
 if IS_HEROKU:
   print "Heroku env -- importing variables"
