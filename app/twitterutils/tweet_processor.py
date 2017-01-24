@@ -5,7 +5,10 @@ import requests
 import time
 from authentication import authentication
 import os, sys
-import bsgenerator_en as bs_en
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from ArtyFarty import bsgenerator_en as bs_en
 
 #adapted from http://piratefache.ch/twitter-streaming-api-with-tweepy/
 
