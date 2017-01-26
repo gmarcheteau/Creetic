@@ -194,13 +194,18 @@ def generatePhrase(*maincolors):
   phrase = unicode(phrase, 'utf-8')
   return phrase
 
-def index():
-    """
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
-
-    if you need a simple wiki simply replace the two lines below with:
-    return auth.wiki()
-    """
-    #response.flash = T("ArtyFarty")
-    return dict(message=T(generatePhrase()))
+def generatePhrase_short(limit=116):
+  
+  bstext = generatePhrase()
+  counter = 1
+  
+  print "Generated BS #%d" %counter
+  print "Length: %d" %len(bstext)
+  
+  while len(bstext)>limit:
+    counter += 1
+    bstext = generatePhrase()
+    print "Generated BS #%d" %counter
+    print "Length: %d" %len(bstext)
+  
+  return bstext

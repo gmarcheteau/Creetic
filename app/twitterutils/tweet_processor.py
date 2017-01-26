@@ -3,8 +3,9 @@ import tweepy
 import socket
 import requests
 import time
+import tinyurl
 from authentication import authentication
-import os, sys
+import os, sys, traceback
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -13,88 +14,51 @@ from ArtyFarty import bsgenerator_en as bs_en
 #adapted from http://piratefache.ch/twitter-streaming-api-with-tweepy/
 
 ###
-#tweet_data = json.loads(tweet)  # This allows the JSON data be
+#tweet_data = json.loads(tweet)  # This allows the JSON data
 ###
-
-class TwitterStreamListener(tweepy.StreamListener):
-    """ A listener handles tweets are t received from the stream.
-    """
-
-    def on_status(self, status):
-        #print "tweet"
-        #get_text(status)
-        get_user_mentions(status)
-        get_hashtags(status)
-        #sendBSTweet(status.id, status.user.screen_name)
-
-    # Twitter error list : https://dev.twitter.com/overview/api/response-codes
-
-    def on_error(self, status_code):
-        if status_code == 403:
-            print("The request is understood, but it has been refused or access is not allowed. Limit is maybe reached")
-            return False
-
-def get_text(tweet):
-  print("Tweet Message : " + tweet.text)
-  #print("Tweet Favorited \t:" + str(tweet.favorited))
-  #print("Tweet Favorited count \t:" + str(tweet.favorite_count))
-    
-def get_hashtags(tweet):
-  # Display hashtags
-  if tweet.entities["hashtags"]:
-    print "Hashtags:"
-    for hashtag in tweet.entities["hashtags"]:
-      print '#%s' %hashtag["text"]
-
-def get_user_mentions(tweet):
-  # Display user mentions
-  if tweet.entities["user_mentions"]:
-    print "User mentions:"
-    for user_mention in tweet.entities["user_mentions"]:
-      print '@%s' %user_mention["screen_name"]
-
 
 def sendCommentLink(api, picurl, to_user,status_id):
   commenturl = buildCommentURL(picurl)
-  to_user = '@'+to_user
-  
-  text = to_user
-  text += " "
-  text += "Here's what @ArtyFarty7 thinks about your pic:"
+  #tiny url for comment link
+  commenturl = tinyurl.create_one(commenturl)
+  text =''
+  #text += '@'+to_user
+  #text += " "
+  text += bs_en.generatePhrase_short(113)
   text += " "
   text += commenturl
   
   print "----sending tweet----"
   print text
-  print to_user
-  print status_id
+  print "to user @%s" %to_user
   print "in reply to tweet %d" %status_id
   
   try:
     #LIKE THE TWEET
     api.create_favorite(status_id)
+    #CREATE FRIENDSHIP
+    api.create_friendship(to_user)
+  except Exception as err:
+    print "error with liking and friending -- %s" %str(err)
+  
+  try:
     #SEND A REPLY
-    api.update_status(status=text,in_reply_to_status_id=status_id)
+    api.update_status(
+      status=text,
+      in_reply_to_status_id=status_id,
+      auto_populate_reply_metadata=True)
     #api.update_status(status="tweet in response to %d" %status_id)
     return "ok"
   except Exception as err:
-    print "Error calling api -- %s" %str(err)
+    traceback.print_exc()
+    print "error in posting -- %s" %str(err)
     return "Error calling api -- %s" %str(err)
 
 def sendBSTweet(api,to_user,status_id):
   to_user = '@'+to_user
   
-  #TODO BETTER -- only generate short BS texts
-  bstext = bs_en.generatePhrase()
-  counter = 1
-  print "Generated BS #%d" %counter
-  print "Length: %d" %len(bstext)
-  
-  while len(bstext)>116:
-    counter += 1
-    bstext = bs_en.generatePhrase()
-    #print "Generated BS #%d" %counter
-    #print "Length: %d" %len(bstext)
+  #TODO BETTER? -- only generate short BS texts
+  bstext = bs_en.generatePhrase_short(limit=116)
   
   text = to_user
   text += ' '
@@ -134,14 +98,8 @@ def checkTweetsAndReply(latest_tweet_processed):
     auth.secure = True
     auth.set_access_token(access_token, access_token_secret)
 
-    api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, retry_count=10, retry_delay=5, retry_errors=5)
+    api = tweepy.API(auth)
 
-    '''
-    streamListener = TwitterStreamListener()
-    myStream = tweepy.Stream(auth=api.auth, listener=streamListener)
-    myStream.filter(track=['#ArtyFartyPlease'], async=True)
-    '''
-    
     #since_id -- need to store latest tweet in order to not respond multiple times
     
     tweets = api.search(
@@ -179,9 +137,7 @@ def checkTweetsAndReply(latest_tweet_processed):
             print str(media)
             #got media_url - means add it to the output
             picurl = media['media_url']
-            commenturl = buildCommentURL(picurl)
             print "picture in tweet: %s" %picurl
-            print "comment available on: %s" %commenturl
             
             #REPLY AND ADD STATUS TO PARAMETERS
             process_response = []
@@ -189,7 +145,7 @@ def checkTweetsAndReply(latest_tweet_processed):
               api=api,
               picurl=picurl,
               to_user=tweet.user.screen_name,
-              status_id=tweet.id)
+              status_id=int(tweet.id))
             
             process_responses.append((
               str(tweet.created_at),
@@ -198,8 +154,21 @@ def checkTweetsAndReply(latest_tweet_processed):
               ))
           else:
             print "media is not a photo"
+            
       else:
         print "no media url found"
+        #SEND TWEET WITH JUST BS TEXT
+        process_response = []
+        process_response += sendBSTweet(
+          api=api,
+          to_user=tweet.user.screen_name,
+          status_id=tweet.id)
+        
+        process_responses.append((
+          str(tweet.created_at),
+          tweet.user.screen_name,
+          process_response
+          ))
         pass
     
     text_file.close()

@@ -1,0 +1,26 @@
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+<html ng-app="analyseImageApp">
+<script>
+  var imageurl = '{{ imageurl }}';
+</script>
+<body ng-controller="analyseImageController" ng-init="getResults('{{imageurl}}')">
+
+
+
+{% extends "base.html" %}
+{% block content %}
+    <div>
+      <h1>Artomatic 2000</h1>
+      <div><img id="artimg" class="center" src= "/static/images/colortubes.jpg" alt="target pic" width="400"></div>
+      <div id = "comment"><p>Please wait, our experts are analysing your image...</p></div>
+       {% raw %}
+      <div id="results">
+        
+          {{comment}}
+        
+      </div>
+      {% endraw %}
+      
+      <img id="artimg" class="center" src= "/static/images/redbutton.png" alt="target pic" width="60" onClick="history.go()"></div>
+{% endblock %}

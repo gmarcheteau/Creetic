@@ -15,6 +15,7 @@ import twitterutils.tweet_processor as tweet_processor
 import StringIO
 import resource
 from rq import Queue
+from rq.job import Job
 from worker import conn
 
 from flask import Flask
@@ -45,7 +46,6 @@ def getBS_en():
 
 @app.route('/getbs_img', methods=['GET','POST'])
 def getBS_img():
-  #DEFAULT_URL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
   
   imageurl = request.args.get('imageurl', default=DEFAULT_URL)
   #remove quotes in url if any
@@ -56,6 +56,7 @@ def getBS_img():
   #number of clusters to use --TODO: do something with it
   number_clusters = request.args.get('clusters', default=5)
   
+  ###MOVE?###
   form = URLForm()
   if form.validate_on_submit():
     # [...]
@@ -64,10 +65,12 @@ def getBS_img():
       return redirect(url_for('getBS_img',imageurl = form.url.data))
     except Exception as err:
       print "error in form bit -- %s" %str(err)
+  ###END OF MOVE?###
   
-  #imageBS is a dict with all you need to create the HTML resp
-  imageBS = produceImageBS(imageurl)
+  return render_template(
+    'getbs_img2.html',imageurl=imageurl,form=form)
   
+  '''
   return render_template("getbs_img.html",
                 imagecomment = imageBS["imagecomment"],
                 imageurl = imageBS["imageurl"],
@@ -76,6 +79,7 @@ def getBS_img():
                 colorboxes = imageBS["colorboxes"],
                 simplerimage = imageBS["simplerimage"],
                 form = form)
+  '''
   
 def produceImageBS(imageurl):
   import base64
@@ -86,14 +90,8 @@ def produceImageBS(imageurl):
     imageurl = os.path.abspath(imageurl)
   
   #get data from image comment (comment, colors, drawn colors)
-  #REDIS enqueue blocking function
-  #imageresponse = imageapp.commentOnImage(imageurl)
   
-  job = q.enqueue(imageapp.commentOnImage,imageurl)
-  # TODO: how long to wait?
-  while not job.result:
-    imageresponse = ''
-  imageresponse = job.result
+  imageresponse = imageapp.commentOnImage(imageurl)
   
   print '(from views.py) Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
@@ -235,4 +233,48 @@ def tweetCheck():
   #  LATEST_TWEET_PROCESSED=twitter_response["latest_tweet_id"])
   
   return "<h2>Found %d new tweet(s) with images</h2><hr><p>Results: %s" %(twitter_response["number_tweets"],twitter_response["process_responses"])
+
+@app.route("/results/<job_key>", methods=['GET'])
+def get_results(job_key):
+
+    job = Job.fetch(job_key, connection=conn)
+
+    if job.is_finished:
+        imageBS = job.result
+        #JSONIFY
+        imageBS = json.dumps(imageBS, ensure_ascii=False)
+        return imageBS, 200
+
+    else:
+        return "Nay!", 202
+
+@app.route('/startimageanalysis', methods=['POST'])
+def get_img_analysis():
+  # get imageurl
+  data = json.loads(request.data.decode())
+  imageurl = data["imageurl"]
   
+  #REDIS enqueue function
+  job = q.enqueue_call(
+    func=produceImageBS, args=(imageurl,), result_ttl=5000
+    )
+  print "JOB ID:",job.get_id()
+  print "Image URL: ",imageurl
+  return job.get_id()
+
+@app.route('/showimagecomment/<imageBS>', methods=['GET'])
+def showimagecomment(imageBS):
+  comment = "it's working, just need to pass the parameters"
+  return render_template("getbs.html",comment=comment)
+  '''
+  ###figure out how to manage form
+  form = []
+  return render_template("getbs_img.html",
+              imagecomment = imageBS["imagecomment"],
+              imageurl = imageBS["imageurl"],
+              maincolorstrings = imageBS["maincolorstrings"],
+              score = imageBS["score"],
+              colorboxes = imageBS["colorboxes"],
+              simplerimage = imageBS["simplerimage"],
+              form = form)
+  '''
