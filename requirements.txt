@@ -8,6 +8,7 @@ requests==2.12.4
 rq==0.7.1
 Pillow==3.4.2
 scikit-learn[alldeps]
+TinyUrl==0.1.0
 tweepy==3.5.0
 Flask-WTF==0.8
 WTForms==2.1
