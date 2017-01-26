@@ -213,24 +213,31 @@ def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
   print "http://localhostimage"+imageBS["imageurl"]
   sendemail.sendEmail(htmlmessage,toaddr)
   
-@app.route('/overridelatesttweet/<latesttweetid>', methods=['GET','POST'])
+@app.route('/setlatesttweet/<latesttweetid>', methods=['GET','POST'])
 def overrideLatestTweet(latesttweetid):
+  response = ''
   latesttweetid = int(latesttweetid)
+  
   #get value from Redis
   try:
     LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_PROCESSED'))
     print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_REDIS
+    
+    if latesttweetid > LATEST_TWEET_REDIS:
+      #set value to Redis
+      conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
+      response += "OK -- set %d as latest tweet on Redis"%latesttweetid
+    else:
+      response += "Equally or more recent tweet found on Redis: %d" %LATEST_TWEET_REDIS
+  
+  #if couldn't find latest tweet, set it anyway
   except Exception as err:
-    return "Couldn't retrieve latest tweet from Redis -- %s" %str(err)
-  
-  #set value to Redis
-  
-  if latesttweetid > LATEST_TWEET_REDIS:
     conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
-    return "OK -- set %d as latest tweet on Redis"%latesttweetid
-  else:
-    return "Equally or more recent tweet found on Redis: %d" %LATEST_TWEET_REDIS
-
+    response += "Couldn't retrieve latest tweet from Redis -- %s" %str(err)
+    response += "<hr>"
+    response += "Set %d as latest tweet on Redis"%latesttweetid
+  
+  return response
 
 @app.route('/tweet', methods=['GET','POST'])
 def tweetCheck():
@@ -254,8 +261,8 @@ def tweetCheck():
     LATEST_TWEET_PROCESSED = int(conn.get('LATEST_TWEET_PROCESSED'))
     print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_PROCESSED
   except Exception as err:
-    LATEST_TWEET_PROCESSED = 824305112571056128
-    print str(err)
+    print "Unable to retrieve latest tweet from Redis -- %s" %str(err)
+    return "Unable to retrieve latest tweet from Redis -- %s" %str(err)
   
   #check for new tweets and process them (e.g. save and reply)
   twitter_response = tweet_processor.checkTweetsAndReply(LATEST_TWEET_PROCESSED)
