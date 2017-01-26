@@ -254,7 +254,7 @@ def tweetCheck():
     LATEST_TWEET_PROCESSED = int(conn.get('LATEST_TWEET_PROCESSED'))
     print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_PROCESSED
   except Exception as err:
-    LATEST_TWEET_PROCESSED = 999999999999999999
+    LATEST_TWEET_PROCESSED = 824305112571056128
     print str(err)
   
   #check for new tweets and process them (e.g. save and reply)
