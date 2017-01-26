@@ -56,7 +56,6 @@ def getBS_img():
   #number of clusters to use --TODO: do something with it
   number_clusters = request.args.get('clusters', default=5)
   
-  ###MOVE?###
   form = URLForm()
   if form.validate_on_submit():
     # [...]
@@ -65,8 +64,9 @@ def getBS_img():
       return redirect(url_for('getBS_img',imageurl = form.url.data))
     except Exception as err:
       print "error in form bit -- %s" %str(err)
-  ###END OF MOVE?###
   
+  ##CALL TEMPLATE WITH JUST AVAILABLE DATA##
+  ##The page then call /startimageanalysis to start the job and /result to update##
   return render_template(
     'getbs_img2.html',imageurl=imageurl,form=form)
   
@@ -213,8 +213,30 @@ def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
   print "http://localhostimage"+imageBS["imageurl"]
   sendemail.sendEmail(htmlmessage,toaddr)
   
+@app.route('/overridelatesttweet/<latesttweetid>', methods=['GET','POST'])
+def overrideLatestTweet(latesttweetid):
+  latesttweetid = int(latesttweetid)
+  #get value from Redis
+  try:
+    LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_PROCESSED'))
+    print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_REDIS
+  except Exception as err:
+    return "Couldn't retrieve latest tweet from Redis -- %s" %str(err)
+  
+  #set value to Redis
+  
+  if latesttweetid > LATEST_TWEET_REDIS:
+    conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
+    return "OK -- set %d as latest tweet on Redis"%latesttweetid
+  else:
+    return "Equally or more recent tweet found on Redis: %d" %LATEST_TWEET_REDIS
+
+
 @app.route('/tweet', methods=['GET','POST'])
 def tweetCheck():
+  import redis
+  
+  '''OLD WAY
   #try and find latest tweet processed
   try:
     filename = "latest_tweet_id.txt"
@@ -225,12 +247,22 @@ def tweetCheck():
   except Exception as err:
     LATEST_TWEET_PROCESSED = 822387055162335234
     print "Error opening %s -- %s" %(filename,str(err))
+  '''
+  
+  #get value from Redis
+  try:
+    LATEST_TWEET_PROCESSED = int(conn.get('LATEST_TWEET_PROCESSED'))
+    print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_PROCESSED
+  except Exception as err:
+    LATEST_TWEET_PROCESSED = 999999999999999999
+    print str(err)
   
   #check for new tweets and process them (e.g. save and reply)
   twitter_response = tweet_processor.checkTweetsAndReply(LATEST_TWEET_PROCESSED)
   
-  #app.config.update(
-  #  LATEST_TWEET_PROCESSED=twitter_response["latest_tweet_id"])
+  #set value to Redis
+  conn.set('LATEST_TWEET_PROCESSED',twitter_response["latest_tweet_id"])
+  print "Writing to Redis - LATEST_TWEET_PROCESSED: %d" %twitter_response["latest_tweet_id"]
   
   return "<h2>Found %d new tweet(s) with images</h2><hr><p>Results: %s" %(twitter_response["number_tweets"],twitter_response["process_responses"])
 
@@ -261,20 +293,3 @@ def get_img_analysis():
   print "JOB ID:",job.get_id()
   print "Image URL: ",imageurl
   return job.get_id()
-
-@app.route('/showimagecomment/<imageBS>', methods=['GET'])
-def showimagecomment(imageBS):
-  comment = "it's working, just need to pass the parameters"
-  return render_template("getbs.html",comment=comment)
-  '''
-  ###figure out how to manage form
-  form = []
-  return render_template("getbs_img.html",
-              imagecomment = imageBS["imagecomment"],
-              imageurl = imageBS["imageurl"],
-              maincolorstrings = imageBS["maincolorstrings"],
-              score = imageBS["score"],
-              colorboxes = imageBS["colorboxes"],
-              simplerimage = imageBS["simplerimage"],
-              form = form)
-  '''

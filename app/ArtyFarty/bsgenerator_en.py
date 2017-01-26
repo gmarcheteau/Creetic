@@ -1,26 +1,32 @@
 # -*- coding: utf-8 -*-
-# this file is released under public domain and you can use without limitations
-
 # -------------------------------------------------------------------------
-# This is a sample controller
-# - index is the default action of any application
-# - user is required for authentication and authorization
-# - download is for downloading files uploaded in the db (does streaming)
+# use lowecase and then capitalizeFirstWords at the end, to allow more flexibility
 # -------------------------------------------------------------------------
 import numpy as np
 import random
+import re
 
 # DEFINE IDIOMS
 
 locutions = np.array([
-        'No doubt that',
-        'To the expert eye, it will be obvious that',
-        'Some will claim that',
-        'Most critics agree:',
-        'As usual,',
-        'Let\'s be honest:',
-        'Let\'s face it:',
-        'As expected,'
+        'no doubt that',
+        'undoubtedly,',
+        'to the expert eye, it will be obvious that',
+        'some will claim that',
+        'most critics agree:',
+        'as usual,',
+        'let\'s be honest:',
+        'let\'s face it:',
+        'as expected,',
+        'it seems that',
+        'I believe that',
+        'I think that',
+        'frankly,',
+        'honestly,',
+        'some say that',
+        'once more,',
+        'I see that',
+        'I say,'
     ])
 
 nouns = np.array([
@@ -29,13 +35,13 @@ nouns = np.array([
         'the plasticity of the strokes',
         'the softness of the angles',
         'this warm light',
-        'the main serial structures',
+        'the simplicity of the main serial structures',
         'the multiplicity of exogeneous constraints',
         'the cynism with which the shadows are neglected',
         'the tendency to bend straight lines',
         'the materiality of the texture',
         'the joyful succession of dashes',
-        'this constant hesitation between shadow and light',
+        'the constant hesitation between shadow and light',
         'the frustrating inertia with which shapes come alive',
         'the insolent (though necessary) blur',
         'the patent scorn for light hue',
@@ -103,25 +109,32 @@ verbes = np.array([
 ])
 
 finish_locutions = np.array([
-  '. Inspiration or plagiarism?',
+  '. inspiration or plagiarism?',
   ', a first for this maestro.',
-  '. A regrettable consequence of a late subscription to kandinskism.',
+  '. this is regrettable.',
+  '. this is remarkable.',
+  '. hard to top.',
+  '. hats off!',
+  '. brilliant!',
+  '. scandalous!',
+  '. shocking!',
+  '. a regrettable consequence of a late subscription to kandinskism.',
   ' - and it\'s unfortunately not the first time.',
   ' - an arrogant transgression of all the rules that the artist contributed to setting...',
   ', yet not negating its existence.',
   ' - a reference to Barlowstovitch\'s work on the subject?',
-  '. Bravo!',
-  '. The artist gets away with panache!',
+  '. bravo!',
+  '. the artist gets away with panache!',
   ' - artistic flair at its best.',
   ', while still subscribing to an artistic continuity, which will surely be appreciated by the connoisseurs.',
   ' - which, all things considered, is quite shocking for anyone having aware of the artist\'s political views...',
   ' - altough this interpretation is still quite controversial many years later.',
   ' - benevolent ecumenism or shameless proselytism?',
-  '. Back to basics, in a way.',
-  '. This is a phenomenon which never ceased to pervade the artist\'s stylistic production',
-  '. This is all obviously very autobiographic.',
-  '. The artist\'s relationship with their mother has to do with this.',
-  '. A very personal take on spirituality.'
+  '. back to basics, in a way.',
+  '. this is a phenomenon which never ceased to pervade the artist\'s stylistic production',
+  '. this is all obviously very autobiographic.',
+  '. the artist\'s relationship with their mother has to do with this.',
+  '. a very personal take on spirituality.'
     ])
 
 space = ' '
@@ -175,8 +188,28 @@ def generatePhrase(*maincolors):
       ])
       
   
+  # set a 1/3 chance that the phrase won't have initial locution
+  randLocutionOrNot = random.randint(1,3)
+  if randLocutionOrNot%3 == 0:
+    NO_LOCUTION = True
+  else: NO_LOCUTION = False
   
-  phrase = ''.join([
+  if NO_LOCUTION: #don't use first locution, capitalize first Noun
+    phrase = ''.join([
+          nouns[randNoun1],
+          colorcomment,
+          space,
+          verbes[randVerb],
+          space,
+          nouns[randNoun2],
+          #add comment about second color
+          colorcomment2,
+          #no space before finish_locution
+          finish_locutions[randFinish]
+      ])
+  
+  else: #full phrase
+    phrase = ''.join([
           locutions[randLocution],
           space,
           nouns[randNoun1],
@@ -190,7 +223,9 @@ def generatePhrase(*maincolors):
           #no space before finish_locution
           finish_locutions[randFinish]
       ])
+    
   
+  phrase = capitalizeFirstWords(phrase)
   phrase = unicode(phrase, 'utf-8')
   return phrase
 
@@ -209,3 +244,12 @@ def generatePhrase_short(limit=116):
     print "Length: %d" %len(bstext)
   
   return bstext
+
+def capitalizeFirstWords(phrase):
+  return re.sub(r"(\A\w)|"+                  # start of string
+               "(?<!\.\w)([\.?!] )\w|"+     # after a ?/!/. and a space,
+                                            # but not after an acronym
+               "\w(?:\.\w)|"+               # start/middle of acronym
+               "(?<=\w\.)\w",               # end of acronym
+               lambda x: x.group().upper(),
+               phrase)

@@ -107,23 +107,23 @@ def checkTweetsAndReply(latest_tweet_processed):
       since_id=latest_tweet_processed,
       include_entities=True)
     
-    ##save all to file tweets.txt
-    text_file = open("tweets.txt", "a")
-    
     print "Number of tweets found: %d" %len(tweets)
     process_responses = []
     
+    ##save all to file tweets.txt
+    #text_file = open("tweets.txt", "a")
+    
     for tweet in tweets:
       #write to file
-      text_file.write('\n')
-      text_file.write('\n')
-      text_file.write("date: %s" %str(tweet.created_at))
-      text_file.write('\n')
-      text_file.write("tweet id: %s" %str(tweet.id))
-      text_file.write('\n')
-      text_file.write("user: %s" %str(tweet.user.screen_name))
-      text_file.write('\n')
-      text_file.write("tweet: %s" %tweet.text.encode("utf-8"))
+      #text_file.write('\n')
+      #text_file.write('\n')
+      #text_file.write("date: %s" %str(tweet.created_at))
+      #text_file.write('\n')
+      #text_file.write("tweet id: %s" %str(tweet.id))
+      #text_file.write('\n')
+      #text_file.write("user: %s" %str(tweet.user.screen_name))
+      #text_file.write('\n')
+      #text_file.write("tweet: %s" %tweet.text.encode("utf-8"))
       
       #update latest tweet id
       if tweet.id>latest_tweet_processed:
@@ -171,19 +171,16 @@ def checkTweetsAndReply(latest_tweet_processed):
           ))
         pass
     
-    text_file.close()
-  
-    #save latest tweet_id to file latest_tweet_id.txt
-    text_file2 = open("latest_tweet_id.txt", "w")
-    text_file2.write('%d' %latest_tweet_processed)
-    text_file2.close()
+    #text_file.close()
+
   
     print "latest tweet id: %d" %latest_tweet_processed
     
     return {
       #only count tweets with images
       "number_tweets":len(process_responses),
-      "process_responses":process_responses
+      "process_responses":process_responses,
+      "latest_tweet_id":latest_tweet_processed
       }
 
 def buildCommentURL(picurl):

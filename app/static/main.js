@@ -46,13 +46,7 @@
               $scope.simplerimage = data["simplerimage"],
               //unhide HTML bit now that we have data
               $scope.waiting = false
-              //use HTML5 Local Storage?
-              /*
-              if(saveGameState(data)){
-                //call the endpoint to render final page with comment
-                //window.open ('/showimagecomment/'+data,'_self',false);
-              }
-              */
+              
               $timeout.cancel(timeout);
               return false;
             }
@@ -64,17 +58,7 @@
       poller();
     }
     
-    // localStorage detection
-    function supportsLocalStorage() {
-      return typeof(Storage)!== 'undefined';
-    }
-    
-    function saveGameState(imageBSdata) {
-        if (!supportsLocalStorage()) { return false; }
-        localStorage["imagecomment"] = imageBSdata["imagecomment"];
-        $log.log("Saving some data to LocalStorage()");
-        return true;
-    }
+  
   
   }
   
