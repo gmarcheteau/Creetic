@@ -215,6 +215,9 @@ def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
   
 @app.route('/setlatesttweet/<latesttweetid>', methods=['GET','POST'])
 def overrideLatestTweet(latesttweetid):
+  #FORCE OVERRIDE?
+  sudo = request.args.get('sudo', default=0, type=int)
+  
   response = ''
   latesttweetid = int(latesttweetid)
   
@@ -223,7 +226,7 @@ def overrideLatestTweet(latesttweetid):
     LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_PROCESSED'))
     print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_REDIS
     
-    if latesttweetid > LATEST_TWEET_REDIS:
+    if latesttweetid > LATEST_TWEET_REDIS or sudo == 1:
       #set value to Redis
       conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
       response += "OK -- set %d as latest tweet on Redis"%latesttweetid

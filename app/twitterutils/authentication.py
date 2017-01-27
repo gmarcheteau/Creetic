@@ -1,15 +1,17 @@
+from config import TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,TWITTER_ACCESS_TOKEN,TWITTER_ACCESS_TOKEN_SECRET
+
 class authentication:
 
   def __init__(self):
       # Go to http://apps.twitter.com and create an app.
       # The consumer key and secret will be generated for you after
-      self.consumer_key ="t04snnb6CZPhSDnm5Cs3ryy2M"
-      self.consumer_secret="u1CVC8miydKxPB51jzhjXE2SW9meu0jj60TFzubZ6Wa2Z9Nr1V"
+      self.consumer_key = TWITTER_CONSUMER_KEY
+      self.consumer_secret = TWITTER_CONSUMER_SECRET
 
       # After the step above, you will be redirected to your app's page.
       # Create an access token under the the "Your access token" section
-      self.access_token="803878154695745536-ALcodoPprkwYePTXj48MAJjXWkNfhK2"
-      self.access_token_secret="8aEadXRb2u8PXhUONQUA7M3GQRJfZAE6eiJueta4v6JGg"
+      self.access_token = TWITTER_ACCESS_TOKEN
+      self.access_token_secret = TWITTER_ACCESS_TOKEN_SECRET
       
   def getconsumer_key(self):
       return self.consumer_key
