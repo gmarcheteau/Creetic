@@ -65,11 +65,19 @@ def checkTweetsAndReply(latest_tweet_processed):
       
       else:
         picurl = getPhotoUrlFromTweet(tweet)
-        tweet_actions.replyToTweet(
-          api=api,
-          to_user=tweet.user.screen_name,
-          status_id=tweet.id,
-          picurl=picurl) #if picurl is Null, will generate a simple comment
+        if picurl:
+          print "IMAGE FOUND IN TWEET: %s" %picurl
+          tweet_actions.replyToTweetWithSimplerImage(
+            api=api,
+            to_user=tweet.user.screen_name,
+            status_id=tweet.id,
+            picurl=picurl)
+        else:
+          print "NO IMAGE IN TWEET"
+          tweet_actions.replyToTweet(
+            api=api,
+            to_user=tweet.user.screen_name,
+            status_id=tweet.id)
 
     print "latest tweet id: %d" %latest_tweet_processed
     
