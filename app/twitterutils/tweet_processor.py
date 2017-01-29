@@ -11,11 +11,17 @@ import os, sys, traceback
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from ArtyFarty import bsgenerator_en as bs_en
 
+MY_TWEETER_NAME = "ArtyFarty7" #does not include '@'
+
 #adapted from http://piratefache.ch/twitter-streaming-api-with-tweepy/
 ###
 #tweet_data = json.loads(tweet)  # This allows the JSON data
 ###
-  
+
+### MOVE QUERY TO CONFIG
+query = "#artyfartyplease OR @%s filter:media" %MY_TWEETER_NAME
+### END OF MOVE QUERY TO CONFIG
+
 def prepareTweetyAPI():
   # Get access and key from another class
   auth = authentication()
@@ -39,7 +45,7 @@ def checkTweetsAndReply(latest_tweet_processed):
     api = prepareTweetyAPI()
     
     tweets = api.search(
-      q = "#ArtyFartyPlease",
+      q = query,
       since_id=latest_tweet_processed,
       include_entities=True)
     
@@ -52,14 +58,19 @@ def checkTweetsAndReply(latest_tweet_processed):
       if tweet.id>latest_tweet_processed:
         latest_tweet_processed = tweet.id
       
-      picurl = getPhotoUrlFromTweet(tweet)
-      tweet_actions.replyToTweet(
-        api=api,
-        to_user=tweet.user.screen_name,
-        status_id=tweet.id,
-        picurl=picurl) #if picurl is Null, will generate a simple comment
-    
-  
+      #don't answer to self
+      if(MY_TWEETER_NAME in getUserMentionsFromTweet(tweet) and tweet.user.screen_name==MY_TWEETER_NAME):
+        print "not replying to self"
+        pass
+      
+      else:
+        picurl = getPhotoUrlFromTweet(tweet)
+        tweet_actions.replyToTweet(
+          api=api,
+          to_user=tweet.user.screen_name,
+          status_id=tweet.id,
+          picurl=picurl) #if picurl is Null, will generate a simple comment
+
     print "latest tweet id: %d" %latest_tweet_processed
     
     return {
@@ -80,5 +91,24 @@ def getPhotoUrlFromTweet(tweet):
       else:
         pass
   
+  else:
+    return None
+
+def getUserMentionsFromTweet(tweet):
+  user_mentions = []
+  #CHECK IF TWEET HAS USER MENTIONS
+  if "user_mentions" in tweet.entities:
+    for mention in tweet.entities["user_mentions"]:
+      user_mentions.append(mention["screen_name"])
+    return user_mentions
+  else:
+    return None
+
+def getHashtagsFromTweet(tweet):
+  hashtags = []
+  if tweet.entities['hashtags']:
+    for hashtag in tweet.entities["hashtags"]:
+      hashtags.append(hashtag["text"])
+    return hashtags
   else:
     return None

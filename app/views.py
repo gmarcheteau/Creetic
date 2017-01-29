@@ -12,6 +12,7 @@ import ArtyFarty.imageapp as imageapp
 import ArtyFarty.sendemail as sendemail
 import ArtyFarty.receivemail as receivemail
 import twitterutils.tweet_processor as tweet_processor
+import twitterutils.test_twitter as test_twitter
 import StringIO
 import resource
 from rq import Queue
@@ -274,7 +275,7 @@ def tweetCheck():
   conn.set('LATEST_TWEET_PROCESSED',twitter_response["latest_tweet_id"])
   print "Writing to Redis - LATEST_TWEET_PROCESSED: %d" %twitter_response["latest_tweet_id"]
   
-  return "<h2>Found %d new tweet(s) with images</h2><hr><p>Results: %s" %(twitter_response["number_tweets"],twitter_response["process_responses"])
+  return "<h2>Found %d new tweet(s)</h2><hr><p>Results: %s" %(twitter_response["number_tweets"],twitter_response["process_responses"])
 
 @app.route("/results/<job_key>", methods=['GET'])
 def get_results(job_key):
@@ -303,3 +304,7 @@ def get_img_analysis():
   print "JOB ID:",job.get_id()
   print "Image URL: ",imageurl
   return job.get_id()
+
+@app.route('/testtwitter', methods=['POST','GET'])
+def testtwitter():
+  return test_twitter.tweetBirdyImage()
