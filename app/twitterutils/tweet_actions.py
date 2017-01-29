@@ -14,23 +14,20 @@ def replyToTweet(api,to_user,status_id):
   print "to user @%s" %to_user
   print "in reply to tweet %d" %status_id
   
-  try:
-      api.create_favorite(status_id) #LIKE THE TWEET
-      api.create_friendship(to_user) #CREATE FRIENDSHIP
-  except Exception as err:
-      print "error with liking or friending -- %s" %str(err)
-  
   try: #SEND A REPLY
     api.update_status(
       status=text,
       in_reply_to_status_id=status_id,
       auto_populate_reply_metadata=True)
+    api.create_favorite(status_id) #LIKE THE TWEET
+    api.create_friendship(to_user) #CREATE FRIENDSHIP
     return "OK"
 
   except Exception as err:
     traceback.print_exc()
     print "error in posting -- %s" %str(err)
     return "Error calling api -- %s" %str(err)
+  
   
 def prepareText(*picurl):
   text = ''
@@ -66,9 +63,6 @@ def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
   try:
     message = prepareText(picurl)
     filename = 'temp.png'
-  
-    #api.create_favorite(status_id) #LIKE THE TWEET
-    #api.create_friendship(to_user) #CREATE FRIENDSHIP
     
     simplerimage = imageapp.commentOnImage(picurl)["simplerimage"]
     saveSimplerImage(simplerimage,filename)
@@ -80,6 +74,10 @@ def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
       status=message,
       in_reply_to_status_id=status_id,
       auto_populate_reply_metadata=True)
+    
+    api.create_favorite(status_id) #LIKE THE TWEET
+    api.create_friendship(to_user) #CREATE FRIENDSHIP
+    
     return "OK"
   
   except Exception as err:
