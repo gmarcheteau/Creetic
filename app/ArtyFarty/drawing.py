@@ -33,24 +33,55 @@ def drawColorBoxes(maincolors):
   return colorboxes
 
 def drawSimplerImage(simpler_image_array,width,height):
+  
   #reshape the array to the image form factor
   reshaped_array = np.reshape(simpler_image_array,(width,3*height))
-
+  
   img = Image.new( 'RGB', (width,height), "black") # create a new black image
   pixels = img.load() # create the pixel map
   
   for i in range(width):    # for every pixel:
-      for j in range(height):
-          pixels[i,j] = (
-            reshaped_array[i,3*j],
-            reshaped_array[i,3*j+1],
-            reshaped_array[i,3*j+2]
-            )
-          #print "adding %s" %str(reshaped_array[i,j])
-  #img.show()
+    for j in range(height):
+        pixels[i,j] = (
+          reshaped_array[i,3*j],
+          reshaped_array[i,3*j+1],
+          reshaped_array[i,3*j+2]
+          )
+          
+  #increase size of image with size_factor (~resolution)
+  #resized_pixels = extendArraySize(pixels,size_factor)
+  
+  # Resize image
+  w, h = img.size
+  w_new = int(500 * w / max(w, h) )
+  h_new = int(500 * h / max(w, h) )
+  
+  print "Original size: %s x %s" %(w,h)
+  print "New size: %s x %s" %(w_new, h_new)
+  maxsize = (w_new, h_new)
+  img.thumbnail(maxsize, Image.ANTIALIAS)
   
   png_output = StringIO.StringIO()
   img.save(png_output, format="PNG")
   simpler_image = base64.b64encode(png_output.getvalue())
   png_output.close()
   return simpler_image
+
+def extendArraySize(array,size_factor):
+  (width,height)=array.shape
+  newarray = np.zeros((size_factor*width,size_factor*height),dtype=np.int)
+  for i in range(width):
+    for j in range(height):
+      #print array[i,j]*np.ones((size_factor,size_factor))
+      for k in range(size_factor):
+        for l in range(size_factor):
+          newarray[size_factor*i+k,size_factor*j+l]=array[i,j]
+  return newarray
+
+def extendListSize(list,size_factor):
+  newlist=[]
+  for item in list:
+      for k in range(size_factor):
+        for l in range(size_factor):
+          newlist.append(item)
+  return newlist

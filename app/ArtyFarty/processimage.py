@@ -11,8 +11,6 @@ from StringIO import StringIO
 
 def url_to_image(url):
   
-  
-  
   #response = requests.get(url,headers={'Connection':'close'})
   #imagefromurl = Image.open(StringIO(response.content))
   imagefromurl = Image.open(StringIO(urllib.urlopen(url).read()))
