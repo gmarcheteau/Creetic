@@ -11,11 +11,10 @@ from StringIO import StringIO
 
 def url_to_image(url):
   
-  #response = requests.get(url,headers={'Connection':'close'})
-  #imagefromurl = Image.open(StringIO(response.content))
+  #original size image (keep it to then re-draw it)
   imagefromurl = Image.open(StringIO(urllib.urlopen(url).read()))
-  #plt.imshow(imagefromurl)
-  #plt.show()
+  #copy and resize (smaller version to be clustered)
+  smaller_imagefromurl = imagefromurl
   
   # Resize image
   w, h = imagefromurl.size
@@ -27,11 +26,14 @@ def url_to_image(url):
   
   maxsize = (w_new, h_new)
 
-  imagefromurl.thumbnail(maxsize, Image.ANTIALIAS)
-  print "Thumbnail size: %s" %str(imagefromurl.size)
+  smaller_imagefromurl.thumbnail(maxsize, Image.ANTIALIAS)
+  print "Thumbnail size: %s" %str(smaller_imagefromurl.size)
   #plt.imshow(image_resized)
   #plt.show()
   
   print '(from processimage.py) Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
   
-  return imagefromurl
+  return {"imagefromurl":imagefromurl,"smaller_imagefromurl":smaller_imagefromurl}
+
+
+  

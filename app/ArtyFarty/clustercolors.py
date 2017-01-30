@@ -8,12 +8,14 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_samples, silhouette_score, pairwise_distances, calinski_harabaz_score
  
 ##FLATTEN AND CLUSTER USING K-MEANS##
-def fitColorClustering(image_resized,min_clusters,max_clusters):
+def fitColorClustering(image_resized,image_original_size,min_clusters,max_clusters):
   
   # Reshape the image to be a list of pixels
   width, height = image_resized.size
-  #image_array = np.array(list(image_resized.getdata()))
+  #reshape small version of image, to be clustered
   image_array = np.reshape(image_resized,(width*height,3),order='F')
+  #also reshape image at original size, to be re-drawn (applying the clustering)
+  image_array_original_size = np.reshape(image_original_size,(width*height,3),order='F')
 
   ##Evaluate clustering with Silhouette coefficient, and select best (from 2 to 10 clusters)
   bestScore = -1
@@ -53,7 +55,7 @@ def fitColorClustering(image_resized,min_clusters,max_clusters):
   clt.fit(image_array)
   response["clt"] = clt
   response["score"] = bestScore
-  response["simpler_image_array"] = getClusterForEachPixel(image_array,clt)
+  response["simpler_image_array"] = getClusterForEachPixel(image_array_original_size,clt)
   
   return response
 
@@ -152,4 +154,3 @@ def getClusterForEachPixel(image_array,clt):
     cluster_rgb_tuple=(cluster_rgb[0],cluster_rgb[1],cluster_rgb[2])
     simpler_image_array.append(cluster_rgb_tuple)
   return simpler_image_array
-    

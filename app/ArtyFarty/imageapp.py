@@ -13,11 +13,15 @@ def commentOnImage(url=DEFAULT_URL):
   if not url:
     return "Hmm, I need an image to comment on, sorry."
   else:
-    image_resized = processimage.url_to_image(url)
+    ##url_to_image(url) returns both small version (to be clustered) and bigger (to be re-drawn)
+    processed_image = processimage.url_to_image(url)
+    image_resized = processed_image["smaller_imagefromurl"]
+    image_original_size = processed_image["imagefromurl"]
     print "MIN_CLUSTERS: %s" %str(MIN_CLUSTERS)
     print "MAX_CLUSTERS: %s" %str(MAX_CLUSTERS)
     clust = clustercolors.fitColorClustering(
       image_resized,
+      image_original_size,
       min_clusters=MIN_CLUSTERS,
       max_clusters=MAX_CLUSTERS
       )

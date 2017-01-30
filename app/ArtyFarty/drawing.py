@@ -47,7 +47,8 @@ def drawSimplerImage(simpler_image_array,width,height):
           reshaped_array[i,3*j+1],
           reshaped_array[i,3*j+2]
           )
-          
+  
+  '''
   #increase size of image with size_factor (~resolution)
   #resized_pixels = extendArraySize(pixels,size_factor)
   
@@ -58,6 +59,7 @@ def drawSimplerImage(simpler_image_array,width,height):
   
   print "Original size: %s x %s" %(width,height)
   print "New size: %s x %s" %(w_new, h_new)
+  '''
   
   png_output = StringIO.StringIO()
   img.save(png_output, format="PNG")
