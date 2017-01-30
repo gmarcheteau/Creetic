@@ -51,15 +51,13 @@ def drawSimplerImage(simpler_image_array,width,height):
   #increase size of image with size_factor (~resolution)
   #resized_pixels = extendArraySize(pixels,size_factor)
   
-  # Resize image
-  w, h = img.size
-  w_new = int(500 * w / max(w, h) )
-  h_new = int(500 * h / max(w, h) )
+  # Resize image -- make it bigger this time (previously max=100)
+  size_factor = 3
+  (w_new, h_new)=(size_factor*width,size_factor*height)
+  img = img.resize((w_new, h_new))
   
-  print "Original size: %s x %s" %(w,h)
+  print "Original size: %s x %s" %(width,height)
   print "New size: %s x %s" %(w_new, h_new)
-  maxsize = (w_new, h_new)
-  img.thumbnail(maxsize, Image.ANTIALIAS)
   
   png_output = StringIO.StringIO()
   img.save(png_output, format="PNG")
