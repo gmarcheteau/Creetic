@@ -36,8 +36,8 @@ nouns = np.array([
         'the softness of the angles',
         'this warm light',
         'the simplicity of the main serial structures',
-        'the multiplicity of exogeneous constraints',
-        'the cynism with which the shadows are neglected',
+        'the multiplicity of exogenous constraints',
+        'the cynicism with which the shadows are neglected',
         'the tendency to bend straight lines',
         'the materiality of the texture',
         'the joyful succession of dashes',
@@ -55,7 +55,7 @@ nouns = np.array([
 
 colorlocutions = np.array([
   'combined with the use of colors such as',
-  'through a signigicant use of',
+  'through a significant use of',
   'evidenced by touches of',
   'which derives from the predominance of',
   'even with the use of colors such as',
@@ -128,7 +128,7 @@ finish_locutions = np.array([
   ' - artistic flair at its best.',
   ', while still subscribing to an artistic continuity, which will surely be appreciated by the connoisseurs.',
   ' - which, all things considered, is quite shocking for anyone having aware of the artist\'s political views...',
-  ' - altough this interpretation is still quite controversial many years later.',
+  ' - although this interpretation is still quite controversial many years later.',
   ' - benevolent ecumenism or shameless proselytism?',
   '. back to basics, in a way.',
   '. this is a phenomenon which never ceased to pervade the artist\'s stylistic production',
