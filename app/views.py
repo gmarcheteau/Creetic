@@ -38,13 +38,12 @@ def getBS():
 def goNews():
   return render_template("news.html")
 
-@app.route('/')
 @app.route('/getbs_en', methods=['GET'])
 def getBS_en():
   comment = bs_en.generatePhrase()
   return render_template("getbs.html",comment=comment)
 
-
+@app.route('/')
 @app.route('/getbs_img', methods=['GET','POST'])
 def getBS_img():
   
