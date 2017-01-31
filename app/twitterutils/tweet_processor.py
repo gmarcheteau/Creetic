@@ -11,7 +11,8 @@ import os, sys, traceback
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from ArtyFarty import bsgenerator_en as bs_en
 
-MY_TWEETER_NAME = "ArtyFarty7" #does not include '@'
+MY_TWEETER_NAME = "Criticomatic" #does not include '@'
+HASHTAG = "criticomatic" #does not include '#'
 
 #adapted from http://piratefache.ch/twitter-streaming-api-with-tweepy/
 ###
@@ -19,7 +20,7 @@ MY_TWEETER_NAME = "ArtyFarty7" #does not include '@'
 ###
 
 ### MOVE QUERY TO CONFIG
-query = "#artyfartyplease OR @%s filter:media" %MY_TWEETER_NAME
+query = "#%s OR @%s filter:media" %(HASHTAG,MY_TWEETER_NAME)
 ### END OF MOVE QUERY TO CONFIG
 
 def prepareTweetyAPI():
