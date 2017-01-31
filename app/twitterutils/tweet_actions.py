@@ -47,7 +47,7 @@ def prepareText(*picurl):
   return text
     
 def buildCommentURL(picurl):
-  baseurl = "http://artyfarty.herokuapp.com/getbs_img?imageurl="
+  baseurl = "http://artomator.herokuapp.com/getbs_img?imageurl="
   return baseurl+picurl+':medium'
 
 #SAVE SIMPLER IMAGE TO FILE, TO BE TWEETED
