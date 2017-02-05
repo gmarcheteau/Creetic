@@ -60,9 +60,9 @@
               return false;
             }
             
-            // continue to call the poller() function every 1 second
+            // continue to call the poller() function every 2 seconds
             // until the timeout is cancelled
-            timeout = $timeout(poller, 1000);
+            timeout = $timeout(poller, 2000);
           }).
           
         //FAILURE
