@@ -9,6 +9,8 @@ import re
 # DEFINE IDIOMS
 
 locutions = np.array([
+        'well,',
+        'of course,',
         'no doubt that',
         'undoubtedly,',
         'to the expert eye, it will be obvious that',
@@ -18,6 +20,7 @@ locutions = np.array([
         'let\'s be honest:',
         'let\'s face it:',
         'as expected,',
+        'unexpectedly,',
         'it seems that',
         'I believe that',
         'I think that',
@@ -26,7 +29,8 @@ locutions = np.array([
         'some say that',
         'once more,',
         'I see that',
-        'I say,'
+        'I say,',
+        'sadly,',
     ])
 
 nouns = np.array([
@@ -116,6 +120,7 @@ finish_locutions = np.array([
   '. hard to top.',
   '. hats off!',
   '. brilliant!',
+  '. stunning!',
   '. scandalous!',
   '. shocking!',
   '. a regrettable consequence of a late subscription to kandinskism.',
@@ -131,10 +136,16 @@ finish_locutions = np.array([
   ' - although this interpretation is still quite controversial many years later.',
   ' - benevolent ecumenism or shameless proselytism?',
   '. back to basics, in a way.',
-  '. this is a phenomenon which never ceased to pervade the artist\'s stylistic production',
+  '. this is a phenomenon which never ceased to pervade the artist\'s stylistic production.',
   '. this is all obviously very autobiographic.',
   '. the artist\'s relationship with their mother has to do with this.',
-  '. a very personal take on spirituality.'
+  '. a very personal take on spirituality.',
+  '. wow!',
+  '. a politically marked piece indeed.',
+  '. this is reckless art.',
+  '. quite an artistic stunt.',
+  '. best art ever. period.',
+  '. not bad!',
     ])
 
 space = ' '
@@ -157,18 +168,24 @@ def generatePhrase(*maincolors):
     number_colors = len(maincolors)
     randColorNumber = random.randint(0,number_colors-1)
     randColorLocution = random.randint(0,len(colorlocutions)-1)
+    firstcolor=maincolors[0][0][1]
     colorcomment = ''.join([
         ',',
         space,
         colorlocutions[randColorLocution],
         space,
         #use main color or random (randColorNumber)?
-        maincolors[0][0][1],
+        firstcolor,
         ',',
       ])
       
-    #if more than 1 color, write b comment too
+    #if more than 1 color, write second comment too
     if(len(maincolors[0])>1):
+      #if first two colors have same name
+      secondcolor=maincolors[0][1][1]
+      if secondcolor==firstcolor and maincolors[0][2][1]:
+        secondcolor=maincolors[0][2][1]
+      
       randSecondColorLocution = random.randint(0,len(secondcolorlocutions)-1)
       randVerb2 = randVerb
       while(randVerb2 == randVerb):
@@ -180,7 +197,7 @@ def generatePhrase(*maincolors):
       colorcomment2 = ''.join([
         secondcolorlocutions[randSecondColorLocution],
         space,
-        maincolors[0][1][1],
+        secondcolor,
         space,
         verbes[randVerb2],
         space,

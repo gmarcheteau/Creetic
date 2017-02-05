@@ -43,7 +43,7 @@ def getBS_en():
   comment = bs_en.generatePhrase()
   return render_template("getbs.html",comment=comment)
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 @app.route('/getbs_img', methods=['GET','POST'])
 def getBS_img():
   
@@ -104,6 +104,7 @@ def produceImageBS(imageurl):
   #return dict with all values to generate HTML response
   #provides ability to choose template independently
   return {
+    "status" : "success",
     "imagecomment" : imagecomment,
     "imageurl" : imageurl,
     "maincolorstrings" : maincolorstrings,
@@ -280,15 +281,20 @@ def tweetCheck():
 def get_results(job_key):
 
     job = Job.fetch(job_key, connection=conn)
-
-    if job.is_finished:
+    
+    if job.is_failed:
+      print "Failed"
+      return "Failed", 404
+    
+    elif job.is_finished:
         imageBS = job.result
         #JSONIFY
         imageBS = json.dumps(imageBS, ensure_ascii=False)
         return imageBS, 200
 
     else:
-        return "Nay!", 202
+        print "Nay! 202"
+        return "Not yet!", 202
 
 @app.route('/startimageanalysis', methods=['POST'])
 def get_img_analysis():

@@ -18,7 +18,7 @@ from ArtyFarty import imageapp
 #tweet_data = json.loads(tweet)  # This allows the JSON data
 ###
 
-
+'''
 def getPhotoUrlFromTweet(tweet):
   
   #CHECK IF TWEET HAS MEDIA URL
@@ -41,6 +41,7 @@ def getUserMentionsFromTweet(tweet):
     return user_mentions
   else:
     return None
+'''
 
 # Get access and key from another class
 auth = authentication()
@@ -58,42 +59,12 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-query = "#artyfartyplease OR @ArtyFarty7 filter:media"
-
-def tweet_image(api,url, message):
-    filename = 'temp.jpg'
-    request = requests.get(url, stream=True)
-    if request.status_code == 200:
-        with open(filename, 'wb') as image:
-            for chunk in request:
-                image.write(chunk)
-
-        
-        os.remove(filename)
-    else:
-        print("Unable to download image")
-
-
-def saveSimplerImage(simplerimage,filename):
-  # Do something smart with charset and b64 instead of assuming
-  simplerimage = simplerimage.decode("base64")
-  
-  # Do something smart with mime_type
-  with open(filename, 'wb') as f:
-      f.write(simplerimage)
-
-def tweetBirdyImage():
+'''
+tweets = api.home_timeline()
+for tweet in tweets:
+  print tweet.id
   try:
-    url = "http://animalia-life.com/data_images/bird/bird1.jpg"
-    message = "#BirdyFarty"
-    filename = 'birdy.png'
-    
-    simplerimage = imageapp.commentOnImage(url)["simplerimage"]
-    saveSimplerImage(simplerimage,filename)
-    api.update_with_media(filename, status=message)
-    return "OK"
-  
-  except Exception as err:
-    return str(err)
-
-
+    api.destroy_status(tweet.id)
+  except:
+    print "error"
+'''

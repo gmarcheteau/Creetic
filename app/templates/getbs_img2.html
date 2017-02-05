@@ -8,37 +8,46 @@
 
 {% extends "base.html" %}
 {% block content %}
-    <h1>Artomator</h1>
-    <div><img id="artimg" class="center" src= {{ imageurl }} alt="target pic" width="400"></div>
+    
+    <!-- IN CASE OF FAILURE SHOW COLORTUBES HEADER -->
+    <div ng-hide="failure"><img id="artimg" class="center" src= {{ imageurl }} alt="target pic" width="400"></div>
+    <div ng-show="failure"><img id="artimg" class="center" src= "/static/images/colortubes.jpg" alt="target pic" width="400"></div>
+    <p></p>
     {% raw %}
-    <p>
+    <!-- WHILE WAITING -->
     <div ng-show="waiting" id="comment">Please wait, our best experts are analysing your image...<p></p></div>
     <img id="artimg" class="center" src="/static/images/spinner.gif" ng-show="waiting" width="50">
     
-      <!-- when $scope.waiting is falsy (element is visible) -->
-      <div ng-hide="waiting">
-      <div id="comment"><p>{{ imagecomment }}</p></div>
-      <hr>
-      <table style = "border: 0px solid black;width:300px;">
-        <tr>
-          <th align="left">Color</th>
-          <th align="left">Weight</th>
-        </tr>
+    <!-- IN CASE OF FAILURE -->
+    <div ng-show="failure" id="comment">Sorry, our experts were unable to retrieve your image. Please check it and try again.<p></p></div>
     
-        <tr ng-repeat="color in maincolorstrings">
-          <td>{{ color[1] }}</td>
-          <td>{{ color[2] }}</td>
-        </tr>
-        <tr></tr>
-        <tr>
-          <td columspan=2>Score: {{ score }}</td>
-        </tr>
-      </table>
-      <img src="data:image/png;base64,{{ colorboxes }}" width="200" border="0" style="border-color: black;background: transparent">
-      
-      <p>An easier way to draw the same thing would have been:</p>
-      
-      <img id="artimg" src="data:image/png;base64,{{ simplerimage }}" width="400" border="0" style="border-color: black;background: transparent">
+    <!-- IN CASE OF SUCCESS -->
+    <div ng-show="success">
+      <!-- COMMENT -->
+    <div id="comment"><p>{{ imagecomment }}</p></div>
+    <hr>
+      <!-- SIMPLER IMAGE -->
+    <p id="comment">An easier way to draw the same thing would have been:</p>
+    <div><img id="artimg" class="center" src="data:image/png;base64,{{ simplerimage }}" width="400" border="0" style="border-color: black;background: transparent"></div>
+    <hr>
+      <!-- COLOR BOXES -->
+    <table style = "border: 0px solid black;width:300px;">
+      <tr>
+        <th align="left">Color</th>
+        <th align="left">Weight</th>
+      </tr>
+  
+      <tr ng-repeat="color in maincolorstrings">
+        <td>{{ color[1] }}</td>
+        <td>{{ color[2] }}</td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td columspan=2>Score: {{ score }}</td>
+      </tr>
+    </table>
+    <img id="artimg" class="center" src="data:image/png;base64,{{ colorboxes }}" width="200" border="0" style="border-color: black;background: transparent">
+  
     
     <!-- end of hiddable div -->
     </div>
