@@ -17,11 +17,15 @@ def commentOnImage(url=DEFAULT_URL):
     processed_image = processimage.url_to_image(url)
     image_resized = processed_image["smaller_imagefromurl"]
     image_original_size = processed_image["imagefromurl"]
+    #get image sized
+    width, height = image_resized.size
+    width_original, height_original = image_original_size.size
+    
     print "MIN_CLUSTERS: %s" %str(MIN_CLUSTERS)
     print "MAX_CLUSTERS: %s" %str(MAX_CLUSTERS)
     clust = clustercolors.fitColorClustering(
-      image_resized,
-      image_original_size,
+      image_resized=image_resized,
+      image_original_size=image_original_size,
       min_clusters=MIN_CLUSTERS,
       max_clusters=MAX_CLUSTERS
       )
@@ -30,7 +34,6 @@ def commentOnImage(url=DEFAULT_URL):
     clt = clust["clt"]
     score = clust["score"]
     simpler_image_array = clust["simpler_image_array"]
-    width, height = image_resized.size
     
     maincolors = clustercolors.getColorsFromClusters(clt)
     comment = bs_en.generatePhrase(maincolors)
@@ -42,8 +45,8 @@ def commentOnImage(url=DEFAULT_URL):
     simplerimage = drawing.drawSimplerImage(
       simpler_image_array = simpler_image_array,
       #simpler_image_array = image_array,
-      width = width,
-      height = height
+      width = width_original,
+      height = height_original
       )
     
     #transform to strings for easier use in html template

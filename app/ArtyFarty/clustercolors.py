@@ -12,10 +12,13 @@ def fitColorClustering(image_resized,image_original_size,min_clusters,max_cluste
   
   # Reshape the image to be a list of pixels
   width, height = image_resized.size
+  print "smaller_size: ",(width, height)
+  width_original, height_original = image_original_size.size
+  print "original_size: ",(width_original, height_original)
   #reshape small version of image, to be clustered
   image_array = np.reshape(image_resized,(width*height,3),order='F')
   #also reshape image at original size, to be re-drawn (applying the clustering)
-  image_array_original_size = np.reshape(image_original_size,(width*height,3),order='F')
+  image_array_original_size = np.reshape(image_original_size,(width_original*height_original,3),order='F')
 
   ##Evaluate clustering with Silhouette coefficient, and select best (from 2 to 10 clusters)
   bestScore = -1

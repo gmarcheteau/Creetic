@@ -13,21 +13,31 @@ def url_to_image(url):
   
   #original size image (keep it to then re-draw it)
   imagefromurl = Image.open(StringIO(urllib.urlopen(url).read()))
-  #copy and resize (smaller version to be clustered)
-  smaller_imagefromurl = imagefromurl
+  smaller_imagefromurl = Image.open(StringIO(urllib.urlopen(url).read()))
   
-  # Resize image
-  w, h = imagefromurl.size
-  w_new = int(100 * w / max(w, h) )
-  h_new = int(100 * h / max(w, h) )
-  
-  print "Original size: %s x %s" %(w,h)
-  print "New size: %s x %s" %(w_new, h_new)
+  # Resize smaller image (to be clustered)
+  MAX = 100
+  w, h = smaller_imagefromurl.size
+  w_new = int(MAX * w / max(w, h) )
+  h_new = int(MAX * h / max(w, h) )
   
   maxsize = (w_new, h_new)
-
   smaller_imagefromurl.thumbnail(maxsize, Image.ANTIALIAS)
-  print "Thumbnail size: %s" %str(smaller_imagefromurl.size)
+  
+  # Resize original image (to be redrawn)
+  MAX_O = 1000
+  w_o, h_o = imagefromurl.size
+  w_o_new = int(MAX_O * w_o / max(w_o, h_o) )
+  h_o_new = int(MAX_O * h_o / max(w_o, h_o) )
+
+  maxsize_o = (w_o_new, h_o_new)
+  imagefromurl.thumbnail(maxsize_o, Image.ANTIALIAS)
+  
+  print "Original size: %s x %s" %(w,h)
+  print "New size for clustering: %s x %s" %(w_new, h_new)
+  print "New size for redrawing: %s x %s" %(w_o_new, h_o_new)
+  
+  #print "Thumbnail size: %s" %str(smaller_imagefromurl.size)
   #plt.imshow(image_resized)
   #plt.show()
   
