@@ -62,7 +62,7 @@
             
             // continue to call the poller() function every xx ms
             // until the timeout is cancelled
-            timeout = $timeout(poller, 500);
+            timeout = $timeout(poller, 1000);
           }).
           
         //FAILURE

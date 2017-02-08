@@ -6,9 +6,9 @@ import bsgenerator as bs
 import bsgenerator_en as bs_en
 import random
 
-from config import MIN_CLUSTERS,MAX_CLUSTERS, DEFAULT_URL
+from config import MIN_CLUSTERS,MAX_CLUSTERS, DEFAULT_URLS
 
-def commentOnImage(url=DEFAULT_URL):
+def commentOnImage(url):
   
   if not url:
     return "Hmm, I need an image to comment on, sorry."
@@ -71,7 +71,7 @@ def commentOnImage(url=DEFAULT_URL):
   
     return response
 
-def commentOnImageFullMode(url=DEFAULT_URL,number_iter=1,SHOW_SIMPLER_IMAGES=False):
+def commentOnImageFullMode(url,number_iter=1,SHOW_SIMPLER_IMAGES=False):
   maincolors =[]
   silhouettescores = []
   simplerimages = []

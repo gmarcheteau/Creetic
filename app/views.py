@@ -4,6 +4,7 @@ import urllib
 import json
 import os
 import time
+import random
 import matplotlib.pyplot as plt
 import ArtyFarty.bsgenerator as bs
 import ArtyFarty.bsgenerator_en as bs_en
@@ -26,7 +27,7 @@ from app import app
 
 from forms import URLForm
 
-from config import DEFAULT_URL
+from config import DEFAULT_URLS
 
 q = Queue(connection=conn)
 
@@ -47,12 +48,12 @@ def getBS_en():
 @app.route('/', methods=['GET','POST'])
 @app.route('/getbs_img', methods=['GET','POST'])
 def getBS_img():
-  
-  imageurl = request.args.get('imageurl', default=DEFAULT_URL)
+  defaultURL=chooseDefaultURLfromList()
+  imageurl = request.args.get('imageurl', default=defaultURL)
   #remove quotes in url if any
   imageurl = imageurl.strip('"').strip('\'')
   if not imageurl.startswith("http"):
-    imageurl = DEFAULT_URL
+    imageurl = "http:\\"+imageurl
   
   #number of clusters to use --TODO: do something with it
   number_clusters = request.args.get('clusters', default=5)
@@ -117,14 +118,12 @@ def produceImageBS(imageurl):
 @app.route('/getbs_img_multi', methods=['GET','POST'])
 def getBS_img_multi():
   import base64
-  
-  DEFAULT_URL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
-  
-  imageurl = request.args.get('imageurl', default=DEFAULT_URL)
+  defaultURL=chooseDefaultURLfromList()
+  imageurl = request.args.get('imageurl', default=defaultURL)
   #remove quotes in url if any
   imageurl = imageurl.strip('"').strip('\'')
   if not imageurl.startswith("http"):
-    imageurl = DEFAULT_URL
+    imageurl = "http:\\"+imageurl
   
   #number of clustering versions to show
   number_iter = request.args.get('iter', default=5, type=int)
@@ -314,3 +313,7 @@ def get_img_analysis():
 @app.route('/testtwitter', methods=['POST','GET'])
 def testtwitter():
   return test_twitter.tweetBirdyImage()
+
+def chooseDefaultURLfromList():
+  rand = random.randint(0,len(DEFAULT_URLS)-1)
+  return DEFAULT_URLS[rand]

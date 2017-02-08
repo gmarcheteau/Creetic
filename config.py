@@ -4,8 +4,19 @@ import os
 
 #non-sensitive stuff
 MIN_CLUSTERS = 3
-MAX_CLUSTERS = 5
-DEFAULT_URL = "https://upload.wikimedia.org/wikipedia/commons/6/69/VanGogh-starry_night_edit.jpg"
+MAX_CLUSTERS = 8
+DEFAULT_URLS = [
+  "https://upload.wikimedia.org/wikipedia/commons/6/69/VanGogh-starry_night_edit.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg/687px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
+  "http://www.ibiblio.org/wm/paint/auth/munch/munch.scream.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Retrato_del_Papa_Inocencio_X._Roma%2C_by_Diego_Vel%C3%A1zquez.jpg/802px-Retrato_del_Papa_Inocencio_X._Roma%2C_by_Diego_Vel%C3%A1zquez.jpg",
+  "https://upload.wikimedia.org/wikipedia/en/2/23/Pablo_Picasso%2C_1901-02%2C_Femme_au_caf%C3%A9_%28Absinthe_Drinker%29%2C_oil_on_canvas%2C_73_x_54_cm%2C_Hermitage_Museum%2C_Saint_Petersburg%2C_Russia.jpg",
+  "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Pablo_Picasso%2C_1905%2C_Au_Lapin_Agile_%28At_the_Lapin_Agile%29%2C_oil_on_canvas%2C_99.1_x_100.3_cm%2C_Metropolitan_Museum_of_Art.jpg/768px-Pablo_Picasso%2C_1905%2C_Au_Lapin_Agile_%28At_the_Lapin_Agile%29%2C_oil_on_canvas%2C_99.1_x_100.3_cm%2C_Metropolitan_Museum_of_Art.jpg",
+  "https://upload.wikimedia.org/wikipedia/en/a/a3/Pablo_Picasso%2C_1919%2C_Sleeping_Peasants%2C_gouache%2C_watercolor_and_pencil_on_paper%2C_31.1_x_48.9_cm%2C_Museum_of_Modern_Art%2C_New_York.jpg",
+  "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg",
+  "http://www.fondationlouisvuitton.fr/content/flvinternet/fr/expositions/exposition-les-clefs-d-une-passion/la-danse-d-henri-matisse/_jcr_content/content/columncontrol_8b3e/leftG6/image_2398.flvcrop.980.5000.jpeg"
+  
+  ]
 #DEFAULT_URL = "http://www.telegraph.co.uk/content/dam/art/2016/10/04/picasso-large_trans++qVzuuqpFlyLIwiB6NTmJwbKTcqHAsmNzJMPMiov7fpk.jpg"
 
 #check if running on Heroku
