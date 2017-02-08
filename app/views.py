@@ -23,6 +23,7 @@ from flask import Flask
 from flask import request,make_response,render_template,redirect,url_for
 
 from app import app
+
 from forms import URLForm
 
 from config import DEFAULT_URL
