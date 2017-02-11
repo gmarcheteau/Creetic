@@ -12,7 +12,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from ArtyFarty import bsgenerator_en as bs_en
 
 MY_TWEETER_NAME = "CreeticBot" #does not include '@'
-HASHTAG = "artyfartyplease" #does not include '#'
+HASHTAG = "creetic" #does not include '#'
 
 #adapted from http://piratefache.ch/twitter-streaming-api-with-tweepy/
 ###

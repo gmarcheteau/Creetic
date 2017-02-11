@@ -146,3 +146,23 @@ def selectRandomTweet(tweets):
     return tweet
   
   
+def manualTweetReply(tweetid):
+  print "Manual tweetOut"
+  api = prepareTweetyAPI()
+  tweet = api.get_status(tweetid)
+  
+  picurl = getPhotoUrlFromTweet(tweet)
+  print "Date: %s" %tweet.created_at
+  print "IMAGE FOUND IN TWEET: %s" %picurl
+  
+  ##REPLY
+  status = tweet_actions.replyToTweetWithSimplerImage(
+    api=api,
+    to_user=tweet.user.screen_name,
+    status_id=tweet.id,
+    picurl=picurl)
+  
+  return {
+  "status":status,
+  "mode":"manual tweetOut"
+  }

@@ -330,3 +330,7 @@ def setLatestTweetToRedis(latesttweetid):
     print "Writing to Redis - LATEST_TWEET_PROCESSED: %d" %latesttweetid
   except Exception as err:
     print "Unable to set latest tweet to Redis -- %s" %str(err)
+
+@app.route("/manualtweetout/<tweetid>", methods=['POST'])
+def manualTweetOut(tweetid):
+  return tweet_out.manualTweetReply(tweetid)

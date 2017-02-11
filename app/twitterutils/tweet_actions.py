@@ -29,7 +29,7 @@ def replyToTweet(api,to_user,status_id):
       return "OK"
   
     except Exception as err:
-      traceback.print_exc()
+      #traceback.print_exc()
       print "error in posting -- %s" %str(err)
       return "Error calling api -- %s" %str(err)
   else:
