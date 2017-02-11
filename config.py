@@ -40,3 +40,10 @@ if IS_HEROKU:
 else:
   print "local env -- importing localconfig.py"
   from localconfig import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY,TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,TWITTER_ACCESS_TOKEN,TWITTER_ACCESS_TOKEN_SECRET,TWITTER_ON
+
+####
+print "TWITTER_ON type: %s" %str(type(TWITTER_ON))
+if TWITTER_ON:
+  print "TWITTER_ON -- will be sending tweets"
+if not TWITTER_ON:
+  print "TWITTER DISABLED -- should not be sending tweets"
