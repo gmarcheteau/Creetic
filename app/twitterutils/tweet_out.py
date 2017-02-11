@@ -56,12 +56,17 @@ def foundTweetsToReplyTo(latest_tweet_processed):
   
   if tweets:
     
-    print "Number of tweets found: %d" %len(tweets)
+    print "\n###READING TWEETS###"
+    print "Number of tweets found: %d \n" %len(tweets)
     
     #update latest tweet id
     for tweet in tweets:
+      print tweet.created_at
+      print tweet.text
+      print "\n"
       if tweet.id>latest_tweet_processed:
         latest_tweet_processed = tweet.id
+    print "###END OF READING TWEETS###\n"
     
     #select 1 random tweet to reply to
     tweet = selectRandomTweet(tweets)
