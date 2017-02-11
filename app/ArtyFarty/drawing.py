@@ -14,7 +14,7 @@ def drawColorBoxes(maincolors):
   for i in maincolors:
     #normalize rgb color to 0-1 range
     print "facecolor: %s" %str(i[0])
-    norm = Normalize(vmin=0.,vmax=250.)
+    norm = Normalize(vmin=0.,vmax=254.)
     facecolor=(norm(i[0][0]),norm(i[0][1]),norm(i[0][2]))
     print "normalized facecolor: %s" %str(facecolor)
     plt.axvspan(lastX, lastX+i[2], edgecolor='none', facecolor=facecolor, alpha=1)

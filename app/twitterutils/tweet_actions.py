@@ -54,16 +54,17 @@ def prepareText(*picurl):
       text += ' '
       text += commenturl
     
-    text += ' #Creetic'
+    else:
+      text += ' www.creetic.io'
     
   else:
-    text += ' '
-    text += 'creetic.io'
+    text += ' www.creetic.io'
   
   available_length = 140-len(text)
   print "Available length for BS: %d" %available_length
   
   text = bs_en.generatePhrase_short(available_length) + text
+  print "Tweet length: %d characters" %len(text)
   return text
     
 def buildCommentURL(picurl):
