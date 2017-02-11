@@ -62,7 +62,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
     #update latest tweet id
     for tweet in tweets:
       print tweet.created_at
-      print tweet.text
+      print unicode(tweet.text, 'utf-8')
       print "\n"
       if tweet.id>latest_tweet_processed:
         latest_tweet_processed = tweet.id
