@@ -55,7 +55,7 @@ nouns = np.array([
         'the opacity of polygons',
         'the stubborn wavering of perspectives',
         'the swirling symmetry',
-        'the vibrant boredom that emerges from this piece',
+        'the vibrant stillness that emerges from this piece',
         'the antagonism of most elements of the structural system',
     ])
 
@@ -115,7 +115,7 @@ verbes = np.array([
 ])
 
 finish_locutions = np.array([
-  '. inspiration or plagiarism?',
+  '. inspirational!',
   '. a first for this maestro.',
   '. this is regrettable.',
   '. this is remarkable.',
