@@ -46,9 +46,9 @@ def prepareTweetyAPI():
 
 def foundTweetsToReplyTo(latest_tweet_processed):
   status = "no tweet sent"
-  if(TWITTER_ON):
+  if TWITTER_ON:
     print "TWITTER_ON -- will be sending tweets"
-  if(!TWITTER_ON):
+  if not TWITTER_ON:
     print "TWITTER DISABLE -- should not be sending tweets"
 
   api = prepareTweetyAPI()
