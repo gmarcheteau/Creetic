@@ -35,19 +35,14 @@ if IS_HEROKU:
   TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN', None)
   TWITTER_ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET', None)
   
-  TWITTER_ON_STR = os.environ.get('TWITTER_ON', False)
+  TWITTER_ON_STR = os.environ.get('TWITTER_ON', 'NO_VALUE')
   if (TWITTER_ON_STR=="ON"):
     TWITTER_ON = True
+    print "TWITTER ENABLED -- will be sending tweets"
   else:
     TWITTER_ON = False
+    print "TWITTER DISABLED -- should not be sending tweets"
 
 else:
   print "local env -- importing localconfig.py"
   from localconfig import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY,TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,TWITTER_ACCESS_TOKEN,TWITTER_ACCESS_TOKEN_SECRET,TWITTER_ON
-
-####
-print "TWITTER_ON type: %s" %str(type(TWITTER_ON))
-if TWITTER_ON:
-  print "TWITTER_ON -- will be sending tweets"
-if not TWITTER_ON:
-  print "TWITTER DISABLED -- should not be sending tweets"

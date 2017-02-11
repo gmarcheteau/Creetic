@@ -30,7 +30,7 @@ locutions = np.array([
         'once more,',
         'I see that',
         'I say,',
-        'sadly,',
+        'impressive,',
         'hmm,',
         'oh,',
     ])
