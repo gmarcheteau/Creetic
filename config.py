@@ -28,7 +28,7 @@ if IS_HEROKU:
   IMAP_LOGIN = os.environ.get('IMAP_LOGIN', None)
   IMAP_PASSWORD = os.environ.get('IMAP_PASSWORD', None)
   WTF_CSRF_ENABLED = os.environ.get('WTF_CSRF_ENABLED', True)
-  SECRET_KEY = bool(os.environ.get('SECRET_KEY', True))
+  SECRET_KEY = os.environ.get('SECRET_KEY', True)
   #TWITTER
   TWITTER_CONSUMER_KEY = os.environ.get('TWITTER_CONSUMER_KEY', None)
   TWITTER_CONSUMER_SECRET = os.environ.get('TWITTER_CONSUMER_SECRET', None)
