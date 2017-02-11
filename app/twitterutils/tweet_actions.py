@@ -2,6 +2,7 @@
 import tinyurl
 import tweepy
 import sys,os
+import random
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from ArtyFarty import bsgenerator_en as bs_en
@@ -39,11 +40,20 @@ def prepareText(*picurl):
   text = ''
   
   if picurl:
-    picurl = picurl[0]
-    commenturl = buildCommentURL(picurl)
-    commenturl = tinyurl.create_one(commenturl) #tiny url for comment link --19 char
-    text += ' '
-    text += commenturl
+    
+    #randomly send or not link to comment on site (will have less space for BS on tweet)
+    if random.randint(1,3)%3 == 0:
+      SEND_LINK_TO_COMMENT=False
+    else:
+      SEND_LINK_TO_COMMENT=True
+    
+    if(SEND_LINK_TO_COMMENT):
+      picurl = picurl[0]
+      commenturl = buildCommentURL(picurl)
+      commenturl = tinyurl.create_one(commenturl) #tiny url for comment link --19 char
+      text += ' '
+      text += commenturl
+    
     text += ' #Creetic'
     
   else:

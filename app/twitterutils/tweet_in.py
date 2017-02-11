@@ -55,6 +55,8 @@ def checkTweetsAndReply(latest_tweet_processed):
     process_responses = []
     
     for tweet in tweets:
+      print tweet
+      
       #update latest tweet id
       if tweet.id>latest_tweet_processed:
         latest_tweet_processed = tweet.id
