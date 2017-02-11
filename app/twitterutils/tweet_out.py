@@ -10,7 +10,9 @@ from authentication import authentication
 import os, sys, traceback
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from ArtyFarty import bsgenerator_en as bs_en
+from config import TWITTER_ON
 
 #MY_TWEETER_NAME = "CreeticBot" #does not include '@'
 HASHTAG = "modernart" #does not include '#'
@@ -44,6 +46,7 @@ def prepareTweetyAPI():
 
 def foundTweetsToReplyTo(latest_tweet_processed):
   status = "no tweet sent"
+  print "TWITTER_ON: %s" %str(TWITTER_ON)
 
   api = prepareTweetyAPI()
   
