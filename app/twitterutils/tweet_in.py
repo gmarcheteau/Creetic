@@ -20,7 +20,8 @@ HASHTAG = "artyfartyplease" #does not include '#'
 ###
 
 ### MOVE QUERY TO CONFIG
-query = "#%s OR @%s filter:media" %(HASHTAG,MY_TWEETER_NAME)
+#query = "#%s OR @%s filter:media" %(HASHTAG,MY_TWEETER_NAME)
+query = "#%s filter:media" %HASHTAG
 ### END OF MOVE QUERY TO CONFIG
 
 def prepareTweetyAPI():

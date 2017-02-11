@@ -61,9 +61,8 @@ def foundTweetsToReplyTo(latest_tweet_processed):
     
     #update latest tweet id
     for tweet in tweets:
-      print tweet.id
-      print tweet.created_at
-      print "\n"
+      print "ID: %s" %str(tweet.id)
+      print "Date: %s" %str(tweet.created_at)
       if tweet.id>latest_tweet_processed:
         latest_tweet_processed = tweet.id
     print "###END OF READING TWEETS###\n"
