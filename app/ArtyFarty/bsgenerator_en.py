@@ -33,31 +33,85 @@ locutions = np.array([
         'impressive,',
         'hmm,',
         'oh,',
+        'damn,'
     ])
 
-nouns = np.array([
-        'the structure of this work',
-        'the shifting perspectives',
-        'the plasticity of the strokes',
-        'the softness of the angles',
-        'this warm light',
-        'the simplicity of the main serial structures',
-        'the multiplicity of exogenous constraints',
-        'the cynicism with which the shadows are neglected',
-        'the tendency to bend straight lines',
-        'the materiality of the texture',
-        'the joyful succession of dashes',
-        'the constant hesitation between shadow and light',
-        'the frustrating inertia with which shapes come alive',
-        'the insolent (though necessary) blur',
-        'the patent scorn for light hue',
-        'the saturation of tones',
-        'the opacity of polygons',
-        'the stubborn wavering of perspectives',
-        'the swirling symmetry',
-        'the vibrant stillness that emerges from this piece',
-        'the antagonism of most elements of the structural system',
-    ])
+###define two buckets for two sentence bits###
+#group by themes to avoid repetition and allow for more variants
+#all singular
+
+nouns1 = np.array([
+  #structure and texture
+  'the antagonism of most parts of the structural system',
+  'the materiality of the texture',
+  'the texturality',
+  
+  #lines and curves
+  'the tendency to bend straight lines',
+  'the linearity of curves',
+  'the unintended circularity of lines',
+  
+  #shapes
+  'the frustrating inertia with which shapes come alive',
+  'this big unidentified shape',
+  'that thing in the middle',
+  'an invisible but blatant shape',
+  
+  #blur
+  'the insolent but necessary blur',
+  'a blurry intention',
+  'the severe blurness',
+  
+  #arrangement
+  'the wobbly arrangement',
+  'an unclear arrangement',
+  'this strict arragement',
+  
+  #perspective
+  'the shifting perspective',
+  'the evading perspective',
+  'the stubborn wavering of perspectives',
+  
+  #others
+  'the opacity of polygons',
+  
+  ])
+
+nouns2 = np.array([
+  #strokes
+  'the plasticity of the strokes',
+  'the joyful succession of dashes',
+  
+  #symmetry
+  'the swirling symmetry',
+  'this witty symmetry',
+  
+  #shadow/light
+  'this warm light',
+  'the constant hesitation between shadow and light',
+  'the cynicism with which the shadows are neglected',
+  'the patent scorn for light hue',
+  
+  #angles
+  'the softness of the angles',
+  'the angularity of the shadows',
+  
+  #series/serial
+  'the simplicity of the main serial elements',
+  
+  #tones
+  'the saturation of tones',
+  'the plurality of tones',
+  
+  #constraints
+  'the multiplicity of exogenous constraints',
+  'the self-imposed tone constraint',
+  
+  #movement/stillness
+  'the vibrant stillness that emerges from this piece',
+  'the idle movement of this piece',
+  
+  ])
 
 colorlocutions = np.array([
   'combined with the use of colors such as',
@@ -90,12 +144,13 @@ verbes = np.array([
   'reinforces',
   'should not lead one to disregard',
   'should not obliterate',
+  'obliterates',
   'misses',
   'feeds',
   'amplifies',
   'reflects',
   'translates',
-  'almost overshadows',
+  'almost outshines',
   'dampens',
   'clearly expresses',
   'transcends',
@@ -134,6 +189,7 @@ finish_locutions = np.array([
   '. the artist gets away with panache!',
   ' - artistic flair at its best.',
   ', while still subscribing to an artistic continuity, which will surely be appreciated by the connoisseurs.',
+  ' - the connoisseurs will appreciate.',
   ' - which, all things considered, is quite shocking for anyone having aware of the artist\'s political views...',
   ' - although this interpretation is still quite controversial many years later.',
   ' - benevolent ecumenism or shameless proselytism?',
@@ -143,41 +199,37 @@ finish_locutions = np.array([
   '. the artist\'s relationship with their mother has to do with this.',
   '. a very personal take on spirituality.',
   '. wow!',
-  '. a politically marked piece indeed.',
+  '. a political message indeed.',
   '. this is reckless art.',
   '. quite an artistic stunt.',
   '. best art ever. period.',
   '. not bad!',
+  '. close to perfection.',
+  '. good stuff.',
+  '. history in the making.',
+  '. quite scary!',
+  '. well done!',
+  '. astonishing!',
+  '. powerful stuff.',
+  '. quite fantastic.',
     ])
 
 space = ' '
 
 def generatePhrase(*maincolors):
-  #define randoms
-  randLocution = random.randint(0,len(locutions)-1)
-  randNoun1 = random.randint(0,len(nouns)-1)
-  randVerb = random.randint(0,len(verbes)-1)
-  #cannot use the same random int multiple times for nouns
-  #initialize as same, then while loop
-  randNoun2 = randNoun1
-  while(randNoun2==randNoun1):
-      randNoun2 = random.randint(0,len(nouns)-1)
-  randFinish = random.randint(0,len(finish_locutions)-1)
+  parts = selectRandomParts(maincolors)
 
   colorcomment = ''
   colorcomment2 = ''
+  
   if maincolors:
-    number_colors = len(maincolors)
-    randColorNumber = random.randint(0,number_colors-1)
-    randColorLocution = random.randint(0,len(colorlocutions)-1)
     firstcolor=maincolors[0][0][1]
     colorcomment = ''.join([
         ',',
         space,
-        colorlocutions[randColorLocution],
+        parts['colorlocution'],
         space,
-        #use main color or random (randColorNumber)?
-        firstcolor,
+        firstcolor,#use main color or random (randColorNumber)?
         ',',
       ])
       
@@ -188,60 +240,30 @@ def generatePhrase(*maincolors):
       if secondcolor==firstcolor and maincolors[0][2][1]:
         secondcolor=maincolors[0][2][1]
       
-      randSecondColorLocution = random.randint(0,len(secondcolorlocutions)-1)
-      randVerb2 = randVerb
-      while(randVerb2 == randVerb):
-        randVerb2 = random.randint(0,len(verbes)-1)
-      randNoun3 = randNoun1
-      while(randNoun3 in [randNoun1,randNoun2]):
-        randNoun3 = random.randint(0,len(nouns)-1)
-      
       colorcomment2 = ''.join([
-        secondcolorlocutions[randSecondColorLocution],
+        parts['secondcolorlocution'],
         space,
         secondcolor,
         space,
-        verbes[randVerb2],
+        parts['verb2'],
         space,
-        nouns[randNoun3]
-      ])
-      
-  
-  # set a 1/3 chance that the phrase won't have initial locution
-  randLocutionOrNot = random.randint(1,3)
-  if randLocutionOrNot%3 == 0:
-    NO_LOCUTION = True
-  else: NO_LOCUTION = False
-  
-  if NO_LOCUTION: #don't use first locution, capitalize first Noun
-    phrase = ''.join([
-          nouns[randNoun1],
-          colorcomment,
-          space,
-          verbes[randVerb],
-          space,
-          nouns[randNoun2],
-          #add comment about second color
-          colorcomment2,
-          #no space before finish_locution
-          finish_locutions[randFinish]
+        parts['noun3']
       ])
   
-  else: #full phrase
-    phrase = ''.join([
-          locutions[randLocution],
-          space,
-          nouns[randNoun1],
-          colorcomment,
-          space,
-          verbes[randVerb],
-          space,
-          nouns[randNoun2],
-          #add comment about second color
-          colorcomment2,
-          #no space before finish_locution
-          finish_locutions[randFinish]
-      ])
+  
+  phrase = ''.join([
+    parts['start_locution'],
+    parts['noun1'],
+    colorcomment,
+    space,
+    parts['verb1'],
+    space,
+    parts['noun2'],
+    #add comment about second color
+    colorcomment2,
+    #no space before finish_locution
+    parts['finish_locution'],
+    ])
     
   
   phrase = capitalizeFirstWords(phrase)
@@ -273,3 +295,60 @@ def capitalizeFirstWords(phrase):
                "(?<=\w\.)\w",               # end of acronym
                lambda x: x.group().upper(),
                phrase)
+
+def selectRandomParts(*maincolors):
+  #define randoms
+  randLocution = random.randint(0,len(locutions)-1)
+  randNoun1 = random.randint(0,len(nouns1)-1)
+  randNoun2 = random.randint(0,len(nouns2)-1)
+  randVerb1 = random.randint(0,len(verbes)-1)
+  randFinish = random.randint(0,len(finish_locutions)-1)
+  
+  if maincolors:
+    print "colors detected -- choosing randoms for color bits"
+    #randColorNumber = random.randint(0,len(maincolors)-1)
+    randColorLocution = random.randint(0,len(colorlocutions)-1)
+    randSecondColorLocution = random.randint(0,len(secondcolorlocutions)-1)
+    #avoid using same item twice
+    randVerb2 = randVerb1
+    while(randVerb2 == randVerb1):
+      randVerb2 = random.randint(0,len(verbes)-1)
+    randNoun3 = randNoun1
+    while(randNoun3 in [randNoun1,randNoun2]):
+      #choose from one or the other of the 2 noun buckets
+      if random.randint(1,2)%2==0:
+        randNoun3 = random.randint(0,len(nouns1)-1)
+        nouns3bit=nouns1[randNoun3]
+      else:
+        randNoun3 = random.randint(0,len(nouns2)-1)
+        nouns3bit=nouns2[randNoun3]
+  
+  # set a 1/2 chance to swap the 2 noun bits (they come from incompatible buckets, so this does introduce some variety)
+  noun1bit=nouns1[randNoun1]
+  noun2bit=nouns2[randNoun2]
+  tempNounBit=''
+  if random.randint(1,2)%2 == 0:
+    tempNounBit=noun1bit
+    noun1bit=noun2bit
+    noun2bit=tempNounBit
+  
+  # set a 2/3 chance to add an initial locution
+  optional_start = ''
+  if random.randint(1,3)%3 != 0:
+    optional_start += locutions[randLocution]
+    optional_start += space
+  
+  return {
+    'start_locution': optional_start,
+    'noun1':noun1bit,
+    'verb1':verbes[randVerb1],
+    'noun2':noun2bit,
+    
+    'colorlocution':colorlocutions[randColorLocution],
+    'secondcolorlocution':secondcolorlocutions[randSecondColorLocution],
+    
+    'verb2':verbes[randVerb2],
+    'noun3':nouns3bit,
+    
+    'finish_locution':finish_locutions[randFinish]
+    }
