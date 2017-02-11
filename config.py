@@ -34,8 +34,12 @@ if IS_HEROKU:
   TWITTER_CONSUMER_SECRET = os.environ.get('TWITTER_CONSUMER_SECRET', None)
   TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN', None)
   TWITTER_ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET', None)
-  TWITTER_ON = bool(os.environ.get('TWITTER_ON', False))
   
+  TWITTER_ON_STR = os.environ.get('TWITTER_ON', False)
+  if (TWITTER_ON_STR=="ON"):
+    TWITTER_ON = True
+  else:
+    TWITTER_ON = False
 
 else:
   print "local env -- importing localconfig.py"
