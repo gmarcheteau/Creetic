@@ -31,6 +31,8 @@ locutions = np.array([
         'I see that',
         'I say,',
         'sadly,',
+        'hmm,',
+        'oh,',
     ])
 
 nouns = np.array([
@@ -114,7 +116,7 @@ verbes = np.array([
 
 finish_locutions = np.array([
   '. inspiration or plagiarism?',
-  ', a first for this maestro.',
+  '. a first for this maestro.',
   '. this is regrettable.',
   '. this is remarkable.',
   '. hard to top.',
@@ -251,14 +253,15 @@ def generatePhrase_short(limit=116):
   bstext = generatePhrase()
   counter = 1
   
-  print "Generated BS #%d" %counter
-  print "Length: %d" %len(bstext)
+  print "\n###BULLSHIT GENERATION###"
+  print "Generated BS #%d | length: %d" %(counter,len(bstext))
   
   while len(bstext)>limit:
     counter += 1
     bstext = generatePhrase()
-    print "Generated BS #%d" %counter
-    print "Length: %d" %len(bstext)
+    print "Generated BS #%d | length: %d" %(counter,len(bstext))
+  
+  print "###END OF BULLSHIT GENERATION###\n"
   
   return bstext
 

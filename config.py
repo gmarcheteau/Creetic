@@ -4,7 +4,7 @@ import os
 
 #non-sensitive stuff
 MIN_CLUSTERS = 3
-MAX_CLUSTERS = 8
+MAX_CLUSTERS = 6
 DEFAULT_URLS = [
   "https://upload.wikimedia.org/wikipedia/commons/6/69/VanGogh-starry_night_edit.jpg",
   "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg/687px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
@@ -34,8 +34,9 @@ if IS_HEROKU:
   TWITTER_CONSUMER_SECRET = os.environ.get('TWITTER_CONSUMER_SECRET', None)
   TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN', None)
   TWITTER_ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET', None)
+  TWITTER_ON = os.environ.get('TWITTER_ON', False)
   
 
 else:
   print "local env -- importing localconfig.py"
-  from localconfig import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY,TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,TWITTER_ACCESS_TOKEN,TWITTER_ACCESS_TOKEN_SECRET
+  from localconfig import IMAP_LOGIN,IMAP_PASSWORD, WTF_CSRF_ENABLED,SECRET_KEY,TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,TWITTER_ACCESS_TOKEN,TWITTER_ACCESS_TOKEN_SECRET,TWITTER_ON

@@ -10,28 +10,29 @@
 {% block content %}
     
     <!-- IN CASE OF FAILURE SHOW COLORTUBES HEADER -->
-    <div ng-hide="failure"><img id="artimg" class="center" src= {{ imageurl }} alt="#creetic" width="60%"></div>
-    <div ng-show="failure"><img id="artimg" class="center" src= "/static/images/colortubes.jpg" alt="#creetic" width="60%"></div>
+    <div ng-hide="failure"><img id="artimg" class="center" src= {{ imageurl }} alt="#creetic" width="50%"></div>
+    <div ng-show="failure"><img id="artimg" class="center" src= "/static/images/colortubes.jpg" alt="#creetic" width="50%"></div>
     <p></p>
     {% raw %}
     <!-- WHILE WAITING -->
-    <div ng-show="waiting" id="comment">Please wait, our best experts are analysing your image...<p></p></div>
-    <img id="artimg" class="center" src="/static/images/spinner.gif" ng-show="waiting" width="50">
+    <hr>
+    <div ng-show="waiting" id="regularText">Please wait, our best experts are analysing your image...<p></p></div>
+    <img id="artimg" class="center" src="/static/images/spinner.gif" ng-show="waiting" width="5%">
     
     <!-- IN CASE OF FAILURE -->
-    <div ng-show="failure" id="comment">Sorry, our experts were unable to retrieve your image. Please check it and try again.<p></p></div>
+    <div ng-show="failure" id="regularText">Sorry, our experts were unable to retrieve your image. Please check it and try again.<p></p></div>
     
     <!-- IN CASE OF SUCCESS -->
     <div ng-show="success">
       <!-- COMMENT -->
-    <div id="comment"><p>{{ imagecomment }}</p></div>
+    <blockquote><p>{{ imagecomment }}</p><cite>CreeticBot, 2017</cite></blockquote>
     <hr>
       <!-- SIMPLER IMAGE -->
-    <p id="comment">An easier way to draw the same thing would have been:</p>
+    <p id="regularText">An easier - and cheaper - way to draw the same thing, using only {{maincolorstrings.length}} colors, would have been:</p>
     <div><img id="artimg" class="center" src="data:image/png;base64,{{ simplerimage }}" width="60%" border="0" style="border-color: black;background: transparent"></div>
     <hr>
       <!-- COLOR BOXES -->
-    <table style = "border: 0px solid black;width:30%;">
+    <table style = "border: 0px solid black;width:40%;" align="center">
       <tr>
         <th align="left">Color</th>
         <th align="left">Weight</th>
@@ -48,7 +49,7 @@
       </tr>
       -->
     </table>
-    <img src="data:image/png;base64,{{ colorboxes }}" width="40" border="0" style="border-color: black;background: transparent">
+    <img id="artimg" class="center" src="data:image/png;base64,{{ colorboxes }}" width="40%" border="0" style="border-color: black;background: transparent;">
   
     
     <!-- end of hiddable div -->

@@ -3,31 +3,37 @@ import tinyurl
 import tweepy
 import sys,os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from ArtyFarty import bsgenerator_en as bs_en
 from ArtyFarty import imageapp
+from config import TWITTER_ON
+
 
 def replyToTweet(api,to_user,status_id):
   text = prepareText()
   
-  print "----sending tweet----"
+  print "----sending tweet----(%s)" %TWITTER_ON
   print text
   print "to user @%s" %to_user
   print "in reply to tweet %d" %status_id
   
-  try: #SEND A REPLY
-    api.update_status(
-      status=text,
-      in_reply_to_status_id=status_id,
-      auto_populate_reply_metadata=True)
-    api.create_favorite(status_id) #LIKE THE TWEET
-    api.create_friendship(to_user) #CREATE FRIENDSHIP
-    return "OK"
-
-  except Exception as err:
-    traceback.print_exc()
-    print "error in posting -- %s" %str(err)
-    return "Error calling api -- %s" %str(err)
+  if(TWITTER_ON):
+    try: #SEND A REPLY
+      api.update_status(
+        status=text,
+        in_reply_to_status_id=status_id,
+        auto_populate_reply_metadata=True)
+      api.create_favorite(status_id) #LIKE THE TWEET
+      api.create_friendship(to_user) #CREATE FRIENDSHIP
+      return "OK"
   
+    except Exception as err:
+      traceback.print_exc()
+      print "error in posting -- %s" %str(err)
+      return "Error calling api -- %s" %str(err)
+  else:
+    print "Testing (not sent)"
+    return "Testing (not sent)"
   
 def prepareText(*picurl):
   text = ''
@@ -38,12 +44,16 @@ def prepareText(*picurl):
     commenturl = tinyurl.create_one(commenturl) #tiny url for comment link --19 char
     text += ' '
     text += commenturl
+    text += ' #Creetic'
     
   else:
     text += ' '
-    text += 'goo.gl/AegUWZ'
+    text += 'creetic.io'
   
-  text = bs_en.generatePhrase_short(140-len(text)) + text
+  available_length = 140-len(text)
+  print "Available length for BS: %d" %available_length
+  
+  text = bs_en.generatePhrase_short(available_length) + text
   return text
     
 def buildCommentURL(picurl):
@@ -60,26 +70,37 @@ def saveSimplerImage(simplerimage,filename):
       f.write(simplerimage)
 
 def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
-  try:
-    message = prepareText(picurl)
-    filename = 'temp.png'
-    
-    simplerimage = imageapp.commentOnImage(picurl)["simplerimage"]
-    saveSimplerImage(simplerimage,filename)
-    
-    print "sending tweet %s to %s" %(message,to_user)
-    
-    api.update_with_media(
-      filename=filename,
-      status=message,
-      in_reply_to_status_id=status_id,
-      auto_populate_reply_metadata=True)
-    
-    api.create_favorite(status_id) #LIKE THE TWEET
-    api.create_friendship(to_user) #CREATE FRIENDSHIP
-    
-    return "OK"
   
-  except Exception as err:
-    print str(err)
-    return str(err)
+  message = prepareText(picurl)
+  print "----sending tweet----(%s)" %TWITTER_ON
+  print message
+  print "to user @%s" %to_user
+  print "in reply to tweet %d" %status_id
+  
+  if(TWITTER_ON):
+    try:
+      filename = 'temp.png'
+      
+      simplerimage = imageapp.commentOnImage(picurl)["simplerimage"]
+      saveSimplerImage(simplerimage,filename)
+      
+      print "sending tweet %s to %s" %(message,to_user)
+      
+      api.update_with_media(
+        filename=filename,
+        status=message,
+        in_reply_to_status_id=status_id,
+        auto_populate_reply_metadata=True)
+      
+      api.create_favorite(status_id) #LIKE THE TWEET
+      api.create_friendship(to_user) #CREATE FRIENDSHIP
+      
+      return "Tweet sent"
+    
+    except Exception as err:
+      print str(err)
+      return str(err)
+  else:
+    print "Testing (not sent)"
+    return "Testing (not sent)"
+    
