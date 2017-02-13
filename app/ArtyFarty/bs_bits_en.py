@@ -186,7 +186,7 @@ finish_locutions = np.array([
   '. brilliant!',
   ' daring!',
   '. stunning!',
-  '. scandalous!',
+  '. glorious!',
   '. shocking!',
   '. a regrettable consequence of a late subscription to kandinskism.',
   ' - and it\'s unfortunately not the first time.',
@@ -220,6 +220,8 @@ finish_locutions = np.array([
   '. astonishing!',
   '. powerful stuff.',
   '. quite fantastic.',
+  '. absolutely amazing.',
+  ". it doesn't get much better"
     ])
 
 space = ' '
