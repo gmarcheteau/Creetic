@@ -142,7 +142,7 @@ verbes = np.array([
   'contradicts',
   'is in contradiction with',
   'brings out',
-  'highlights',
+  'emphasizes',
   'establishes a sharp contrast with',
   'does nothing but accentuate',
   'is reinforced by',
@@ -178,6 +178,7 @@ verbes = np.array([
 
 finish_locutions = np.array([
   '. inspirational!',
+  '. absolutely delightful!',
   '. a first for this maestro.',
   '. this is regrettable.',
   '. this is remarkable.',
@@ -189,7 +190,7 @@ finish_locutions = np.array([
   '. glorious!',
   '. shocking!',
   '. a regrettable consequence of a late subscription to kandinskism.',
-  ' - and it\'s unfortunately not the first time.',
+  " - and it's not the first time.",
   ' - an arrogant transgression of all the rules that the artist contributed to setting...',
   ', yet not negating its existence.',
   ' - a reference to Barlowstovitch\'s work on the subject?',
