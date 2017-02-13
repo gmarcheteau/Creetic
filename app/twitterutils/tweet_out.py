@@ -15,15 +15,26 @@ from ArtyFarty import bsgenerator_en as bs_en
 from config import TWITTER_ON
 
 #MY_TWEETER_NAME = "CreeticBot" #does not include '@'
-HASHTAG = "modernart" #does not include '#'
+HASHTAGS = [
+  "modernart",
+  "abstractart",
+  "abstractpainting",
+  "artyfarty",
+  ]#does not include '#'
 
 #adapted from http://piratefache.ch/twitter-streaming-api-with-tweepy/
 ###
 #tweet_data = json.loads(tweet)  # This allows the JSON data
 ###
 
-### MOVE QUERY TO CONFIG
-query = "#%s filter:media" %HASHTAG
+### TODO: MOVE QUERY TO CONFIG?
+###BUILD QUERY ###
+query = ''
+for hashtag in HASHTAGS:
+  query+="#%s OR " %hashtag
+query=query[:-3] ##remove the last "OR"
+query += "filter:media"
+print "Twitter query: %s" %query
 ### END OF MOVE QUERY TO CONFIG
 
 def prepareTweetyAPI():
