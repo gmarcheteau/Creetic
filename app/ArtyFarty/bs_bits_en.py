@@ -184,6 +184,7 @@ finish_locutions = np.array([
   '. hard to top.',
   '. hats off!',
   '. brilliant!',
+  ' daring!',
   '. stunning!',
   '. scandalous!',
   '. shocking!',

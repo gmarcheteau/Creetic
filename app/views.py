@@ -256,7 +256,12 @@ def tweetIn():
   #update latest tweet to Redis
   setLatestTweetToRedis(twitter_response["latest_tweet_id"])
   
-  return str(twitter_response)
+  return json.dumps(
+    twitter_response,
+    sort_keys=True,
+    indent=4,
+    separators=(',', ': ')
+    )
 
 @app.route('/tweetout', methods=['POST'])
 def tweetOut():
@@ -270,7 +275,12 @@ def tweetOut():
   #update latest tweet to Redis
   setLatestTweetToRedis(twitter_response["latest_tweet_id"])
   
-  return str(twitter_response)
+  return json.dumps(
+    twitter_response,
+    sort_keys=True,
+    indent=4,
+    separators=(',', ': ')
+    )
 
 
 @app.route("/results/<job_key>", methods=['GET'])
@@ -333,4 +343,9 @@ def setLatestTweetToRedis(latesttweetid):
 
 @app.route("/manualtweetout/<tweetid>", methods=['POST'])
 def manualTweetOut(tweetid):
-  return tweet_out.manualTweetReply(tweetid)
+  return json.dumps(
+    tweet_out.manualTweetReply(tweetid),
+    sort_keys=True,
+    indent=4,
+    separators=(',', ': ')
+    )
