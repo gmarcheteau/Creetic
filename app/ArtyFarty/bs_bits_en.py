@@ -199,7 +199,7 @@ finish_locutions = np.array([
   ' - artistic flair at its best.',
   ', while still subscribing to an artistic continuity, which will surely be appreciated by the connoisseurs.',
   ' - the connoisseurs will appreciate.',
-  ' - which, all things considered, is quite shocking for anyone having aware of the artist\'s political views...',
+  ' - which, all things considered, is quite shocking for anyone aware of the artist\'s political views...',
   ' - although this interpretation is still quite controversial many years later.',
   ' - benevolent ecumenism or shameless proselytism?',
   '. back to basics, in a way.',
