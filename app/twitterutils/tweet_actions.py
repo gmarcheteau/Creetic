@@ -60,7 +60,7 @@ def prepareText(*picurl):
   else:
     text += ' www.creetic.io'
   
-  available_length = Integer.valueOf(TWITTER_CHARACTER_LIMIT)-len(text)
+  available_length = 280-len(text) ##NOT USING TWITTER_CHARACTER_LIMIT
   print "Available length for BS: %d" %available_length
   
   text = bs_en.generatePhrase_short(available_length) + text
