@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 from ArtyFarty import bsgenerator_en as bs_en
 from ArtyFarty import imageapp
 from config import TWITTER_ON
-
+from config import TWITTER_CHARACTER_LIMIT
 
 def replyToTweet(api,to_user,status_id):
   text = prepareText()
@@ -60,7 +60,7 @@ def prepareText(*picurl):
   else:
     text += ' www.creetic.io'
   
-  available_length = 140-len(text)
+  available_length = TWITTER_CHARACTER_LIMIT-len(text)
   print "Available length for BS: %d" %available_length
   
   text = bs_en.generatePhrase_short(available_length) + text
