@@ -40,7 +40,7 @@ def prepareText(*picurl):
   text = ''
   
   if picurl is not None:
-    
+    picurl = picurl[0]
     print "picurl: "+picurl
     #randomly send or not link to comment on site (will have less space for BS on tweet)
     if random.randint(1,3)%3 == 0:
@@ -49,7 +49,6 @@ def prepareText(*picurl):
       SEND_LINK_TO_COMMENT=True
     
     if(SEND_LINK_TO_COMMENT):
-      picurl = picurl[0]
       commenturl = buildCommentURL(picurl)
       commenturl = tinyurl.create_one(commenturl) #tiny url for comment link --19 char
       text += ' '
