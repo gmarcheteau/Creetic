@@ -13,7 +13,7 @@ from config import TWITTER_CHARACTER_LIMIT
 def replyToTweet(api,to_user,status_id):
   text = prepareText()
   
-  print "----sending tweet----(%s)" %TWITTER_ON
+  print "----sending tweet from replyToTweet----(%s)" %TWITTER_ON
   print text
   print "to user @%s" %to_user
   print "in reply to tweet %d" %status_id
@@ -58,6 +58,7 @@ def prepareText(*picurl):
       text += ' www.creetic.io'
     
   else:
+    print "picurl is None"
     text += ' www.creetic.io'
   
   available_length = 280-len(text) ##NOT USING TWITTER_CHARACTER_LIMIT
@@ -84,7 +85,7 @@ def saveSimplerImage(simplerimage,filename):
 def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
   
   message = prepareText(picurl)
-  print "----sending tweet----(%s)" %TWITTER_ON
+  print "----sending tweet from replyToTweetWithSimplerImage----(%s)" %TWITTER_ON
   print message
   print "to user @%s" %to_user
   print "in reply to tweet %d" %status_id
