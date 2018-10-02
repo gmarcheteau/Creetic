@@ -11,6 +11,7 @@ from config import TWITTER_ON
 from config import TWITTER_CHARACTER_LIMIT
 
 def replyToTweet(api,to_user,status_id):
+  
   text = prepareText()
   
   print "----sending tweet from replyToTweet----(%s)" %TWITTER_ON
@@ -39,7 +40,6 @@ def replyToTweet(api,to_user,status_id):
 def prepareText(*picurl):
   text = ''
   
-  picurl = picurl[0]
   if picurl is not None:
     print "picurl: "+picurl
     #randomly send or not link to comment on site (will have less space for BS on tweet)
@@ -84,6 +84,7 @@ def saveSimplerImage(simplerimage,filename):
 
 def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
   
+  picurl = picurl[0]
   message = prepareText(picurl)
   print "----sending tweet from replyToTweetWithSimplerImage----(%s)" %TWITTER_ON
   print message
