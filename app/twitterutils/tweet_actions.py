@@ -84,7 +84,10 @@ def saveSimplerImage(simplerimage,filename):
 
 def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
   
-  picurl = picurl[0]
+  if picurl is not None:
+    picurl = picurl[0]
+  else:
+    picurl = 'noPicURL'
   message = prepareText(picurl)
   print "----sending tweet from replyToTweetWithSimplerImage----(%s)" %TWITTER_ON
   print message
