@@ -87,8 +87,7 @@ def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
   
   if picurl is not None:
     picurl = picurl[0]
-  else:
-    picurl = 'noPicURL'
+  
   message = prepareText(picurl[0])
   print "----sending tweet from replyToTweetWithSimplerImage----(%s)" %TWITTER_ON
   print message
