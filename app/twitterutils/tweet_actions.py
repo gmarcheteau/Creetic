@@ -41,8 +41,8 @@ def prepareText(*picurl):
   text = ''
   
   if picurl is not None:
-    print "type of picurl: "+type(picurl)
-    picurl = picurl[0]
+    #print "type of picurl: "+type(picurl)
+    #picurl = picurl[0]
     print "picurl: "+picurl
     #randomly send or not link to comment on site (will have less space for BS on tweet)
     if random.randint(1,3)%3 == 0:
