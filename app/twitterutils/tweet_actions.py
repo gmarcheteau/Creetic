@@ -87,7 +87,7 @@ def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
   
   if picurl is None:
     print "----picurl is None, switching back to replyToTweet (no media)"
-    replyToTweet(api,to_user,status_id,picurl)
+    replyToTweet(api,to_user,status_id)
     
   else:
     picurl = picurl[0]
