@@ -85,39 +85,44 @@ def saveSimplerImage(simplerimage,filename):
 
 def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
   
-  if picurl is not None:
+  if picurl is None:
+    print "----picurl is None, switching back to replyToTweet (no media)"
+    replyToTweet(api,to_user,status_id,picurl)
+    
+  else:
     picurl = picurl[0]
   
-  message = prepareText(picurl[0])
-  print "----sending tweet from replyToTweetWithSimplerImage----(%s)" %TWITTER_ON
-  print message
-  print "to user @%s" %to_user
-  print "in reply to tweet %d" %status_id
-  
-  if(TWITTER_ON):
-    try:
-      filename = 'temp.png'
-      
-      simplerimage = imageapp.commentOnImage(picurl)["simplerimage"]
-      saveSimplerImage(simplerimage,filename)
-      
-      print "sending tweet %s to %s" %(message,to_user)
-      
-      api.update_with_media(
-        filename=filename,
-        status=message,
-        in_reply_to_status_id=status_id,
-        auto_populate_reply_metadata=True)
-      
-      api.create_favorite(status_id) #LIKE THE TWEET
-      api.create_friendship(to_user) #CREATE FRIENDSHIP
-      
-      return "Tweet sent"
-    
-    except Exception as err:
-      print str(err)
-      return str(err)
-  else:
-    print "Testing (not sent)"
-    return "Testing (not sent)"
-    
+    message = prepareText(picurl[0])
+    print "----sending tweet from replyToTweetWithSimplerImage----(%s)" %TWITTER_ON
+    print message
+    print "to user @%s" %to_user
+    print "in reply to tweet %d" %status_id
+
+    if(TWITTER_ON):
+      try:
+        filename = 'temp.png'
+
+        simplerimage = imageapp.commentOnImage(picurl)["simplerimage"]
+        saveSimplerImage(simplerimage,filename)
+
+        print "sending tweet %s to %s" %(message,to_user)
+
+        api.update_with_media(
+          filename=filename,
+          status=message,
+          in_reply_to_status_id=status_id,
+          auto_populate_reply_metadata=True)
+
+        api.create_favorite(status_id) #LIKE THE TWEET
+        api.create_friendship(to_user) #CREATE FRIENDSHIP
+
+        return "Tweet sent"
+
+      except Exception as err:
+        print str(err)
+        return str(err)
+
+    else:
+      print "Testing (not sent)"
+      return "Testing (not sent)"
+
