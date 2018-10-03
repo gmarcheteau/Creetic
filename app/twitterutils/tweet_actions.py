@@ -41,8 +41,7 @@ def prepareText(*picurl):
   text = ''
   
   if picurl is not None:
-    #picurl = picurl[0]
-    print "picurl: %s" % (picurl,)
+    print "picurl: %s" % picurl
     #randomly send or not link to comment on site (will have less space for BS on tweet)
     if random.randint(1,3)%3 == 0:
       SEND_LINK_TO_COMMENT=False
@@ -92,11 +91,12 @@ def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
   else:
     #picurl = picurl[0]
   
-    message = prepareText(picurl[0])
+    message = prepareText(picurl)
     print "----sending tweet from replyToTweetWithSimplerImage----(%s)" %TWITTER_ON
     print message
     print "to user @%s" %to_user
     print "in reply to tweet %d" %status_id
+    print "with picurl %s" %picurl
 
     if(TWITTER_ON):
       try:
