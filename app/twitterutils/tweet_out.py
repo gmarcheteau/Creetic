@@ -96,7 +96,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
           status_id=tweet.id,
           picurl=picurl)
         
-      else
+      else:
         ##REPLY WITHOUT IMAGE
         status = tweet_actions.replyToTweet(
         api=api,
