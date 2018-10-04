@@ -88,20 +88,20 @@ def foundTweetsToReplyTo(latest_tweet_processed):
       print "Date: %s" %tweet.created_at
       print "IMAGE FOUND IN TWEET: %s" %picurl
       
-      if picurl is None:
-        ##REPLY WITHOUT IMAGE
-        status = tweet_actions.replyToTweet(
-        api=api,
-        to_user=tweet.user.screen_name,
-        status_id=tweet.id)
-      
-      else:
+      if picurl:
         ##REPLY WITH IMAGE
         status = tweet_actions.replyToTweetWithSimplerImage(
           api=api,
           to_user=tweet.user.screen_name,
           status_id=tweet.id,
           picurl=picurl)
+        
+      else
+        ##REPLY WITHOUT IMAGE
+        status = tweet_actions.replyToTweet(
+        api=api,
+        to_user=tweet.user.screen_name,
+        status_id=tweet.id)
     else:
       status = "no tweet with photo found"
   else:
