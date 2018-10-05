@@ -114,12 +114,12 @@ def foundTweetsToReplyTo(latest_tweet_processed):
                 api=api,
                 to_user=tweet.user.screen_name,
                 status_id=tweet.id)
-            else:
-                status+= "no tweet with photo found \n"
-            else:
-                status+= "not tweets found \n"
-  
-                print status
+        else:
+            status+= "no tweet with photo found \n"
+    else:
+        status+= "not tweets found \n"
+
+        print status
   
   return {
     "number_tweets_found":len(tweets),
