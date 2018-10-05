@@ -41,6 +41,7 @@ def prepareText(*picurl):
   text = ''
   
 <<<<<<< HEAD
+<<<<<<< HEAD
   if picurl is not None:
     try:
         if len(picurl)>0:
@@ -51,6 +52,8 @@ def prepareText(*picurl):
         print str(err)
         #return str(err)
 =======
+=======
+>>>>>>> bfd16482c0824f80342770aa3786dbbe8b79268a
   if picurl:
     print "picurl: %s" % picurl
 >>>>>>> bfd16482c0824f80342770aa3786dbbe8b79268a

@@ -101,7 +101,10 @@ def foundTweetsToReplyTo(latest_tweet_processed):
         
       else:
 <<<<<<< HEAD
+<<<<<<< HEAD
         print "picurl NOT OK"
+=======
+>>>>>>> bfd16482c0824f80342770aa3786dbbe8b79268a
 =======
 >>>>>>> bfd16482c0824f80342770aa3786dbbe8b79268a
         ##REPLY WITHOUT IMAGE
