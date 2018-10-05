@@ -100,6 +100,7 @@ def getPhotoUrlFromTweet(tweet):
       #CHECK IF MEDIA IS PHOTO
       if media["type"]=="photo":
         #return media['media_url']
+        print "def getPhotoUrlFromTweet(tweet) -- URL found: %s" % media.get('media_url')
         return media.get('media_url')
       else:
         pass
