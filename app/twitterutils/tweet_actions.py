@@ -81,7 +81,7 @@ def prepareText(*picurl):
 def buildCommentURL(picurl):
   baseurl = "http://www.creetic.io/getbs_img?imageurl="
   print "URL to send: %s%s:medium" % (baseurl,picurl)
-  return baseurl+picurl+":medium"
+  return baseurl+str(picurl)+":medium"
 
 #SAVE SIMPLER IMAGE TO FILE, TO BE TWEETED
 def saveSimplerImage(simplerimage,filename):
