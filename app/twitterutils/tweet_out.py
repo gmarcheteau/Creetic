@@ -20,6 +20,8 @@ HASHTAGS = [
   "modernart",
   "abstractart",
   "abstractpainting",
+  "fineart",
+  "contemporaryart",
   "artyfarty",
   "artyfartyplease",
   "creeticbot",
