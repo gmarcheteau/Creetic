@@ -20,8 +20,9 @@ HASHTAG = "creetic" #does not include '#'
 ###
 
 ### MOVE QUERY TO CONFIG
-#query = "#%s OR @%s filter:media" %(HASHTAG,MY_TWEETER_NAME)
-query = "#%s filter:media" %HASHTAG
+#query = "#%s OR @%s filter:media" %(HASHTAG,MY_TWEETER_NAME) #get tweets with hashtag or mentions
+query = "#%s OR @%s" %(HASHTAG,MY_TWEETER_NAME) #get tweets with hashtag or mentions EVEN WITHOUT MEDIA
+#query = "#%s filter:media" %HASHTAG
 ### END OF MOVE QUERY TO CONFIG
 
 def prepareTweetyAPI():
@@ -51,6 +52,7 @@ def checkTweetsAndReply(latest_tweet_processed):
       since_id=latest_tweet_processed,
       include_entities=True)
     
+    print "Twitter Query: %s" %query
     print "Number of tweets found: %d" %len(tweets)
     
     process_responses = []
@@ -99,7 +101,9 @@ def getPhotoUrlFromTweet(tweet):
     for media in tweet.entities['media']:
       #CHECK IF MEDIA IS PHOTO
       if media["type"]=="photo":
-        return media['media_url']
+        #return media['media_url']
+        print "def getPhotoUrlFromTweet(tweet) -- URL found: %s" % media.get('media_url')
+        return media.get('media_url')
       else:
         pass
   

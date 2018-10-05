@@ -98,7 +98,10 @@ def foundTweetsToReplyTo(latest_tweet_processed):
           picurl=picurl)
         
       else:
+<<<<<<< HEAD
         print "picurl NOT OK"
+=======
+>>>>>>> bfd16482c0824f80342770aa3786dbbe8b79268a
         ##REPLY WITHOUT IMAGE
         status = tweet_actions.replyToTweet(
         api=api,
@@ -116,15 +119,23 @@ def foundTweetsToReplyTo(latest_tweet_processed):
     "status":status,
     "latest_tweet_id":latest_tweet_processed
     }
-
+ 
 def getPhotoUrlFromTweet(tweet):
-  
+  print "***Printing tweet data from getPhotoUrlFromTweet*** /n"
+  print json.dumps(
+    tweet.entities,
+    sort_keys=True,
+    indent=4,
+    separators=(',', ': ')
+    )
   #CHECK IF TWEET HAS MEDIA URL
   if "media" in tweet.entities and tweet.entities['media'][0]['media_url']:
     for media in tweet.entities['media']:
       #CHECK IF MEDIA IS PHOTO
       if media["type"]=="photo":
-        return media['media_url']
+        #return media['media_url']
+        print "def getPhotoUrlFromTweet(tweet) -- URL found: %s" % media.get('media_url')
+        return media.get('media_url')
       else:
         pass
   
@@ -155,6 +166,8 @@ def selectRandomTweet(tweets):
   rand = random.randint(0,len(tweets)-1)
   tweet = tweets[rand]
   counter = 0
+   
+  """ THIS BLOCK WOULD LOOP THROUGH TWEETS UNTIL FINDING A PIC WITH URL. TOO MANY FLASE NEGATIVES
   #choose new tweet until one has photo
   while not getPhotoUrlFromTweet(tweet) and counter<len(tweets):
     print "attempt #%d - tweet didn't have photo, selecting different one" %(counter+1)
@@ -167,7 +180,8 @@ def selectRandomTweet(tweets):
   else:
     print "returning tweet %s" %tweet.id
     return tweet
-  
+  """
+  return tweet 
   
 def manualTweetReply(tweetid):
   print "Manual tweetOut"

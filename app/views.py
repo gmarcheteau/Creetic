@@ -215,8 +215,8 @@ def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
   print "http://localhostimage"+imageBS["imageurl"]
   sendemail.sendEmail(htmlmessage,toaddr)
   
-@app.route('/setlatesttweet/<latesttweetid>', methods=['GET','POST'])
-def overrideLatestTweet(latesttweetid):
+@app.route('/setlatesttweetIN/<latesttweetid>', methods=['GET','POST'])
+def overrideLatestTweetIN(latesttweetid):
   #FORCE OVERRIDE?
   sudo = request.args.get('sudo', default=0, type=int)
   
@@ -225,36 +225,65 @@ def overrideLatestTweet(latesttweetid):
   
   #get value from Redis
   try:
-    LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_PROCESSED'))
-    print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_REDIS
+    LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_IN_PROCESSED'))
+    print "Reading from Redis - LATEST_TWEET_IN_PROCESSED: %d" %LATEST_TWEET_REDIS
     
     if latesttweetid > LATEST_TWEET_REDIS or sudo == 1:
       #set value to Redis
-      conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
-      response += "OK -- set %d as latest tweet on Redis"%latesttweetid
+      conn.set('LATEST_TWEET_IN_PROCESSED',latesttweetid)
+      response += "OK -- set %d as latest tweet IN on Redis"%latesttweetid
     else:
-      response += "Equally or more recent tweet found on Redis: %d" %LATEST_TWEET_REDIS
+      response += "Equally or more recent tweet IN found on Redis: %d" %LATEST_TWEET_REDIS
   
   #if couldn't find latest tweet, set it anyway
   except Exception as err:
-    conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
-    response += "Couldn't retrieve latest tweet from Redis -- %s" %str(err)
+    conn.set('LATEST_TWEET_IN_PROCESSED',latesttweetid)
+    response += "Couldn't retrieve latest tweet IN from Redis -- %s" %str(err)
     response += "<hr>"
-    response += "Set %d as latest tweet on Redis"%latesttweetid
+    response += "Set %d as latest tweet IN on Redis"%latesttweetid
+  
+  return response
+
+@app.route('/setlatesttweetOUT/<latesttweetid>', methods=['GET','POST'])
+def overrideLatestTweetOUT(latesttweetid):
+  #FORCE OVERRIDE?
+  sudo = request.args.get('sudo', default=0, type=int)
+  
+  response = ''
+  latesttweetid = int(latesttweetid)
+  
+  #get value from Redis
+  try:
+    LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_OUT_PROCESSED'))
+    print "Reading from Redis - LATEST_TWEET_OUT_PROCESSED: %d" %LATEST_TWEET_REDIS
+    
+    if latesttweetid > LATEST_TWEET_REDIS or sudo == 1:
+      #set value to Redis
+      conn.set('LATEST_TWEET_OUT_PROCESSED',latesttweetid)
+      response += "OK -- set %d as latest tweet OUT on Redis"%latesttweetid
+    else:
+      response += "Equally or more recent tweet OUT found on Redis: %d" %LATEST_TWEET_REDIS
+  
+  #if couldn't find latest tweet, set it anyway
+  except Exception as err:
+    conn.set('LATEST_TWEET_OUT_PROCESSED',latesttweetid)
+    response += "Couldn't retrieve latest tweet OUT from Redis -- %s" %str(err)
+    response += "<hr>"
+    response += "Set %d as latest tweet OUT on Redis"%latesttweetid
   
   return response
 
 @app.route('/tweetin', methods=['POST','GET'])
 def tweetIn():
   #get latest tweet from Redis
-  LATEST_TWEET_PROCESSED = getLatestTweetFromRedis()
+  LATEST_TWEET_PROCESSED = getLatestTweetInFromRedis()
   
   if (LATEST_TWEET_PROCESSED):
     #check for new tweets and process them (e.g. save and reply)
     twitter_response = tweet_in.checkTweetsAndReply(LATEST_TWEET_PROCESSED)
   
   #update latest tweet to Redis
-  setLatestTweetToRedis(twitter_response["latest_tweet_id"])
+  setLatestTweetInToRedis(twitter_response["latest_tweet_id"])
   
   return json.dumps(
     twitter_response,
@@ -266,14 +295,14 @@ def tweetIn():
 @app.route('/tweetout', methods=['POST'])
 def tweetOut():
   #get latest tweet from Redis
-  LATEST_TWEET_PROCESSED = getLatestTweetFromRedis()
+  LATEST_TWEET_PROCESSED = getLatestTweetOutFromRedis()
   
   if (LATEST_TWEET_PROCESSED):
     #check for new tweets and process them (e.g. save and reply)
     twitter_response = tweet_out.foundTweetsToReplyTo(LATEST_TWEET_PROCESSED)
   
   #update latest tweet to Redis
-  setLatestTweetToRedis(twitter_response["latest_tweet_id"])
+  setLatestTweetOutToRedis(twitter_response["latest_tweet_id"])
   
   return json.dumps(
     twitter_response,
@@ -324,22 +353,44 @@ def chooseDefaultURLfromList():
   rand = random.randint(0,len(DEFAULT_URLS)-1)
   return DEFAULT_URLS[rand]
   
-def getLatestTweetFromRedis():
-  #get value from Redis
+def getLatestTweetInFromRedis():
+  #get values from Redis
   try:
-    LATEST_TWEET_PROCESSED = int(conn.get('LATEST_TWEET_PROCESSED'))
-    print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_PROCESSED
-    return LATEST_TWEET_PROCESSED
+    LATEST_TWEET_IN_PROCESSED = int(conn.get('LATEST_TWEET_IN_PROCESSED'))
+    print "Reading from Redis - LATEST_TWEET_IN_PROCESSED: %d" %LATEST_TWEET_IN_PROCESSED
+    return LATEST_TWEET_IN_PROCESSED
   except Exception as err:
-    print "Unable to retrieve latest tweet from Redis -- %s" %str(err)
+    print "Unable to retrieve latest tweet IN from Redis -- %s" %str(err)
+    return None
+  
+def getLatestTweetOutFromRedis():
+  #get values from Redis
+  try:
+    LATEST_TWEET_OUT_PROCESSED = int(conn.get('LATEST_TWEET_OUT_PROCESSED'))
+    print "Reading from Redis - LATEST_TWEET_OUT_PROCESSED: %d" %LATEST_TWEET_OUT_PROCESSED
+    return LATEST_TWEET_OUT_PROCESSED
+  except Exception as err:
+    print "Unable to retrieve latest tweet OUT from Redis -- %s" %str(err)
     return None
 
-def setLatestTweetToRedis(latesttweetid):
+  
+def setLatestTweetInToRedis(latesttweetid):
   try:
-    conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
-    print "Writing to Redis - LATEST_TWEET_PROCESSED: %d" %latesttweetid
+    conn.set('LATEST_TWEET_IN_PROCESSED',latesttweetid)
+    print "Writing to Redis - LATEST_TWEET_IN_PROCESSED: %d" %latesttweetid
+    return None
   except Exception as err:
-    print "Unable to set latest tweet to Redis -- %s" %str(err)
+    print "Unable to set latest tweet IN to Redis -- %s" %str(err)
+    return None
+  
+def setLatestTweetOutToRedis(latesttweetid):
+  try:
+    conn.set('LATEST_TWEET_OUT_PROCESSED',latesttweetid)
+    print "Writing to Redis - LATEST_TWEET_OUT_PROCESSED: %d" %latesttweetid
+    return None
+  except Exception as err:
+    print "Unable to set latest tweet OUT to Redis -- %s" %str(err)
+    return None
 
 @app.route("/manualtweetout/<tweetid>", methods=['POST'])
 def manualTweetOut(tweetid):
