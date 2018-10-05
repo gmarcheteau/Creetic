@@ -378,15 +378,19 @@ def setLatestTweetInToRedis(latesttweetid):
   try:
     conn.set('LATEST_TWEET_IN_PROCESSED',latesttweetid)
     print "Writing to Redis - LATEST_TWEET_IN_PROCESSED: %d" %latesttweetid
+    return None
   except Exception as err:
     print "Unable to set latest tweet IN to Redis -- %s" %str(err)
-
+    return None
+  
 def setLatestTweetOutToRedis(latesttweetid):
   try:
     conn.set('LATEST_TWEET_OUT_PROCESSED',latesttweetid)
     print "Writing to Redis - LATEST_TWEET_OUT_PROCESSED: %d" %latesttweetid
+    return None
   except Exception as err:
     print "Unable to set latest tweet OUT to Redis -- %s" %str(err)
+    return None
 
 @app.route("/manualtweetout/<tweetid>", methods=['POST'])
 def manualTweetOut(tweetid):
