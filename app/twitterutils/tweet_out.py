@@ -4,6 +4,7 @@ import tweet_actions
 import socket
 import requests
 import time
+import json
 import tinyurl
 import random
 from authentication import authentication
@@ -117,7 +118,13 @@ def foundTweetsToReplyTo(latest_tweet_processed):
     }
  
 def getPhotoUrlFromTweet(tweet):
-  
+  print "***Printing tweet data from getPhotoUrlFromTweet*** /n"
+  print json.dumps(
+    tweet.entities,
+    sort_keys=True,
+    indent=4,
+    separators=(',', ': ')
+    )
   #CHECK IF TWEET HAS MEDIA URL
   if "media" in tweet.entities and tweet.entities['media'][0]['media_url']:
     for media in tweet.entities['media']:
