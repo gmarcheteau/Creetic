@@ -381,7 +381,7 @@ def setLatestTweetInToRedis(latesttweetid):
   except Exception as err:
     print "Unable to set latest tweet IN to Redis -- %s" %str(err)
 
- def setLatestTweetOutToRedis(latesttweetid):
+def setLatestTweetOutToRedis(latesttweetid):
   try:
     conn.set('LATEST_TWEET_OUT_PROCESSED',latesttweetid)
     print "Writing to Redis - LATEST_TWEET_OUT_PROCESSED: %d" %latesttweetid
