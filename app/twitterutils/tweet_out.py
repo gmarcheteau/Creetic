@@ -114,7 +114,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
     "status":status,
     "latest_tweet_id":latest_tweet_processed
     }
-
+ 
 def getPhotoUrlFromTweet(tweet):
   
   #CHECK IF TWEET HAS MEDIA URL
@@ -122,7 +122,9 @@ def getPhotoUrlFromTweet(tweet):
     for media in tweet.entities['media']:
       #CHECK IF MEDIA IS PHOTO
       if media["type"]=="photo":
-        return media['media_url']
+        #return media['media_url']
+        print "def getPhotoUrlFromTweet(tweet) -- URL found: %s" % media.get('media_url')
+        return media.get('media_url')
       else:
         pass
   
