@@ -22,6 +22,7 @@ HASHTAGS = [
   "artyfarty",
   "artyfartyplease",
   "creeticbot",
+  "creetic"
   ]#does not include '#'
 
 #adapted from http://piratefache.ch/twitter-streaming-api-with-tweepy/
