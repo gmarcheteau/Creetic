@@ -61,6 +61,7 @@ def prepareTweetyAPI():
 
 def foundTweetsToReplyTo(latest_tweet_processed):
   status = ""
+  tweetsSent=0
   
   api = prepareTweetyAPI()
   
@@ -106,6 +107,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
                 status_id=tweet.id,
                 picurl=picurl)
                 status+='\n'
+                tweetsSent+=1
         
             else:
                 print "picurl NOT OK \n"
@@ -115,6 +117,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
                 api=api,
                 to_user=tweet.user.screen_name,
                 status_id=tweet.id)
+                tweetsSent+=1
         else:
             status+= "no tweet with photo found \n"
     else:
@@ -125,6 +128,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
   return {
     "number_tweets_found":len(tweets),
     "status":status,
+    "tweetsSent":tweetsSent,
     "latest_tweet_id":latest_tweet_processed
     }
  
