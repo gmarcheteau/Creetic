@@ -163,6 +163,8 @@ def selectRandomTweet(tweets):
   rand = random.randint(0,len(tweets)-1)
   tweet = tweets[rand]
   counter = 0
+   
+  """ THIS BLOCK WOULD LOOP THROUGH TWEETS UNTIL FINDING A PIC WITH URL. TOO MANY FLASE NEGATIVES
   #choose new tweet until one has photo
   while not getPhotoUrlFromTweet(tweet) and counter<len(tweets):
     print "attempt #%d - tweet didn't have photo, selecting different one" %(counter+1)
@@ -175,7 +177,8 @@ def selectRandomTweet(tweets):
   else:
     print "returning tweet %s" %tweet.id
     return tweet
-  
+  """
+  return tweet 
   
 def manualTweetReply(tweetid):
   print "Manual tweetOut"
