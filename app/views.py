@@ -215,8 +215,8 @@ def sendMailAboutImage(imageurl,toaddr=defaulttoaddr):
   print "http://localhostimage"+imageBS["imageurl"]
   sendemail.sendEmail(htmlmessage,toaddr)
   
-@app.route('/setlatesttweet/<latesttweetid>', methods=['GET','POST'])
-def overrideLatestTweet(latesttweetid):
+@app.route('/setlatesttweetIN/<latesttweetid>', methods=['GET','POST'])
+def overrideLatestTweetIN(latesttweetid):
   #FORCE OVERRIDE?
   sudo = request.args.get('sudo', default=0, type=int)
   
@@ -225,22 +225,51 @@ def overrideLatestTweet(latesttweetid):
   
   #get value from Redis
   try:
-    LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_PROCESSED'))
-    print "Reading from Redis - LATEST_TWEET_PROCESSED: %d" %LATEST_TWEET_REDIS
+    LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_IN_PROCESSED'))
+    print "Reading from Redis - LATEST_TWEET_IN_PROCESSED: %d" %LATEST_TWEET_REDIS
     
     if latesttweetid > LATEST_TWEET_REDIS or sudo == 1:
       #set value to Redis
-      conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
-      response += "OK -- set %d as latest tweet on Redis"%latesttweetid
+      conn.set('LATEST_TWEET_IN_PROCESSED',latesttweetid)
+      response += "OK -- set %d as latest tweet IN on Redis"%latesttweetid
     else:
-      response += "Equally or more recent tweet found on Redis: %d" %LATEST_TWEET_REDIS
+      response += "Equally or more recent tweet IN found on Redis: %d" %LATEST_TWEET_REDIS
   
   #if couldn't find latest tweet, set it anyway
   except Exception as err:
-    conn.set('LATEST_TWEET_PROCESSED',latesttweetid)
-    response += "Couldn't retrieve latest tweet from Redis -- %s" %str(err)
+    conn.set('LATEST_TWEET_IN_PROCESSED',latesttweetid)
+    response += "Couldn't retrieve latest tweet IN from Redis -- %s" %str(err)
     response += "<hr>"
-    response += "Set %d as latest tweet on Redis"%latesttweetid
+    response += "Set %d as latest tweet IN on Redis"%latesttweetid
+  
+  return response
+
+@app.route('/setlatesttweetOUT/<latesttweetid>', methods=['GET','POST'])
+def overrideLatestTweetOUT(latesttweetid):
+  #FORCE OVERRIDE?
+  sudo = request.args.get('sudo', default=0, type=int)
+  
+  response = ''
+  latesttweetid = int(latesttweetid)
+  
+  #get value from Redis
+  try:
+    LATEST_TWEET_REDIS = int(conn.get('LATEST_TWEET_OUT_PROCESSED'))
+    print "Reading from Redis - LATEST_TWEET_OUT_PROCESSED: %d" %LATEST_TWEET_REDIS
+    
+    if latesttweetid > LATEST_TWEET_REDIS or sudo == 1:
+      #set value to Redis
+      conn.set('LATEST_TWEET_OUT_PROCESSED',latesttweetid)
+      response += "OK -- set %d as latest tweet OUT on Redis"%latesttweetid
+    else:
+      response += "Equally or more recent tweet OUT found on Redis: %d" %LATEST_TWEET_REDIS
+  
+  #if couldn't find latest tweet, set it anyway
+  except Exception as err:
+    conn.set('LATEST_TWEET_OUT_PROCESSED',latesttweetid)
+    response += "Couldn't retrieve latest tweet OUT from Redis -- %s" %str(err)
+    response += "<hr>"
+    response += "Set %d as latest tweet OUT on Redis"%latesttweetid
   
   return response
 
