@@ -13,7 +13,7 @@ import os, sys, traceback
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from ArtyFarty import bsgenerator_en as bs_en
-from config import TWITTER_ON
+from config import TWITTER_ON,MAX_NUMBER_OF_TWEETOUTS_PER_SESSION
 
 #MY_TWEETER_NAME = "CreeticBot" #does not include '@'
 HASHTAGS = [
@@ -60,7 +60,7 @@ def prepareTweetyAPI():
   return api
 
 def foundTweetsToReplyTo(latest_tweet_processed):
-  status = "no tweet sent"
+  status = ""
   
   api = prepareTweetyAPI()
   
@@ -82,37 +82,44 @@ def foundTweetsToReplyTo(latest_tweet_processed):
         latest_tweet_processed = tweet.id
     print "###END OF READING TWEETS###\n"
     
-    #select 1 random tweet to reply to
-    tweet = selectRandomTweet(tweets)
+    ###SELECT UP TO MAX_NUMBER_OF_TWEETOUTS_PER_SESSION to reply to
+    randomNumbers = random.sample(range(0, random.sample(range(1, 100), 3)),min(len(tweets),MAX_NUMBER_OF_TWEETOUTS_PER_SESSION))
+    print "random Tweet # selected: %s" %randomNumbers
     
-    if tweet:
-      picurl = getPhotoUrlFromTweet(tweet)
-      print "Date: %s" %tweet.created_at
-      print "IMAGE FOUND IN TWEET: %s" %picurl
-      
-      if picurl:
-        print "picurl OK"
-        ##REPLY WITH IMAGE
-        status = tweet_actions.replyToTweetWithSimplerImage(
-          api=api,
-          to_user=tweet.user.screen_name,
-          status_id=tweet.id,
-          picurl=picurl)
+    for tweetPosition in randomNumbers:
+        #select 1 random tweet to reply to
+        #tweet = selectRandomTweet(tweets)
+        tweet = tweets[tweetPosition]
         
-      else:
-        print "picurl NOT OK"
+        if tweet:
+            picurl = getPhotoUrlFromTweet(tweet)
+            print "Date: %s" %tweet.created_at
+            print "IMAGE FOUND IN TWEET: %s" %picurl
+      
+            if picurl:
+                print "picurl OK"
+                ##REPLY WITH IMAGE
+                status+= tweet_actions.replyToTweetWithSimplerImage(
+                api=api,
+                to_user=tweet.user.screen_name,
+                status_id=tweet.id,
+                picurl=picurl)
+                status+='\n'
+        
+            else:
+                print "picurl NOT OK \n"
 
-        ##REPLY WITHOUT IMAGE
-        status = tweet_actions.replyToTweet(
-        api=api,
-        to_user=tweet.user.screen_name,
-        status_id=tweet.id)
-    else:
-      status = "no tweet with photo found"
-  else:
-    status = "not tweets found"
+                ##REPLY WITHOUT IMAGE
+                status = tweet_actions.replyToTweet(
+                api=api,
+                to_user=tweet.user.screen_name,
+                status_id=tweet.id)
+            else:
+                status+= "no tweet with photo found \n"
+            else:
+                status+= "not tweets found \n"
   
-  print status
+                print status
   
   return {
     "number_tweets_found":len(tweets),
@@ -121,7 +128,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
     }
  
 def getPhotoUrlFromTweet(tweet):
-  print "***Printing tweet data from getPhotoUrlFromTweet*** /n"
+  print "***Printing tweet data from getPhotoUrlFromTweet*** \n"
   print json.dumps(
     tweet.entities,
     sort_keys=True,
