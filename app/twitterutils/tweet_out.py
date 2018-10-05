@@ -83,14 +83,15 @@ def foundTweetsToReplyTo(latest_tweet_processed):
     print "###END OF READING TWEETS###\n"
     
     ###SELECT UP TO MAX_NUMBER_OF_TWEETOUTS_PER_SESSION to reply to
-    randomNumbers = random.sample(range(len(tweets)-1),min(len(tweets),MAX_NUMBER_OF_TWEETOUTS_PER_SESSION))
-    print "random Tweet # selected: %s" %randomNumbers
+    #randomNumbers = random.sample(range(len(tweets)-1),min(len(tweets),MAX_NUMBER_OF_TWEETOUTS_PER_SESSION))
+    #print "random Tweet # selected: %s" %randomNumbers
+    randomTweets = random.sample(tweets,min(len(tweets),MAX_NUMBER_OF_TWEETOUTS_PER_SESSION))
     
-    for tweetPosition in randomNumbers:
-        #select 1 random tweet to reply to
-        #tweet = selectRandomTweet(tweets)
-        tweet = tweets[tweetPosition]
-        
+    #for tweetPosition in randomNumbers:
+        ##select 1 random tweet to reply to
+        ##tweet = selectRandomTweet(tweets)
+        #tweet = tweets[tweetPosition]
+    for tweet in randomTweets:   
         if tweet:
             picurl = getPhotoUrlFromTweet(tweet)
             print "Date: %s" %tweet.created_at
