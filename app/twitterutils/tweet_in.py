@@ -51,6 +51,7 @@ def checkTweetsAndReply(latest_tweet_processed):
       since_id=latest_tweet_processed,
       include_entities=True)
     
+    print "Twitter Query: %s" %query
     print "Number of tweets found: %d" %len(tweets)
     
     process_responses = []
