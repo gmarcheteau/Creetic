@@ -83,7 +83,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
     print "###END OF READING TWEETS###\n"
     
     ###SELECT UP TO MAX_NUMBER_OF_TWEETOUTS_PER_SESSION to reply to
-    randomNumbers = random.sample(range(len(tweets-1)),min(len(tweets),MAX_NUMBER_OF_TWEETOUTS_PER_SESSION))
+    randomNumbers = random.sample(range(len(tweets)-1),min(len(tweets),MAX_NUMBER_OF_TWEETOUTS_PER_SESSION))
     print "random Tweet # selected: %s" %randomNumbers
     
     for tweetPosition in randomNumbers:
