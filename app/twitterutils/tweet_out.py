@@ -89,6 +89,7 @@ def foundTweetsToReplyTo(latest_tweet_processed):
       print "IMAGE FOUND IN TWEET: %s" %picurl
       
       if picurl:
+        print "picurl OK"
         ##REPLY WITH IMAGE
         status = tweet_actions.replyToTweetWithSimplerImage(
           api=api,
@@ -96,7 +97,8 @@ def foundTweetsToReplyTo(latest_tweet_processed):
           status_id=tweet.id,
           picurl=picurl)
         
-      else
+      else:
+        print "picurl NOT OK"
         ##REPLY WITHOUT IMAGE
         status = tweet_actions.replyToTweet(
         api=api,

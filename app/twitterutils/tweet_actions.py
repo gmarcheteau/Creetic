@@ -41,7 +41,14 @@ def prepareText(*picurl):
   text = ''
   
   if picurl is not None:
-    print "picurl: %s" % picurl
+    try:
+        if len(picurl)>0:
+            print "picurl: %s" % picurl
+        else:
+            print "len(picurl)=0"
+    except Exception as err:
+        print str(err)
+        #return str(err)
     #randomly send or not link to comment on site (will have less space for BS on tweet)
     if random.randint(1,3)%3 == 0:
       SEND_LINK_TO_COMMENT=False
