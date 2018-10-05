@@ -99,7 +99,8 @@ def getPhotoUrlFromTweet(tweet):
     for media in tweet.entities['media']:
       #CHECK IF MEDIA IS PHOTO
       if media["type"]=="photo":
-        return media['media_url']
+        #return media['media_url']
+        return media.get('media_url')
       else:
         pass
   
