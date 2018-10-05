@@ -40,7 +40,7 @@ def replyToTweet(api,to_user,status_id):
 def prepareText(*picurl):
   text = ''
   
-  if picurl is not None:
+  if picurl:
     print "picurl: %s" % picurl
     #randomly send or not link to comment on site (will have less space for BS on tweet)
     if random.randint(1,3)%3 == 0:
