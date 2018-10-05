@@ -122,8 +122,8 @@ def foundTweetsToReplyTo(latest_tweet_processed):
             status+= "no tweet with photo found \n"
     else:
         status+= "not tweets found \n"
-
-        print status
+  
+  print status
   
   return {
     "number_tweets_found":len(tweets),
