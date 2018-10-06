@@ -83,6 +83,7 @@ nouns = np.array([
   [
   'the swirling symmetry',
   'this witty symmetry',
+  'the inverted symmetricity'
   ],
   #shadow/light
   [
@@ -180,7 +181,7 @@ finish_locutions = np.array([
   '. inspirational!',
   '. absolutely delightful!',
   '. a first for this maestro.',
-  '. this is regrettable.',
+  '. this is fascinating.',
   '. this is remarkable.',
   '. hard to top.',
   '. hats off!',
@@ -205,7 +206,7 @@ finish_locutions = np.array([
   '. back to basics, in a way.',
   '. this is a phenomenon which never ceased to pervade the artist\'s stylistic production.',
   '. this is all obviously very autobiographic.',
-  '. the artist\'s relationship with their mother has to do with this.',
+  '. the artist\'s childhood has to do with this.',
   '. a very personal take on spirituality.',
   '. wow!',
   '. a political message indeed.',
