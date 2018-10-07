@@ -400,3 +400,12 @@ def manualTweetOut(tweetid):
     indent=4,
     separators=(',', ': ')
     )
+    
+@app.route("/readtweet/<tweetid>", methods=['POST'])
+def readTweetEntities(tweetid):
+  return json.dumps(
+    tweet_in.readTweetEntities(tweetid),
+    sort_keys=True,
+    indent=4,
+    separators=(',', ': ')
+    )

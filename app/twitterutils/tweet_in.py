@@ -4,14 +4,16 @@ import tweet_actions
 import socket
 import requests
 import time
+import json
 import tinyurl
 from authentication import authentication
 import os, sys, traceback
+from config import MY_TWITTER_ID,MY_TWITTER_NAME
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from ArtyFarty import bsgenerator_en as bs_en
 
-MY_TWEETER_NAME = "CreeticBot" #does not include '@'
+#MY_TWITTER_NAME does not include '@'
 HASHTAG = "creetic" #does not include '#'
 
 #adapted from http://piratefache.ch/twitter-streaming-api-with-tweepy/
@@ -20,8 +22,8 @@ HASHTAG = "creetic" #does not include '#'
 ###
 
 ### MOVE QUERY TO CONFIG
-#query = "#%s OR @%s filter:media" %(HASHTAG,MY_TWEETER_NAME) #get tweets with hashtag or mentions
-query = "#%s OR @%s" %(HASHTAG,MY_TWEETER_NAME) #get tweets with hashtag or mentions EVEN WITHOUT MEDIA
+#query = "#%s OR @%s filter:media" %(HASHTAG,MY_TWITTER_NAME) #get tweets with hashtag or mentions
+query = "#%s OR @%s" %(HASHTAG,MY_TWITTER_NAME) #get tweets with hashtag or mentions EVEN WITHOUT MEDIA
 #query = "#%s filter:media" %HASHTAG
 ### END OF MOVE QUERY TO CONFIG
 
@@ -65,9 +67,14 @@ def checkTweetsAndReply(latest_tweet_processed):
         latest_tweet_processed = tweet.id
       
       #don't answer to self
-      if(MY_TWEETER_NAME in getUserMentionsFromTweet(tweet) and tweet.user.screen_name==MY_TWEETER_NAME):
+      if(MY_TWITTER_NAME in getUserMentionsFromTweet(tweet) and tweet.user.screen_name==MY_TWITTER_NAME):
         print "not replying to self"
         pass
+      
+      #don't reply to replies
+      if tweet_actions.isReplyingToMe(tweet):
+          print "not replying to replies"
+          pass
       
       else:
         picurl = getPhotoUrlFromTweet(tweet)
@@ -128,3 +135,10 @@ def getHashtagsFromTweet(tweet):
     return hashtags
   else:
     return None
+
+def readTweetEntities(tweetid):
+  print "********Reading Tweet********"
+  api = prepareTweetyAPI()
+  tweet = api.get_status(tweetid)
+  
+  return tweet._json

@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from ArtyFarty import bsgenerator_en as bs_en
 from ArtyFarty import imageapp
-from config import TWITTER_ON
+from config import TWITTER_ON,MY_TWITTER_ID
 from config import TWITTER_CHARACTER_LIMIT
 
 def replyToTweet(api,to_user,status_id):
@@ -136,3 +136,5 @@ def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
       print "Testing (not sent)"
       return "Testing (not sent)"
 
+def isReplyingToMe(tweet):
+    return tweet.in_reply_to_user_id == MY_TWITTER_ID
