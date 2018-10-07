@@ -4,9 +4,17 @@ import numpy as np
 # DEFINE IDIOMS
 locutions = np.array([
   'well,',
+  'at first sight',
+  'look closely and you\'ll see that',
+  'unequivocally',
+  'assuredly',
+  'manifestly',
   'of course,',
   'no doubt that',
   'undoubtedly,',
+  'as usual,',
+  'it\'s not often that',
+  'never mind what they say,',
   'to the expert eye, it will be obvious that',
   'some will claim that',
   'most critics agree:',
@@ -27,6 +35,7 @@ locutions = np.array([
   'impressive! ',
   'hmm,',
   'oh,',
+  'actually',
   'damn,'
   ])
 
@@ -37,13 +46,17 @@ nouns = np.array([
     'the antagonism of most parts of the structural system',
     'the materiality of the texture',
     'the texturality',
+    'the essentiality of the texture',
+    'the overarching texturality',
+    'the unscructuredness'
   ],
   
   #lines and curves
   [
-  'the tendency to bend straight lines',
+  'the tendency to bend lines',
   'the linearity of curves',
-  'the unintended circularity of lines',
+  'the unintended circularity of straight lines',
+  'the rotundity of vectors',
   ],
   #shapes
   [
@@ -70,14 +83,16 @@ nouns = np.array([
   'the evading perspective',
   'the stubborn wavering of perspectives',
   ],
-  #others
+  #polygons
   [
   'the opacity of polygons',
+  'the tetragonality of triangular portions',
   ],
   #strokes
   [
   'the plasticity of the strokes',
   'the joyful succession of dashes',
+  'the swinging of most marks',
   ],
   #symmetry
   [
@@ -88,6 +103,7 @@ nouns = np.array([
   #shadow/light
   [
   'this warm light',
+  'the translucency of shadows',
   'the constant hesitation between shadow and light',
   'the cynicism with which the shadows are neglected',
   'the patent scorn for light hue',
@@ -95,26 +111,31 @@ nouns = np.array([
   #angles
   [
   'the softness of the angles',
-  'the angularity of the shadows',
+  'the obtusity of angles',
+  'the angularity of it all',
   ],
   #series/serial
   [
   'the simplicity of the main serial elements',
+  'the chromaticity of dominant series',
   ],
   #tones
   [
   'the saturation of tones',
   'the plurality of tones',
+  'the atonality of tints',
   ],
   #constraints
   [
   'the multiplicity of exogenous constraints',
   'the self-imposed tone constraint',
+  'the constraining freedom',
   ],
   #movement/stillness
   [
   'the vibrant stillness that emerges from this piece',
   'the idle movement of this piece',
+  'this turbulent stillness',
   ],
 ])
 
@@ -141,6 +162,7 @@ secondcolorlocutions = np.array([
 
 verbes = np.array([
   'contradicts',
+  'nuances',
   'is in contradiction with',
   'brings out',
   'emphasizes',
@@ -190,12 +212,17 @@ finish_locutions = np.array([
   '. stunning!',
   '. glorious!',
   '. shocking!',
+  '. kandinski would be proud.',
   '. a regrettable consequence of a late subscription to kandinskism.',
   " - and it's not the first time.",
   ' - an arrogant transgression of all the rules that the artist contributed to setting...',
   ', yet not negating its existence.',
   ' - a reference to Barlowstovitch\'s work on the subject?',
   '. bravo!',
+  '. BRAVO!',
+  '. more of this please.',
+  '. masterpiece.',
+  '. making art great again',
   '. the artist gets away with panache!',
   ' - artistic flair at its best.',
   ', while still subscribing to an artistic continuity, which will surely be appreciated by the connoisseurs.',
@@ -223,7 +250,8 @@ finish_locutions = np.array([
   '. powerful stuff.',
   '. quite fantastic.',
   '. absolutely amazing.',
-  ". it doesn't get much better"
+  ". it doesn't get much better",
+  '. nobel prize material.',
     ])
 
 space = ' '
