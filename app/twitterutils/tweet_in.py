@@ -57,7 +57,9 @@ def checkTweetsAndReply(latest_tweet_processed):
     print "Twitter Query: %s" %query
     print "Number of tweets found: %d" %len(tweets)
     
-    process_responses = []
+    numberTweets = len(tweets)
+    tweetsSent = 0
+    tweetsNotSent = 0
     
     for tweet in tweets:
       print tweet
@@ -68,11 +70,13 @@ def checkTweetsAndReply(latest_tweet_processed):
       
       #don't answer to self
       if(MY_TWITTER_NAME in getUserMentionsFromTweet(tweet) and tweet.user.screen_name==MY_TWITTER_NAME):
+        tweetsNotSent+=1
         print "not replying to self"
         pass
       
       #don't reply to replies
-      if tweet_actions.isReplyingToMe(tweet):
+      else if tweet_actions.isReplyingToMe(tweet):
+          tweetsNotSent+=1
           print "not replying to replies"
           pass
       
@@ -80,6 +84,7 @@ def checkTweetsAndReply(latest_tweet_processed):
         picurl = getPhotoUrlFromTweet(tweet)
         if picurl:
           print "IMAGE FOUND IN TWEET: %s" %picurl
+          tweetsSent+=1
           tweet_actions.replyToTweetWithSimplerImage(
             api=api,
             to_user=tweet.user.screen_name,
@@ -87,6 +92,7 @@ def checkTweetsAndReply(latest_tweet_processed):
             picurl=picurl)
         else:
           print "NO IMAGE IN TWEET"
+          tweetsSent+=1
           tweet_actions.replyToTweet(
             api=api,
             to_user=tweet.user.screen_name,
@@ -96,8 +102,9 @@ def checkTweetsAndReply(latest_tweet_processed):
     
     return {
       #only count tweets with images
-      "number_tweets":len(process_responses),
-      "process_responses":process_responses,
+      "numberTweets":numberTweets,
+      "tweetsSent":tweetsSent,
+      "tweetsNotSent":tweetsNotSent,
       "latest_tweet_id":latest_tweet_processed
       }
 
