@@ -75,10 +75,10 @@ def checkTweetsAndReply(latest_tweet_processed):
         pass
       
       #don't reply to replies
-      elif tweet_actions.isReplyingToMe(tweet):
-          tweetsNotSent+=1
-          print "not replying to replies"
-          pass
+      if tweet_actions.isReplyingToMe(tweet):
+        tweetsNotSent+=1
+        print "not replying to replies"
+        pass
       
       else:
         print "isReplyingToMe: %s" %tweet_actions.isReplyingToMe(tweet)
@@ -148,5 +148,5 @@ def readTweetEntities(tweetid):
   print "********Reading Tweet********"
   api = prepareTweetyAPI()
   tweet = api.get_status(tweetid)
-  
+  print tweet_actions.isReplyingToMe(tweet)
   return tweet._json
