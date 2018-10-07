@@ -81,6 +81,7 @@ def checkTweetsAndReply(latest_tweet_processed):
           pass
       
       else:
+        print "isReplyingToMe: %s" %tweet_actions.isReplyingToMe(tweet)
         picurl = getPhotoUrlFromTweet(tweet)
         if picurl:
           print "IMAGE FOUND IN TWEET: %s" %picurl
