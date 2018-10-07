@@ -75,7 +75,7 @@ def checkTweetsAndReply(latest_tweet_processed):
         pass
       
       #don't reply to replies
-      else if tweet_actions.isReplyingToMe(tweet):
+      elif tweet_actions.isReplyingToMe(tweet):
           tweetsNotSent+=1
           print "not replying to replies"
           pass
