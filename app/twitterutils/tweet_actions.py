@@ -138,7 +138,9 @@ def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
 
 def isReplyingToMe(tweet):
     print "Replying to user: %s" %tweet.in_reply_to_user_id
+    print type(tweet.in_reply_to_user_id)
     print "MY_TWITTER_ID: %s" %MY_TWITTER_ID
+    print type(MY_TWITTER_ID)
     if tweet.in_reply_to_user_id == MY_TWITTER_ID:
         print "REPLYING TO ME"
     else:
