@@ -153,10 +153,10 @@ def getBS_img_multi():
   colorboxes = imageresponse["colorboxes"]
   simplerimages = imageresponse["simplerimages"]
   
-  print "len(simplerimages):", len(simplerimages)
+  #print "len(simplerimages):", len(simplerimages)
   
-  print silhouettescores
-  print len(silhouettescores)
+  #print silhouettescores
+  #print len(silhouettescores)
   
   form = URLForm()
   if form.validate_on_submit():

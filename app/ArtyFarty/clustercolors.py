@@ -12,9 +12,9 @@ def fitColorClustering(image_resized,image_original_size,min_clusters,max_cluste
   
   # Reshape the image to be a list of pixels
   width, height = image_resized.size
-  print "smaller_size: ",(width, height)
+  #print "smaller_size: ",(width, height)
   width_original, height_original = image_original_size.size
-  print "original_size: ",(width_original, height_original)
+  #print "original_size: ",(width_original, height_original)
   #reshape small version of image, to be clustered
   image_array = np.reshape(image_resized,(width*height,3),order='F')
   #also reshape image at original size, to be re-drawn (applying the clustering)
@@ -38,8 +38,8 @@ def fitColorClustering(image_resized,image_original_size,min_clusters,max_cluste
       scores.append(score)
       
       #Print intermediate evals
-      print "With",clusters,"clusters:"
-      print "Score:",score
+      #print "With",clusters,"clusters:"
+      #print "Score:",score
   
       # Find the best one
       if score > bestScore:
@@ -96,7 +96,7 @@ def getColorsFromClusters(clt):
       #colorname=colornames.get_colour_name(rgbcolor)[1]
       colorname=colormapping.ColorNames.cleanName(
         colormapping.ColorNames.findNearestWebColorName(rgbcolor))
-      print "RGB color:",rgbcolor
+      #print "RGB color:",rgbcolor
       print "Color name:",colorname
       
       #build list with main colors, names and weights

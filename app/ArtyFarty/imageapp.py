@@ -21,8 +21,8 @@ def commentOnImage(url):
     width, height = image_resized.size
     width_original, height_original = image_original_size.size
     
-    print "MIN_CLUSTERS: %s" %str(MIN_CLUSTERS)
-    print "MAX_CLUSTERS: %s" %str(MAX_CLUSTERS)
+    #print "MIN_CLUSTERS: %s" %str(MIN_CLUSTERS)
+    #print "MAX_CLUSTERS: %s" %str(MAX_CLUSTERS)
     clust = clustercolors.fitColorClustering(
       image_resized=image_resized,
       image_original_size=image_original_size,
