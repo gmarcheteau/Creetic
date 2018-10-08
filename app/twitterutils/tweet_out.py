@@ -15,6 +15,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 from ArtyFarty import bsgenerator_en as bs_en
 from config import TWITTER_ON,MAX_NUMBER_OF_TWEETOUTS_PER_SESSION
 
+#force to int
+MAX_NUMBER_OF_TWEETOUTS_PER_SESSION = int(MAX_NUMBER_OF_TWEETOUTS_PER_SESSION)
+
 #MY_TWITTER_NAME = "CreeticBot" #does not include '@'
 HASHTAGS = [
   "modernart",
