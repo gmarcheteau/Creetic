@@ -32,7 +32,7 @@ from config import DEFAULT_URLS
 
 q = Queue(connection=conn)
 
-@app.route('/getbs', methods=['GET'])
+@app.route('/getbs', methods=['GET','POST'])
 def getBS():
   comment = bs.generatePhrase()
   return render_template("getbs.html",comment=comment)
