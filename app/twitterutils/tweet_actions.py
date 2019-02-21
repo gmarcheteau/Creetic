@@ -135,10 +135,3 @@ def replyToTweetWithSimplerImage(api,to_user,status_id,picurl):
     else:
       print "Testing (not sent)"
       return "Testing (not sent)"
-
-def isReplyingToMe(tweet):
-    if tweet.in_reply_to_user_id_str == str(MY_TWITTER_ID):
-        print "REPLYING TO ME"
-    else:
-        print "NOT REPLYING TO ME"
-    return tweet.in_reply_to_user_id_str == str(MY_TWITTER_ID)

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import tweepy
 import tweet_actions
+import tweet_process
 import socket
 import requests
 import time
@@ -68,20 +69,20 @@ def checkTweetsAndReply(latest_tweet_processed):
       if tweet.id>latest_tweet_processed:
         latest_tweet_processed = tweet.id
       
-      #don't answer to self
+      #don't answer to self TODO: move to tweet_process
       if(MY_TWITTER_NAME in getUserMentionsFromTweet(tweet) and tweet.user.screen_name==MY_TWITTER_NAME):
         tweetsNotSent+=1
         print "not replying to self"
         pass
       
-      #don't reply to replies
-      if tweet_actions.isReplyingToMe(tweet):
+      #don't reply to replies TODO: not working properly
+      if tweet_process.isReplyingToMe(tweet):
         tweetsNotSent+=1
         print "not replying to replies"
         pass
       
       else:
-        print "isReplyingToMe: %s" %tweet_actions.isReplyingToMe(tweet)
+        print "isReplyingToMe: %s" %tweet_process.isReplyingToMe(tweet)
         picurl = getPhotoUrlFromTweet(tweet)
         if picurl:
           print "IMAGE FOUND IN TWEET: %s" %picurl

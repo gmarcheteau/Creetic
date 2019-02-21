@@ -1,7 +1,7 @@
 click==6.7
 Flask==0.12.3
 numpy==1.11.2
-email==4.0.2
+email==6.0.0a1
 itsdangerous==0.24
 matplotlib==1.4.3
 redis==2.10.5
